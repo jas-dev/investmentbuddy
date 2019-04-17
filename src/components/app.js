@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/app.scss';
 import logo from '../assets/images/logo.svg';
+import Test from './test';
 
 const App = () => (
     <div>
@@ -8,6 +9,7 @@ const App = () => (
             <img src={logo} className="logo rotate"/>
             <h1>Welcome To React</h1>
         </div>
+        <Test/>
     </div>
 );
 
