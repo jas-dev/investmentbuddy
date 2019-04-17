@@ -1,11 +1,31 @@
 {
 	"success": true,
-    "stocks": [{
-
-    }]
+	"stocks": [{
+		"name": "Microsoft",
+		"symbol": "MSFT",
+		"open": 100,
+		"close": 100,
+		"current": 100,
+		"performance": "up",
+		"volumes": 5000
+	}, {
+		"name": "Apple",
+		"symbol": "AAPL",
+		"open": 100,
+		"close": 100,
+		"current": 100,
+		"performance": "up",
+		"volumes": 5000
+	}, {
+		"name": "Amazon",
+		"symbol": "AMZN",
+		"open": 100,
+		"close": 100,
+		"current": 100,
+		"performance": "up",
+		"volumes": 5000
+	}]
 }
-    
-    
     
     
     
