@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Web app for viewing stock information and planning investments",
   "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost"
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
     "bundle": "webpack --config webpack.prod.js --progress",
