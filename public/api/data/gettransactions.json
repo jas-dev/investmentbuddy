@@ -1,0 +1,23 @@
+{
+	"success": true,
+	"transactions": [{
+		"type": "buy",
+		"name": "Microsoft",
+		"symbol": "MSFT",
+		"price": 100,
+		"quantity": 10
+	}, {
+		"type": "sell",
+		"name": "Apple",
+		"symbol": "AAPL",
+		"price": 120,
+		"quantity": 7
+	}, {
+		"type": "buy",
+		"name": "Amazon",
+		"symbol": "AMZN",
+		"price": 150,
+		"quantity": 3
+	}]
+}
+
