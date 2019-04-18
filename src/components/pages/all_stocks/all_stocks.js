@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default props =>{
-    return (
-        <div>
-            <h1>All Stocks</h1>
-        </div>
-    )
+
+class AllStocks extends Component{
+    render(){
+
+        return(
+            <div className='all-stocks'>
+                <h1 className='center'>All Stocks</h1>
+            </div>
+        )
+    }
+
 }
+
+export default AllStocks;
