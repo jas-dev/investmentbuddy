@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from '../nav';
-import About from './about'
-import Usd from "../../assets/images/usdcoin.png";
+import Nav from '../../nav';
+import About from '../../about'
+import Usd from "../../../assets/images/usdcoin.png";
 
 export default props =>{
     return (
