@@ -1,6 +1,6 @@
 # Investment Buddy
 
-> This is an personal finance/ investment  site built with ReactJS, PHP, and MySql
+> This is a personal finance/ investment site built with ReactJS, PHP, and MySql
 
 ### Setup Instructions
 
