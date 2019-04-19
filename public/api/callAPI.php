@@ -1,7 +1,7 @@
 <?php
-
+exit;
 $key = "DA851C0JUW4Q00R0";
-$ticker = "AMZN";
+$ticker = "FB";
 $callType = "TIME_SERIES_DAILY";
 
 require_once("mysqlconnect.php");
@@ -28,7 +28,9 @@ foreach ($data as $key=>$value) {
 
     $query = "INSERT INTO `stock_history` (`symbol`, `date`, `open`, `high`, `low`, `close`, `volume`)
                VALUES ('$ticker', '$key', '$open', '$high', '$low', '$close', '$volume')"; 
-    mysqli_query($conn, $query);
+    print($query);
+    
+    //mysqli_query($conn, $query);
 
 }
 
