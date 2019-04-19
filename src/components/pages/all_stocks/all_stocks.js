@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Table from "../../table";
 
 
 class AllStocks extends Component{
@@ -6,7 +7,8 @@ class AllStocks extends Component{
 
         return(
             <div className='all-stocks'>
-                <h1 className='center'>All Stocks</h1>
+                <h3 className='center'>All Stocks</h3>
+                <Table/>
             </div>
         )
     }

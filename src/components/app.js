@@ -5,12 +5,14 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './pages/home/home';
 import About from './pages/about';
-import StocksDetails from './stocks_details/stocks_details';
+import StocksDetails from './pages/stocks_details/stocks_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import SignUp from './pages/sign_up/sign_up'
 import SignIn from './pages/sign_in/sign_in';
+import Dashboard from './pages/dashboard/dashboard'
 import Page404 from './pages/404/404';
+
 import Nav from './nav'
 
 const App = () => (
@@ -24,6 +26,7 @@ const App = () => (
                 <Route path="/faq" component={Faq}/>
                 <Route path="/sign-in" component={SignIn}/>
                 <Route path="/sign-up" component={SignUp}/>
+                <Route path="/dashboard" component={Dashboard}/>
                 <Route component={Page404}/>
         </Switch>
     </div>
