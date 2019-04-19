@@ -10,4 +10,4 @@ class StocksDetails extends Component{
     }
 }
 
-export default StocksDetails
+export default StocksDetails;
