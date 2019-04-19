@@ -5,14 +5,16 @@
 		"symbol": "MSFT",
 		"open": 100,
 		"high": 100, 
+		"current": 100,
 		"low": 100, 
 		"close": 100,
 		"volume": 5000,
-		"history": {
-			"date1": 100,
-			"date2": 100,
-			"date3": 100
-		}
+		"history": [
+			100, 
+			100, 
+			100, 
+			100
+		]
 	}
 }
 
