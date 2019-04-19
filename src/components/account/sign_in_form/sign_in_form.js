@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default props =>{
+export default props=>{
     return (
         <div>
-            <h1>404</h1>
+            sign in form here
         </div>
     )
 }
