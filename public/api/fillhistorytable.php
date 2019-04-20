@@ -3,11 +3,10 @@ exit;
 $key = "DA851C0JUW4Q00R0";
 $ticker = "FB";
 $callType = "TIME_SERIES_DAILY";
-
 require_once("mysqlconnect.php");
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://www.alphavantage.co/query?function=$callType&symbol=$ticker&outputsize=full&interval=5min&apikey=$key");
+curl_setopt($ch, CURLOPT_URL, "https://www.alphavantage.co/query?function=$callType&symbol=$ticker&outputsize=full&apikey=$key");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $output = curl_exec($ch);
 curl_close($ch);
