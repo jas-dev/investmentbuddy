@@ -9,6 +9,9 @@ class Nav extends Component{
         return (
             <Fragment>
                 <li>
+                    <Link to='/dashboard'>Dashboard</Link>
+                </li>
+                <li>
                     <Link to='/account'>Account</Link>
                 </li>
                 <li>
@@ -24,6 +27,9 @@ class Nav extends Component{
                     <Link to='/stocksdetails'>Stock Details</Link>
                 </li>
                 <li>
+                    <Search/>
+                </li>
+                <li>
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
@@ -32,9 +38,7 @@ class Nav extends Component{
                 <li>
                     <Link to='/faq'>FAQ</Link>
                 </li>
-                <li>
-                    <Search/>
-                </li>
+
                 <li>
                     <Link to='/sign-up'>Sign up</Link>
                 </li>
