@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
+import Search from '../search/search'
 import './nav.scss'
 
 class Nav extends Component{
@@ -8,19 +9,31 @@ class Nav extends Component{
         return (
             <Fragment>
                 <li>
+                    <Link to='/account'>Account</Link>
+                </li>
+                <li>
+                    <Link to='/trade'>Make Trades</Link>
+                </li>
+                <li>
+                    <Link to='/portfolio'>Portfolio</Link>
+                </li>
+                <li>
+                    <Link to='/stocks'>All Stocks</Link>
+                </li>
+                <li>
+                    <Link to='/stocksdetails'>Stock Details</Link>
+                </li>
+                <li>
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
                     <Link to='/about'>About</Link>
                 </li>
                 <li>
-                    <Link to='/stocksdetails'>Stocks Details</Link>
-                </li>
-                <li>
-                    <Link to='/portfolio'>Manage Portfolio</Link>
-                </li>
-                <li>
                     <Link to='/faq'>FAQ</Link>
+                </li>
+                <li>
+                    <Search/>
                 </li>
                 <li>
                     <Link to='/sign-up'>Sign up</Link>
