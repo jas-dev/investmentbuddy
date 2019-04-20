@@ -1,0 +1,22 @@
+
+
+
+.about-wrapper{
+  margin: auto;
+  padding: 0;
+  display: inline-block;
+
+  h4{
+    padding: 0;
+    margin: auto;
+  }
+
+  .about-text{
+    height: 16vh;
+    background-color: lightcyan;
+    /*box-shadow: 2px 2px 1px lightgrey;*/
+    font-family: "Candara", "Times New Roman";
+    font-size: 16px;
+  }
+
+}

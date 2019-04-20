@@ -1,4 +1,5 @@
 import React from 'react';
+import './home.scss'
 import Nav from '../../nav';
 import About from '../about/about';
 import StocksDetails from '../stocks_details/stocks_details';
@@ -10,8 +11,7 @@ import Logo from "../../../assets/images/moneybag.png";
 export default props =>{
 
     return (
-        <div>
-
+        <div className='component_container'>
             <About/>
             <StocksDetails/>
             <Portfolio/>
