@@ -5,7 +5,7 @@ import Chart from '../../chart/chart'
 
 export default props =>{
     return (
-        <div className='portfolio-wrapper'>
+        <div className='portfolio-wrapper card'>
             <h5 className='green-text text-darken-3'>Manage your portfolio</h5>
 
             <div className='porfolio-summary row'>

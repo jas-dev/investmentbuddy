@@ -5,14 +5,11 @@ class StocksDetails extends Component{
     render(){
         return(
             <div className='details-wrapper'>
-                <h5 className='green-text text-darken-5'>
+                <h5 className='green-text text-darken-3'>
                     Explore past and current stock data, run what-if scenarios and future projections</h5>
 
-                <div className='row'>
-                    <div className='col s3'>
-                        <Card/>
-                    </div>
-                    <div className='col s3'>
+                <div className='row card'>
+                    <div className='col s6 card'>
                         <Card/>
                     </div>
                     <div className='col s6'>

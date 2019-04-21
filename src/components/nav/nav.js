@@ -28,6 +28,9 @@ class Nav extends Component{
                     <Link to='/stocksdetails'>Stock Details</Link>
                 </li>
                 <li>
+                    <Link to='/transactions'>Transactions</Link>
+                </li>
+                <li>
                     <Search/>
                 </li>
                 <li className='active'>
