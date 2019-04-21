@@ -4,7 +4,7 @@ class Table extends Component{
     render(){
         return(
             <Fragment>
-                <table className='highlight responsive-table'>
+                <table className='striped responsive-table'>
                     <thead>
                     <tr>
                         <th>Date</th>
