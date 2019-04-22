@@ -2,8 +2,9 @@ import React, {Fragment} from 'react';
 
 export default props=>(
     <Fragment>
-        <h4 className='center card'>FAQ</h4>
-        <ol className=''>
+        <h4 className='center'>FAQ</h4>
+        <div className='divider'/>
+        <ol className='container'>
             <li>
                 <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est excepturi id incidunt mollitia
                     suscipit temporibus veniam veritatis voluptas voluptatem. A aliquid ea eos harum nihil perferendis
