@@ -12,6 +12,7 @@ export default props =>{
     return (
         <div className='body'>
             <About/>
+            <div className='divider'/>
             <div className='hoverable container'>
                 <StocksDetails/>
             </div>
@@ -20,6 +21,7 @@ export default props =>{
             </div>
             <Faq/>
             <div className='footer'>
+                <div className='divider z-depth-1'/>
                 <h6> Just footer stuff</h6>
             </div>
         </div>
