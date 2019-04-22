@@ -6,8 +6,8 @@ class AllStocks extends Component{
     render(){
 
         return(
-            <div className='all-stocks'>
-                <h3 className='center'>All Stocks</h3>
+            <div className='all-stocks card'>
+                <h5 className='green-text text-darken-3'>All Stocks</h5>
                 <Table/>
             </div>
         )

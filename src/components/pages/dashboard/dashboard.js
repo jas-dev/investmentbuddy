@@ -5,13 +5,17 @@ import Watchlist from "../../stocks_watch";
 
 export default props =>{
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <Portfolio/>
-            <Transactions/>
-            <Watchlist/>
-
-
+        <div className='dashboard-wrapper'>
+            <h4>Dashboard</h4>
+            <div className='hoverable'>
+                <Portfolio/>
+            </div>
+            <div className='hoverable'>
+                <Watchlist/>
+            </div>
+            <div className='hoverable'>
+                <Transactions/>
+            </div>
         </div>
     )
 }

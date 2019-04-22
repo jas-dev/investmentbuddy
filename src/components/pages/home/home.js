@@ -1,21 +1,27 @@
 import React from 'react';
-import Nav from '../../nav';
+import './home.scss'
 import About from '../about/about';
 import StocksDetails from '../stocks_details/stocks_details';
 import Portfolio from '../portfolio/portfolio';
 import Faq from '../faq/faq';
-import Logo from "../../../assets/images/moneybag.png";
+
 
 
 export default props =>{
 
     return (
-        <div>
-
+        <div className='body'>
             <About/>
-            <StocksDetails/>
-            <Portfolio/>
+            <div className='hoverable container z-depth-1'>
+                <StocksDetails/>
+            </div>
+            <div className='hoverable container z-depth-1'>
+                <Portfolio/>
+            </div>
             <Faq/>
+            <div className='footer'>
+                <h6> Just footer stuff</h6>
+            </div>
         </div>
     )
 }
