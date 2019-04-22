@@ -33,7 +33,7 @@ class Nav extends Component{
                 <li>
                     <Search/>
                 </li>
-                <li className='active'>
+                <li>
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
@@ -67,10 +67,11 @@ class Nav extends Component{
 
                         <Link className='brand-logo' to='/home'>
                             <img src={Logo}/>
+
                         </Link>
 
                         <ul className='right hide-on-med-and-down'>
-                            {this.renderLinks()}
+                            {links}
                         </ul>
                     </div>
                 </nav>

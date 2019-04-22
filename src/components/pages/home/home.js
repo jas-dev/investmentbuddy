@@ -12,10 +12,10 @@ export default props =>{
     return (
         <div className='body'>
             <About/>
-            <div className='hoverable container z-depth-1'>
+            <div className='hoverable container'>
                 <StocksDetails/>
             </div>
-            <div className='hoverable container z-depth-1'>
+            <div className='hoverable container '>
                 <Portfolio/>
             </div>
             <Faq/>

@@ -5,10 +5,10 @@ import Chart from '../../chart/chart'
 
 export default props =>{
     return (
-        <div className='portfolio-wrapper card'>
+        <div className='portfolio-wrapper'>
             <h5 className='green-text text-darken-3'>Manage your portfolio</h5>
 
-            <div className='porfolio-summary row'>
+            <div className='porfolio-summary row card'>
                 <div className='container col s6'>
 
                         <div className='col s3'>Account ID:</div>
