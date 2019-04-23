@@ -13,10 +13,10 @@ export default props =>{
         <div className='body'>
             <About/>
             <div className='divider'/>
-            <div className='hoverable container'>
+            <div className='container'>
                 <StocksDetails/>
             </div>
-            <div className='hoverable container '>
+            <div className='container '>
                 <Portfolio/>
             </div>
             <Faq/>

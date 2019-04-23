@@ -13,9 +13,6 @@ class Nav extends Component{
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
                 <li>
-                    <Link to='/account'>Account</Link>
-                </li>
-                <li>
                     <Link to='/trade'>Make Trades</Link>
                 </li>
                 <li>
