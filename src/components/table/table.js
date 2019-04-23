@@ -1,7 +1,31 @@
 import React, {Component, Fragment} from 'react';
+import axios from 'axios';
 
 class Table extends Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            stocks: []
+        }
+    }
+    componentDidMount() {
+        this.getStockData();
+    }
+
+    getStockData(){
+        axios.get('/api/getstocks.php').then(resp=>{
+            console.log('stock data:', resp);
+
+            this.setState({
+                stocks: resp.data.stocks
+            })
+        });
+
+    }
+
     render(){
+        
         return(
             <Fragment>
                 <table className='striped responsive-table'>
