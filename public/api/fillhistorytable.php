@@ -3,7 +3,10 @@ exit;
 $key = "DA851C0JUW4Q00R0";
 $ticker = "FB";
 $callType = "TIME_SERIES_DAILY";
+
 require_once("mysqlconnect.php");
+require_once("functions.php");
+set_exception_handler("handleError");
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://www.alphavantage.co/query?function=$callType&symbol=$ticker&outputsize=full&apikey=$key");
