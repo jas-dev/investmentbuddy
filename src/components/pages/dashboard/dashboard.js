@@ -5,7 +5,7 @@ import Watchlist from "../../stocks_watch";
 
 export default props =>{
     return (
-        <div className='dashboard-wrapper'>
+        <div className='dashboard-wrapper container'>
             <h4>Dashboard</h4>
             <div className='divider'/>
             <div className='hoverable'>
