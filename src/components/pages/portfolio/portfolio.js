@@ -6,24 +6,27 @@ import Chart from '../../chart/chart'
 export default props =>{
     return (
         <div className='portfolio-wrapper'>
-            <h5 className='green-text text-darken-3'>Manage your portfolio</h5>
+            <h5 className=''>Manage your portfolio</h5>
 
             <div className='porfolio-summary row card'>
                 <div className='container col s6'>
 
-                        <div className='col s3'>Account ID:</div>
-                        <div className='col s3'>[ID]</div>
+                        <div className='col s6'>Account ID:</div>
+                        <div className='col s6'>[ID]</div>
 
-                        <div className='col s3'>Total Assets:</div>
-                        <div className='col s3'>[assets]</div>
+                        <div className='col s6'>Total Assets:</div>
+                        <div className='col s6'>[assets]</div>
 
-                        <div className='col s3'>Avail.- trade:</div>
-                        <div className='col s3'>[funds]</div>
+                        <div className='col s6'>Available to trade:</div>
+                        <div className='col s6'>[funds]</div>
 
-                        <div className='col s3'>Avail.- withdraw:</div>
-                        <div className='col s3'>[funds]</div>
-
+                        <div className='col s6'>Avail to withdraw:</div>
+                        <div className='col s6'>[funds]</div>
+                        <div className='col s6'>
+                            <AddFunds/>
+                        </div>
                 </div>
+
                 <div className='container card col s6'>
                     Performance
                     <Chart/>
@@ -31,7 +34,7 @@ export default props =>{
                 </div>
             </div>
 
-            <AddFunds/>
+
             <div className=''>
                 <Table/>
             </div>
