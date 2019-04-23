@@ -28,9 +28,6 @@ class Nav extends Component{
                     <Link to='/transactions'>Transactions</Link>
                 </li>
                 <li>
-                    <Search/>
-                </li>
-                <li>
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
