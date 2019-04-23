@@ -6,6 +6,7 @@ class Card extends Component{
         return (
             <div>
                 <Chart/>
+
             </div>
         )
     }
