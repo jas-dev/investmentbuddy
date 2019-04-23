@@ -28,10 +28,9 @@ while ($row = mysqli_fetch_assoc($getStocksResult)) {
 
     $date = "$month/$day/$year";
     
-    $performance = $row["close"] - $row["open"];
-    $performance = round($performance, 3, PHP_ROUND_HALF_UP);
+    $performance = $row["change_amount"];
 
-    $price = $row["close"];
+    $price = $row["price"];
 
     $stock = [
         "symbol"=>$symbol,
