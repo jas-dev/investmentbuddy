@@ -56,3 +56,4 @@ var options = {
 }
 
 export default Chart;
+
