@@ -8,6 +8,7 @@ import './chart.scss';
 //Chart.defaults.global.animation.duration = 1000;
 //Chart.defaults.global.animation.easing = 'easeInBounce';
 
+
 var lineChartData = {
     labels: ["4/1/2019", "4/2/2019", "4/3/2019", "4/4/2019", "4/5/2019", "4/8/2019", "4/9/2019", "4/10/2019",
         "4/11/2019", "4/12/2019", "4/15/2019", "4/16/2019", "4/17/2019", "4/18/2019", "4/19/2019", "4/22/2019"],
@@ -23,6 +24,7 @@ var lineChartData = {
             fill: false
         }
     ],
+
 };
 
 var chartOptions = {
@@ -46,6 +48,7 @@ var chartOptions = {
             fontColor:'black',
             fontSize: 16
         }
+
     },
     layout: {
         padding: {
@@ -56,6 +59,7 @@ var chartOptions = {
         }
     }
 };
+
 
 
 
