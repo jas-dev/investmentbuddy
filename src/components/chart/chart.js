@@ -48,10 +48,8 @@ var options = {
 
     render(){
         return(
-            <div className='center'>
-
+            <div className=''>
                <img className='stockchart' src={stockchart}/>
-
             </div>
         )
     }

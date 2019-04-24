@@ -1,14 +1,17 @@
 import React, {Component, Fragment} from 'react';
 import axios from 'axios';
-import StockListing from '../pages/all_stocks/stock_listing'
+import StockListing from '../pages/all_stocks/stock_listing';
 
-class Table extends Component{
+class RenderTable extends Component{
     constructor(props) {
         super(props);
 
         this.state = {
             stocks: []
-        }
+        };
+
+        console.log('state:', this.state);
+        this.goToDetails = this.goToDetails.bind(this)
     }
     componentDidMount() {
         this.getStockData();
@@ -24,19 +27,21 @@ class Table extends Component{
         });
 
     }
-    goToDetails(){
-        this.props.history.push(`/stockdetails`)
+    goToDetails(symbol){
+        this.props.history.push(`/stockdetails/${symbol}`)
     }
 
     render(){
-        const stockList = this.state.stocks.map((stock) => {
-            return <StockListing key={stock.id} {...stock} goToDetails={this.goToDetails}/>;
+        const stockList = this.state.stocks.map(stocks => {
+            return(
+                <StockListing key={stocks.symbol} {...stocks} goToDetails={this.goToDetails}/>
+            )
         });
 
 
         return(
             <Fragment>
-                <ul className="collection hoverable">
+                <ul className="collection card">
                     {stockList}
                 </ul>
             </Fragment>
@@ -44,4 +49,4 @@ class Table extends Component{
     }
 }
 
-export default Table;
+export default RenderTable;

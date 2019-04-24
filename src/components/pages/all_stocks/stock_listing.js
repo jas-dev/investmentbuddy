@@ -1,27 +1,21 @@
 import React from 'react';
 
 
-export default ({close, high, low, open, symbol, volume, goToDetails}) => {
+export default ({symbol, date, performance,price, goToDetails}) => {
 
     return (
         <li className="collection-item product-item hoverable" onClick={() => { goToDetails()}}>
+            <p className="title">{symbol}</p>
+            <div className='row center'>
 
-            <div className='row'>
-                <p className="title">{symbol}</p>
-                <div className="col s2">
-                    <span>High: {high}</span>
+                <div className="col s4">
+                    <span>Last Updated: {date}</span>
                 </div>
-                <div className="col s2">
-                    <span>Low: {low} </span>
+                <div className="col s4">
+                    <span>Gain/Loss: {performance} </span>
                 </div>
-                <div className="col s2">
-                    <span>Open: {open} </span>
-                </div>
-                <div className="col s2">
-                    <span>Close: {close} </span>
-                </div>
-                <div className="col s2">
-                    <span>Volume: {volume} </span>
+                <div className="col s4">
+                    <span>Price: {price} </span>
                 </div>
             </div>
 
