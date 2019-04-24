@@ -1,3 +1,19 @@
+//body::before {
+//  background-color: ;
+//  background-repeat: no-repeat, repeat;
+//  background-size: cover;
+//  //background-position: center;
+//  background-image: url("/dist/assets/images/NewYorkStockExchange.png");
+//  opacity: .5;
+//}
+
+body {
+  background-color: #FFF8DC ;  //#F0FFFF DCDCDC;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-image: url("/dist/assets/images/NewYorkStockExchange.png");
+}
+
 /*
 @font-face {
     font-family: rustic;
