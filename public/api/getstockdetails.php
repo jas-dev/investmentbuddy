@@ -32,10 +32,15 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://www.alphavantage.co/query?function=$callType&symbol=$ticker&apikey=$key");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $output = curl_exec($ch);
+
 curl_close($ch);
 
+
+
 $array_output = json_decode($output, true);
+
 $data = $array_output["Global Quote"];
+
 
 $open = $data["02. open"];
 $high = $data["03. high"];
@@ -52,6 +57,7 @@ $updateStockTableQuery = "UPDATE `stock` SET `datetime`=NOW(),
                             `high`=$high, `low`=$low, `price`=$price, `volume`=$volume, 
                             `latest_trade_day`='$latestTradingDay', `previous_close`=$previousClose, `change_amount`=$changeAmount,
                             `change_percent`=$changePercent WHERE `symbol`='$ticker'";
+
 $updateStockTableResult = mysqli_query($conn, $updateStockTableQuery);
 if (!$updateStockTableResult){
     throw new Exception(mysqli_error($conn));

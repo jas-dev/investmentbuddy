@@ -4,7 +4,7 @@ import './chart.scss';
 
 class Chart extends Component{
 
-var demoChart = $("#demoChart");
+/*var demoChart = $("#demoChart");
 
 var data = {
   labels : [<?php echo $json_output[date];?>],
@@ -43,7 +43,7 @@ var options = {
                 }
             }
         }
-    });
+    });*/
 
 
     render(){
