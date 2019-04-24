@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AddFunds from './add_funds/add_funds'
 import RenderTable from "../../render_table/render_table";
-import Chart from '../../chart/chart'
+import Stock_chart from '../../chart/stock_chart'
 import AccountInfo from '../../account/info'
 
 class Portfolio extends Component{
@@ -16,7 +16,7 @@ class Portfolio extends Component{
                 <div className='porfolio-summary row card'>
 
                     <div className='col s6'>
-                        <Chart/>
+                        <Stock_chart/>
                     </div>
                     <div className=''>
                         <AccountInfo/>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import InfoCard from '../../stock_infocard/stock_infocard';
-import Chart from '../../chart/chart';
+import Stock_chart from '../../chart/stock_chart';
 import axios from 'axios';
 
 class StocksDetails extends Component{
@@ -30,7 +30,7 @@ class StocksDetails extends Component{
                 <h5 className=''>Stock Details</h5>
                 <div className='row card'>
                     <div className='col s12 center'>
-                        <Chart/>
+                        <Stock_chart/>
                     </div>
                     <div className='col s12 card'>
                         <InfoCard {...this.state.company}/>

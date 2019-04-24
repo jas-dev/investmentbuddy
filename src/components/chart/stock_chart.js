@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-//import stockchart from '../../assets/images/stockchart.jpg';
 import './chart.scss';
-// import ChartJS from 'chart.js';
+import ChartJS from 'chart.js';
 
 // global options
 //Chart.defaults.global.elements.line.borderWidth = 3;
@@ -63,7 +62,7 @@ var chartOptions = {
 
 
 
-class Chart extends Component{
+class Stock_chart extends Component{
 
     constructor (props ) {
         super (props) ;
@@ -88,5 +87,5 @@ class Chart extends Component{
     }
 }
 
-export default Chart;
+export default Stock_chart;
 
