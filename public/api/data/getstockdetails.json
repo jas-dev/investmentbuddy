@@ -1,16 +1,22 @@
 {
-	"success": "true",
+	"success": true,
+	"company": {
+		"name": "Agilent Technologies Inc",
+		"symbol": "A",
+		"GICS": "Health Care",
+		"category": "Health Care Equipment",
+		"headquarters": "Santa Clara, California"
+	},
 	"stock": {
-		"name": "Microsoft",
-		"symbol": "MSFT",
-		"current": 100,
-		"history": [
-			100, 
-			100, 
-			100, 
-			100
-		]
+		"open": 74.28,
+		"high": 76.76,
+		"low": 73.76,
+		"price": 75.56,
+		"volume": 4048501,
+		"latestTradeDay": "2019-04-23",
+		"previousClose": 75.57,
+		"changeAmount": -0.01,
+		"changePercent": -0.0132
 	}
 }
-
 
