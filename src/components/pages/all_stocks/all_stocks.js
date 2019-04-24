@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Table from "../../table";
+import RenderTable from "../../render_table/render_table";
 
 
 class AllStocks extends Component{
@@ -8,11 +8,10 @@ class AllStocks extends Component{
         return(
             <div className='all-stocks container'>
                 <h5 className=''>All Stocks</h5>
-                <Table/>
+                <RenderTable history={this.props.history}/>
             </div>
         )
     }
-
 }
 
 export default AllStocks;

@@ -5,7 +5,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Home from './pages/home/home';
 import About from './pages/about';
-import StocksDetails from './pages/stocks_details/stocks_details';
+import StockDetails from './pages/stock_details/stock_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import SignUp from './pages/sign_up/sign_up'
@@ -24,7 +24,7 @@ const App = () => (
         <Switch>
                 <Route path="/home" component={Home}/>
                 <Route path="/about" component={About}/>
-                <Route path="/stocksdetails" component={StocksDetails}/>
+                <Route path="/stockdetails" component={StockDetails}/>
                 <Route path="/portfolio" component={Portfolio}/>
                 <Route path="/faq" component={Faq}/>
                 <Route path="/sign-in" component={SignIn}/>

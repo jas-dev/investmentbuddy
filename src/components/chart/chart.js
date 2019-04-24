@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //import stockchart from '../../assets/images/stockchart.jpg';
 import './chart.scss';
-import ChartJS from 'chart.js';
+// import ChartJS from 'chart.js';
 
 // global options
 //Chart.defaults.global.elements.line.borderWidth = 3;
@@ -85,3 +85,4 @@ class Chart extends Component{
 }
 
 export default Chart;
+

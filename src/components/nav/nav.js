@@ -22,7 +22,7 @@ class Nav extends Component{
                     <Link to='/stocks'>All Stocks</Link>
                 </li>
                 <li>
-                    <Link to='/stocksdetails'>Stock Details</Link>
+                    <Link to='/stockdetails'>Stock Details</Link>
                 </li>
                 <li>
                     <Link to='/transactions'>Transactions</Link>
