@@ -1,12 +1,18 @@
+//body::before {
+//  background-color: ;
+//  background-repeat: no-repeat, repeat;
+//  background-size: cover;
+//  //background-position: center;
+//  background-image: url("/dist/assets/images/NewYorkStockExchange.png");
+//  opacity: .5;
+//}
+
 body {
-  //background-image: repeating-linear-gradient(lightgreen 10%, lightyellow 10%, lightblue 10%);
-  background-color: #778899;
+  background-color: #FFF8DC ;  //#F0FFFF DCDCDC;
   background-repeat: no-repeat, repeat;
   background-size: cover;
-  //background-position: center;
   background-image: url("/dist/assets/images/NewYorkStockExchange.png");
 }
-
 
 /*
 @font-face {
