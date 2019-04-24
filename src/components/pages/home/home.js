@@ -24,7 +24,6 @@ export default props =>{
             <Faq/>
             <div className='footer'>
                 <div className='divider'/>
-                <h6> Just footer stuff</h6>
             </div>
         </div>
     )
