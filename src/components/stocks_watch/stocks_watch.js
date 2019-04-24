@@ -4,8 +4,8 @@ import Table from '../table/table'
 class Watchlist extends Component{
     render(){
         return(
-           <div>
-                <h3>Watchlist</h3>
+           <div className=''>
+                <h5 className='green-text text-darken-3'>Watchlist</h5>
                 <Table/>
            </div>
         )

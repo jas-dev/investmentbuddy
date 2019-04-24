@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import Search from '../search/search'
 import './nav.scss'
+import Logo from '../../assets/images/moneybag.png'
 
 class Nav extends Component{
     renderLinks(){
@@ -10,9 +11,6 @@ class Nav extends Component{
             <Fragment>
                 <li>
                     <Link to='/dashboard'>Dashboard</Link>
-                </li>
-                <li>
-                    <Link to='/account'>Account</Link>
                 </li>
                 <li>
                     <Link to='/trade'>Make Trades</Link>
@@ -27,7 +25,7 @@ class Nav extends Component{
                     <Link to='/stocksdetails'>Stock Details</Link>
                 </li>
                 <li>
-                    <Search/>
+                    <Link to='/transactions'>Transactions</Link>
                 </li>
                 <li>
                     <Link to='/home'>Home</Link>
@@ -52,28 +50,29 @@ class Nav extends Component{
     }
 
     render() {
-
         const links = this.renderLinks();
         return (
-          <Fragment>
-              <nav className='nav'>
-                  <div className='nav-wrapper'>
-                      <a href='#' data-target='sidenav' className='sidenav-trigger'>
-                          <i className='material-icons'>menu</i>
-                      </a>
-                      <Link className='brand-logo' to='/home'>
-                        Investment Buddy
-                      </Link>
-                      <ul className='right hide-on-med-and-down'>
-                        {this.renderLinks()}
-                      </ul>
-                  </div>
-              </nav>
+            <Fragment>
+                <nav className='nav'>
+                    <div className='nav-wrapper'>
+                        <a href='#' data-target='sidenav' className='sidenav-trigger'>
+                            <i className='material-icons'>menu</i>
+                        </a>
 
-              <SideNav links={links}/>
-          </Fragment>
-       );
-   }
+                        <Link className='brand-logo' to='/home'>
+                            <img src={Logo}/>
+
+                        </Link>
+
+                        <ul className='right hide-on-med-and-down'>
+                            {links}
+                        </ul>
+                    </div>
+                </nav>
+                <SideNav links={links}/>
+            </Fragment>
+        );
+    }
 }
 
 export default Nav;
