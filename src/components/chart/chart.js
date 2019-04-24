@@ -5,7 +5,7 @@ import './chart.scss';
 class Chart extends Component{
     render(){
         return(
-            <div className='center'>
+            <div className=''>
                <img className='stockchart' src={stockchart}/>
             </div>
         )

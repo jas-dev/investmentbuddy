@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import AddFunds from './add_funds/add_funds'
-import Table from "../../table";
+import RenderTable from "../../render_table/render_table";
 import Chart from '../../chart/chart'
 
-export default props =>{
-    return (
-        <div className='portfolio-wrapper'>
-            <h5 className=''>Manage your portfolio</h5>
+class Portfolio extends Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
+        return (
+            <div className='portfolio-wrapper container'>
+                <h5 className=''>Manage your portfolio</h5>
 
-            <div className='porfolio-summary row card'>
-                <div className='container col s6'>
+                <div className='porfolio-summary row card'>
+                    <div className='container col s6'>
 
                         <div className='col s6'>Account ID:</div>
                         <div className='col s6'>[ID]</div>
@@ -25,20 +29,19 @@ export default props =>{
                         <div className='col s6'>
                             <AddFunds/>
                         </div>
-                </div>
+                    </div>
 
-                <div className='container card col s6'>
-                    Performance
-                    <Chart/>
-
+                    <div className='container card col s6'>
+                        <Chart/>
+                        <span>Performance</span>
+                    </div>
+                    <div className="col s12">
+                        <RenderTable/>
+                    </div>
                 </div>
             </div>
-
-
-            <div className=''>
-                <Table/>
-            </div>
-
-        </div>
-    )
+        )
+    }
 }
+
+export default Portfolio;

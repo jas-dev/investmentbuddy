@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Chart from '../chart/chart';
+
 
 class Card extends Component{
     render(){
         return (
             <div>
-                <Chart/>
-
+                <div>Company Data</div>
+                <div>All the stock data</div>
             </div>
         )
     }
