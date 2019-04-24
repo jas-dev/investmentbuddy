@@ -62,7 +62,9 @@ var chartOptions = {
 
 
 
-class Chart extends Component{
+
+class Stock_chart extends Component{
+
 
     constructor (props ) {
         super (props) ;
@@ -87,5 +89,7 @@ class Chart extends Component{
     }
 }
 
-export default Chart;
+
+export default Stock_chart;
+
 
