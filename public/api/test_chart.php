@@ -28,13 +28,15 @@ while($row = mysqli_fetch_assoc($result)){
     array_push($xdata, $row['date']);
     array_push($ydata, $row['close']);
 };
-print_r($xdata);
-print_r($ydata);
+//print_r($xdata);
+//print_r($ydata);
 
 $output = [
-    'success'=>true,
-    'stock'=> $xdata,
-    'price'=> $ydata
+    'success' => true,
+    'stock' => [
+        $symbol =>
+        ['date' => $xdata, 'price'=> $ydata]
+       ]
 ];
 
 //var_dump($output);

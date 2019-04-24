@@ -12,7 +12,7 @@ class StocksDetails extends Component{
                         <Card/>
                     </div>
                     <div className='col s12'>
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorum illo ipsum labore molestiae natus repellendus sed tenetur! Accusamus consequuntur deleniti deserunt, esse harum illum magnam natus nesciunt sapiente veritatis?</span>
+                        <p><span> Showing the Stock Chart here... </span>
                         </p>
                     </div>
                 </div>
