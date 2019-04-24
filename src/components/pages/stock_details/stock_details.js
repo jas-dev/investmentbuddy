@@ -8,16 +8,13 @@ class StocksDetails extends Component{
             <div className='details-wrapper container'>
                 <h5 className=''>Stock Details</h5>
                 <div className='row card'>
-                    <div className='col s12 '>
+                    <div className='col s12 center'>
                         <Chart/>
                     </div>
-                    <div className='col s12'>
-                        <div className="col s12 card">
-                            <InfoCard/>
-                        </div>
+                    <div className='col s12 card'>
+                        <InfoCard/>
                     </div>
                 </div>
-
             </div>
         )
     }

@@ -27,13 +27,15 @@ class RenderTable extends Component{
         });
 
     }
-    goToDetails(){
-        this.props.history.push(`/stockdetails`)
+    goToDetails(symbol){
+        this.props.history.push(`/stockdetails/${symbol}`)
     }
 
     render(){
         const stockList = this.state.stocks.map(stocks => {
-            return <StockListing key={stocks.symbol} {...stocks} goToDetails={this.goToDetails}/>;
+            return(
+                <StockListing key={stocks.symbol} {...stocks} goToDetails={this.goToDetails}/>
+            )
         });
 
 
