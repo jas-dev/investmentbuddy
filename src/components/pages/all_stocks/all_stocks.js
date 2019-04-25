@@ -10,18 +10,23 @@ class AllStocks extends Component{
         this.state = {
             stocks: []
         };
+
+        console.log('all stocks state:', this.state)
     }
     componentDidMount() {
-        this.getStockData()
+        this.getStockData();
+
     }
 
     getStockData(){
-        axios.get('/api/getstocks.php').then(resp=>{
+        axios.get('/api/getstocks.php').then(response=> {
+            console.log('response:', response);
 
             this.setState({
-                stocks: resp.data.stocks
-            })
+                stocks: response.data.stocks
+            });
         });
+
 
     }
 
@@ -30,13 +35,17 @@ class AllStocks extends Component{
     }*/
 
     render(){
+        if(!this.state.stocks.length){
+            return null;
+        }
 
         return(
             <div className='all-stocks container'>
                 <h5 className=''>All Stocks</h5>
-                <RenderTable history={this.state.stocks}/>
+                <RenderTable stocks= {this.state.stocks} />
             </div>
         )
+
     }
 }
 
