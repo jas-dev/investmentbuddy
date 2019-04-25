@@ -1,0 +1,17 @@
+{
+  success: true,
+  cash_transaction: [
+    {
+      date: "2019-04-15 00:00:00",
+      trans_type: "D",
+      amount: "1000000.00",
+      memo: "new account open balance"
+    },
+    {
+      date: "2019-04-25 00:00:00",
+      trans_type: "D",
+      amount: "50000.00",
+      memo: "added more funds to the account"
+    }
+  ]
+}
