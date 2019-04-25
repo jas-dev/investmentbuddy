@@ -1,16 +1,24 @@
 export function formatHistory(stock){
+    console.log(stock);
     const xData = Object.keys(stock.history);
     const yData = [];
 
-    for (let index=0; index<xData.length; index++){
-        yData.push(parseFloat(stock.history[xData[index]]));
+    const reorderXData = [];
+    for (let reorderIndex=xData.length-1; reorderIndex>=0; reorderIndex--){
+        reorderXData.push(xData[reorderIndex]);
+    }
+
+    for (let index=0; index<reorderXData.length; index++){
+        yData.push(parseFloat(stock.history[reorderXData[index]]));
     }
 
     const symbol = stock.company.symbol;
+    const name = stock.company.name;
+    const label = `${symbol} - ${name}`;
 
     return {
-        "symbol": symbol,
-        "xData": xData, 
+        "label": label,
+        "xData": reorderXData, 
         "yData": yData
     };
 }

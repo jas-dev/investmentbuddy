@@ -5,7 +5,6 @@ import axios from 'axios';
 class Card extends Component{
 
     render(){
-        console.log('props:',this.props);
 
         return (
             <div className=''>
