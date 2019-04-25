@@ -45,7 +45,7 @@ while($row = mysqli_fetch_assoc($transactionsResult)){
     $output["transactions"][] = $transaction;
 }
 
-print_r($output);
+print(json_encode($output));
 
 ?>
 

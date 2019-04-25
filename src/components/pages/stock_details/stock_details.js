@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import InfoCard from '../../stock_infocard/stock_infocard';
 import Stock_chart from '../../chart/stock_chart';
 import axios from 'axios';
+import {formatHistory} from "../../helpers";
+import { format } from 'path';
 
 class StocksDetails extends Component{
     constructor(props) {
         super(props);
 
         this.state = {
-            company: null
+            company: null,
+            history: null
         }
 
 
@@ -19,7 +22,8 @@ class StocksDetails extends Component{
             console.log('stock details resp:', resp);
 
             this.setState({
-                company: resp.data.company
+                company: resp.data.company,
+                history: formatHistory(resp.data)
             });
         })
     }
@@ -30,7 +34,7 @@ class StocksDetails extends Component{
                 <h5 className=''>Stock Details</h5>
                 <div className='row card'>
                     <div className='col s12 center'>
-                        <Stock_chart/>
+                    <Stock_chart {...this.state.history}/>
                     </div>
                     <div className='col s12 card'>
                         <InfoCard {...this.state.company}/>

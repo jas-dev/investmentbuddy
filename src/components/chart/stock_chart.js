@@ -81,6 +81,7 @@ class Stock_chart extends Component{
     }
 
     render(){
+        console.log("Chart Props:", this.props);
         return(
             <div className="container">
                 <canvas id="stockChart" ref={this.chartRef} />
