@@ -13,6 +13,7 @@ class AllStocks extends Component{
 
         console.log('all stocks state:', this.state)
     }
+    
     componentDidMount() {
         this.getStockData();
 
@@ -45,7 +46,6 @@ class AllStocks extends Component{
                 <RenderTable stocks= {this.state.stocks} />
             </div>
         )
-
     }
 }
 
