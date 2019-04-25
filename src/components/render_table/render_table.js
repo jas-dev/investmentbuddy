@@ -1,52 +1,44 @@
-import React, {Component, Fragment} from 'react';
-import axios from 'axios';
-import StockListing from '../pages/all_stocks/stock_listing';
-
-class RenderTable extends Component{
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            stocks: []
-        };
-
-        console.log('state:', this.state);
-        this.goToDetails = this.goToDetails.bind(this)
-    }
-    componentDidMount() {
-        this.getStockData();
-    }
-
-    getStockData(){
-        axios.get('/api/getstocks.php').then(resp=>{
-            console.log('stock data:', resp);
-
-            this.setState({
-                stocks: resp.data.stocks
-            })
-        });
-
-    }
-    goToDetails(symbol){
-        this.props.history.push(`/stockdetails/${symbol}`)
-    }
-
-    render(){
-        const stockList = this.state.stocks.map(stocks => {
-            return(
-                <StockListing key={stocks.symbol} {...stocks} goToDetails={this.goToDetails}/>
-            )
-        });
+import React from 'react';
+import RenderTh from './render_th';
+import RenderTr from './render_tr';
 
 
-        return(
-            <Fragment>
-                <ul className="collection card">
-                    {stockList}
-                </ul>
-            </Fragment>
-        )
-    }
+export default props =>{
+
+    console.log('props from rendertable:', props);
+
+    // get the keys from the object so they can be used as table headers
+
+    const columnNames = Object.keys(props.stocks[0]);
+
+    // render the table headers
+
+    const tableHeading = (<RenderTh headings={columnNames}/>);
+
+
+    // render the data
+
+    const tableRow = props.stocks.map(stock => {
+       return (
+           <RenderTr key={stock[columnNames[0]]} values={columnNames.map(key => stock[key])}/>
+       )
+    });
+
+    return(
+        <div className='card'>
+            <table className='responsive-table highlight'>
+                <thead>
+                    <tr>
+                        {tableHeading}
+                    </tr>
+                </thead>
+                <tbody>
+                    {tableRow}
+                </tbody>
+            </table>
+        </div>
+    )
+
 }
 
-export default RenderTable;
+
