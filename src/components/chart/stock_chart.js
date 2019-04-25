@@ -7,7 +7,7 @@ import ChartJS from 'chart.js';
 //Chart.defaults.global.animation.duration = 1000;
 //Chart.defaults.global.animation.easing = 'easeInBounce';
 
-
+/*
 var lineChartData = {
     labels: ["4/1/2019", "4/2/2019", "4/3/2019", "4/4/2019", "4/5/2019", "4/8/2019", "4/9/2019", "4/10/2019",
         "4/11/2019", "4/12/2019", "4/15/2019", "4/16/2019", "4/17/2019", "4/18/2019", "4/19/2019", "4/22/2019"],
@@ -22,9 +22,9 @@ var lineChartData = {
             borderColor: 'purple',
             fill: false
         }
-    ],
-
+    ]
 };
+*/
 
 var chartOptions = {
     title: {
@@ -65,10 +65,22 @@ var chartOptions = {
 
 class Stock_chart extends Component{
 
-
-    constructor (props ) {
-        super (props) ;
-        this.state = {lineChartData, chartOptions};
+    constructor (props) {
+        super (props);
+        this.state = {
+            lineChartData: {
+                labels: props.xData, 
+                datasets: [
+                    {
+                        label: props.label,
+                        data: props.yData,
+                        borderColor: 'darkblue',
+                        fill: false
+                    }
+                ]
+            }, 
+            chartOptions
+        };
         this.chartRef = React.createRef();
     }
 
@@ -81,7 +93,6 @@ class Stock_chart extends Component{
     }
 
     render(){
-        console.log("Chart Props:", this.props);
         return(
             <div className="container">
                 <canvas id="stockChart" ref={this.chartRef} />

@@ -19,8 +19,6 @@ class StocksDetails extends Component{
 
     componentDidMount(){
         axios.get('/api/getstockdetails.php').then(resp=>{
-            console.log('stock details resp:', resp);
-
             this.setState({
                 company: resp.data.company,
                 history: formatHistory(resp.data)
@@ -29,6 +27,9 @@ class StocksDetails extends Component{
     }
 
     render(){
+        if (this.state.history===null || this.state.company===null){
+            return null;
+        } else {
         return(
             <div className='details-wrapper container'>
                 <h5 className=''>Stock Details</h5>
@@ -42,7 +43,10 @@ class StocksDetails extends Component{
                 </div>
             </div>
         )
+        }
     }
 }
 
 export default StocksDetails;
+
+

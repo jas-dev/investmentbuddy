@@ -18,25 +18,15 @@ if (!$getStocksResult){
 
 while ($row = mysqli_fetch_assoc($getStocksResult)) {
     $symbol = $row["symbol"];
-
     $date = $row["datetime"];
-    $date = explode(" ", $date);
-    $date = explode("-", $date[0]);
-    $month = $date[1];
-    $day = $date[2];
-    $year = $date[0];
-
-    $date = "$month/$day/$year";
-    
-    $performance = $row["change_amount"];
-
     $price = $row["price"];
+    $percentChange = $row["change_percent"];
 
     $stock = [
-        "symbol"=>$symbol,
-        "performance"=>$performance, 
-        "date"=>$date, 
-        "price"=>$price
+        "symbol"=>$symbol, 
+        "timestamp"=>$date, 
+        "price"=>$price, 
+        "percentChange"=>$percentChange
     ];
     $output["stocks"][] = $stock;
 }
