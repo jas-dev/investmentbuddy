@@ -23,4 +23,11 @@ export function formatHistory(stock){
     };
 }
 
+export function capitalize(str){
+    const arr = str.split("");
+    let firstLetter = arr[0];
 
+    firstLetter = firstLetter.toUpperCase();
+    arr[0] = firstLetter;
+    return arr.join("");
+}

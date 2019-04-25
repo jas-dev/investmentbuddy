@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import InfoCard from '../../stock_infocard/stock_infocard';
 import Stock_chart from '../../chart/stock_chart';
 import axios from 'axios';
-import {formatHistory} from "../../helpers";
+import {formatHistory, capitalize} from "../../helpers";
 import { format } from 'path';
 
 class StocksDetails extends Component{
