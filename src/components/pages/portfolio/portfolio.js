@@ -25,7 +25,7 @@ class Portfolio extends Component{
                         <AddFunds/>
                     </div>
                     <div className="col s12">
-                        <RenderTable/>
+                        {/*<RenderTable/>*/}
                     </div>
 
                 </div>

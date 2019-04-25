@@ -8,7 +8,9 @@ export default props =>{
     console.log('props from rendertable:', props);
 
     // get the keys from the object so they can be used as table headers
-
+    if(!props.stocks[0]){
+        return;
+    }
     const columnNames = Object.keys(props.stocks[0]);
 
     // render the table headers

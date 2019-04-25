@@ -5,7 +5,7 @@ export default props =>{
     return (
         <div className='container'>
             <h5>Transactions</h5>
-            <RenderTable/>
+            {/*<RenderTable/>*/}
         </div>
     )
 }
