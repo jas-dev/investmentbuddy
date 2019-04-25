@@ -28,8 +28,6 @@ while($row = mysqli_fetch_assoc($result)){
     array_push($xdata, $row['date']);
     array_push($ydata, $row['close']);
 };
-//print_r($xdata);
-//print_r($ydata);
 
 $output = [
     'success' => true,
@@ -39,9 +37,6 @@ $output = [
        ]
 ];
 
-//var_dump($output);
-$json_output = json_encode($output );
+print(json_encode($output));
 
-//print($json_output);
-echo($json_output);
 ?>
