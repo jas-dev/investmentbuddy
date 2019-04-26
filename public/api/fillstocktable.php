@@ -17,12 +17,17 @@ while ($row = mysqli_fetch_assoc($stockListResult)){
 }
 $counter = 0;
 for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
-    if ($counter>2){
-        break;
-    }
+    //if ($counter>4){
+      //  break;
+    //}
 
     $ticker = $stockList[$stockIndex];
-    
+    $clearQuery = "DELETE FROM `stock` WHERE `symbol`='$ticker'";
+    $clearResult = mysqli_query($conn, $clearQuery);
+    if (!$clearResult){
+        throw new Exception(mysqli_error($conn));
+    }
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://www.alphavantage.co/query?function=$callType&symbol=$ticker&apikey=$key");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -53,7 +58,7 @@ for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
     }
 
     sleep(30);
-    $counter++;
+    //$counter++;
 }
 
 //the counter variable exists for testing purposes, so the program only takes a little bit of time to run 
