@@ -7,39 +7,48 @@ export default props =>{
 
     console.log('props from rendertable:', props);
 
-    // get the keys from the object so they can be used as table headers
-    if(!props.stocks[0]){
-        return;
-    }
-    const columnNames = Object.keys(props.stocks[0]);
+    if (props.hasOwnProperty('stocks')) {
 
-    // render the table headers
+        const columnNames = Object.keys(props.stocks[0]);
 
-    const tableHeading = (<RenderTh headings={columnNames}/>);
+        // render the table headers
+
+        const tableHeading = (<RenderTh headings={columnNames}/>);
 
 
-    // render the data
+        // render the data
 
-    const tableRow = props.stocks.map(stock => {
-       return (
-           <RenderTr key={stock[columnNames[0]]} values={columnNames.map(key => stock[key])}/>
-       )
-    });
+        const tableRow = props.stocks.map(stock => {
+            return (
+                <RenderTr key={stock[columnNames[0]]} values={columnNames.map(key => stock[key])}/>
+            )
+        });
 
-    return(
-        <div className='card'>
-            <table className='responsive-table highlight'>
-                <thead>
+        return (
+            <div className='card'>
+                <table className='responsive-table highlight'>
+                    <thead>
                     <tr>
                         {tableHeading}
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {tableRow}
-                </tbody>
-            </table>
-        </div>
-    )
+                    </tbody>
+                </table>
+            </div>
+        )
+    } else if (props.hasOwnProperty('openTrades') && props.hasOwnProperty('offsetTrades')) {
+        
+        return (
+            <div>
+                Hi
+            </div>
+        )
+
+    } else {
+        return;
+    }
 
 }
 
