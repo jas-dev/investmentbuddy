@@ -11,7 +11,7 @@ export default props =>{
     });
 
     return (
-        <tr>{rowData}</tr>
+        <tr onClick={props.history.push}>{rowData}</tr>
     )
 
 }
