@@ -13,8 +13,6 @@ class StocksDetails extends Component{
             company: null,
             history: null
         }
-
-
     }
 
     componentDidMount(){
