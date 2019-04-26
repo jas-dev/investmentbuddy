@@ -2,7 +2,9 @@
 
 require_once("functions.php");
 $key = "DA851C0JUW4Q00R0";
+
 $ticker = $_GET["stock_symbol"]; //will soon be retrieved dynamically from the frontend request
+
 $callType = "GLOBAL_QUOTE";
 require_once("mysqlconnect.php");
 
@@ -12,7 +14,8 @@ $response = [
     "success"=>true,
     "company"=>[],
     "stock"=>[], 
-    "history"=>[]
+    "history"=>[], 
+    "intraday"=>[]
 ];
 
 $companyQuery = "SELECT * FROM `company` WHERE `symbol`='$ticker'";
@@ -53,10 +56,8 @@ $changeAmount = $data["09. change"];
 $changePercent = $data["10. change percent"];
 $changePercent = substr($changePercent, 0, -1);
 
-$updateStockTableQuery = "UPDATE `stock` SET `datetime`=NOW(), 
-                            `high`=$high, `low`=$low, `price`=$price, `volume`=$volume, 
-                            `latest_trade_day`='$latestTradingDay', `previous_close`=$previousClose, `change_amount`=$changeAmount,
-                            `change_percent`=$changePercent WHERE `symbol`='$ticker'";
+$updateStockTableQuery = "INSERT INTO `stock` (`symbol`, `datetime`, `open`, `high`, `low`, `price`, `volume`, `latest_trade_day`, `previous_close`, `change_amount`, `change_percent`) 
+                            VALUES ('$ticker', NOW(), $open, $high, $low, $price, $volume, '$latestTradingDay', $previousClose, $changeAmount, $changePercent)";
 
 $updateStockTableResult = mysqli_query($conn, $updateStockTableQuery);
 if (!$updateStockTableResult){
@@ -82,6 +83,16 @@ if (!$historyResult){
 while($row=mysqli_fetch_assoc($historyResult)){
     
     $response["history"][$row["date"]] = $row["close"];
+}
+
+$intraDayQuery = "SELECT * FROM `stock` WHERE `symbol`='$ticker'";
+$intraDayResult = mysqli_query($conn, $intraDayQuery);
+if (!$intraDayResult){
+    throw new Exception(mysqli_error($conn));
+}
+
+while($row=mysqli_fetch_assoc($intraDayResult)){
+    $response["intraday"][$row["datetime"]] = $row["price"];
 }
 
 print(json_encode($response));

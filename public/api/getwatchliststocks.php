@@ -17,8 +17,13 @@ $output = [
 //$acct_id = $_SESSION['acct_id'];
 $acct_id = 2;
 
-$query="SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent` 
-FROM `stock` as s JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol` WHERE a.`account_id` = $acct_id";
+//$query="SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent`
+//FROM `stock` as s JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol` WHERE a.`account_id` = $acct_id";
+
+$query = "SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent` 
+FROM (SELECT `symbol`, `datetime`, `price`, `change_percent` FROM `stock`
+WHERE `datetime` in (SELECT MAX(`datetime`) FROM `stock` GROUP BY `symbol`)) s
+JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol` WHERE a.`account_id` = $acct_id";
 
 $queryResult = mysqli_query($conn, $query);
 
