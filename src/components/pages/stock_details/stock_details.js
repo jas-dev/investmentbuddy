@@ -4,6 +4,7 @@ import Stock_chart from '../../chart/stock_chart';
 import axios from 'axios';
 import {formatHistory, capitalize} from "../../helpers";
 import { format } from 'path';
+import Loader from "../../loader";
 
 class StocksDetails extends Component{
     constructor(props) {
@@ -13,13 +14,13 @@ class StocksDetails extends Component{
             company: null,
             history: null
         }
-
-
     }
 
     componentDidMount(){
-        axios.get('/api/getstockdetails.php').then(resp=>{
-            console.log("server response:", resp);
+
+        console.log("Symbol:", this.props.match.params);
+        axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
+
             this.setState({
                 company: resp.data.company,
                 history: formatHistory(resp.data)
@@ -28,8 +29,9 @@ class StocksDetails extends Component{
     }
 
     render(){
+        console.log("Stock Details Props:", this.props);
         if (this.state.history===null || this.state.company===null){
-            return null;
+            return <Loader/>;
         } else {
         return(
             <div className='details-wrapper container'>

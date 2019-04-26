@@ -1,7 +1,9 @@
 <?php
 
 $APIkey = "DA851C0JUW4Q00R0";
+
 $ticker;
+
 $callType = "TIME_SERIES_DAILY";
 
 require_once("mysqlconnect.php");

@@ -2,7 +2,7 @@
 
 require_once("functions.php");
 $key = "DA851C0JUW4Q00R0";
-$ticker = $_GET["stock"]; 
+$ticker = $_GET["stock_symbol"]; 
 $callType = "GLOBAL_QUOTE";
 require_once("mysqlconnect.php");
 
