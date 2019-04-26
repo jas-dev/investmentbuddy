@@ -1,6 +1,6 @@
 import React from 'react';
-import Portfolio from '../portfolio/portfolio'
-import Transactions from '../transactions/transactions'
+import Portfolio from '../portfolio/portfolio';
+import Transactions from '../transactions/transactions';
 import Watchlist from "../../stock_watchlist/stock_watch";
 
 export default props =>{
