@@ -14,9 +14,9 @@ export default props =>{
 
     // render the data
 
-    const tableRow = props.stocks.map(stock => {
+    const tableRow = props.stocks.map((stock, index) => {
         return (
-            <RenderTr key={stock[columnNames[0]]} values={columnNames.map(key => stock[key])}/>
+            <RenderTr key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails}/>
         )
     });
 

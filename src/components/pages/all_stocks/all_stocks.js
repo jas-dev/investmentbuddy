@@ -10,7 +10,7 @@ class AllStocks extends Component{
         this.state = {
             stocks: []
         };
-
+        this.goToDetails = this.goToDetails.bind(this);
         console.log('all stocks state:', this.state)
     }
     
@@ -21,7 +21,7 @@ class AllStocks extends Component{
 
     getStockData(){
         axios.get('/api/getstocks.php').then(response=> {
-            console.log('response:', response);
+            console.log('all stocks server response:', response);
 
             this.setState({
                 stocks: response.data.stocks
@@ -31,11 +31,12 @@ class AllStocks extends Component{
 
     }
 
-   /* goToDetails(symbol){
+    goToDetails(symbol){
         this.props.history.push(`/stockdetails/${symbol}`)
-    }*/
+    }
 
     render(){
+        console.log("All Stocks Props:", this.props);
         if(!this.state.stocks.length){
             return null;
         }
@@ -43,7 +44,7 @@ class AllStocks extends Component{
         return(
             <div className='all-stocks container'>
                 <h5 className=''>All Stocks</h5>
-                <RenderTable stocks= {this.state.stocks} />
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>
         )
     }

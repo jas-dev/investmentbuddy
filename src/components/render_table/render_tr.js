@@ -2,16 +2,16 @@ import React, {Fragment} from 'react';
 
 export default props =>{
 
-    const rowData = props.values.map(row=>{
+    const rowData = props.values.map((row, index)=>{
        return(
-           <Fragment>
-               <td>{row}</td>
-           </Fragment>
+            <td key={index}>{row}</td>
+
        )
     });
 
     return (
-        <tr onClick={props.history.push}>{rowData}</tr>
+        <tr onClick={() => props.details(props.values[0])}>{rowData}</tr>
     )
-
 }
+
+

@@ -24,7 +24,9 @@ const App = () => (
         <Switch>
                 <Route path="/home" component={Home}/>
                 <Route path="/about" component={About}/>
-                <Route path="/stockdetails" component={StockDetails}/>
+                <Route path="/stockdetails/:symbol" render={(routingProps)=>{
+                    return <StockDetails {...routingProps}/>
+                }}/>
                 <Route path="/portfolio" component={Portfolio}/>
                 <Route path="/faq" component={Faq}/>
                 <Route path="/sign-in" component={SignIn}/>
@@ -40,3 +42,5 @@ const App = () => (
 );
 
 export default App;
+
+

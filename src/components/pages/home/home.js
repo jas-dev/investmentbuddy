@@ -8,7 +8,7 @@ import Faq from '../faq/faq';
 
 
 export default props =>{
-
+console.log("Home Props:", props);
     return (
         <div className='body '>
             <div>

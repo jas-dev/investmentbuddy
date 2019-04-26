@@ -1,7 +1,7 @@
 <?php
 //exit;
 $APIkey = "DA851C0JUW4Q00R0";
-$ticker = "A";
+$ticker = "ALL";
 $callType = "TIME_SERIES_DAILY";
 
 require_once("mysqlconnect.php");
