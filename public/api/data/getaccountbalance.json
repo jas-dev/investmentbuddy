@@ -1,6 +1,6 @@
 {
-	"success": true,
-	"balance": 5000
+	success: true,
+	total_asset: 1000000,
+	avail_balance: 1000000,
+	avail_to_trade: 1000000
 }
-
-
