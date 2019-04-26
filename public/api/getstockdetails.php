@@ -2,7 +2,7 @@
 
 require_once("functions.php");
 $key = "DA851C0JUW4Q00R0";
-$ticker = "A"; //will soon be retrieved dynamically from the frontend request
+$ticker = $_GET["stock"]; 
 $callType = "GLOBAL_QUOTE";
 require_once("mysqlconnect.php");
 

@@ -19,6 +19,7 @@ class StocksDetails extends Component{
 
     componentDidMount(){
         axios.get('/api/getstockdetails.php').then(resp=>{
+            console.log("server response:", resp);
             this.setState({
                 company: resp.data.company,
                 history: formatHistory(resp.data)
