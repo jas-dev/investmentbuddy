@@ -31,8 +31,6 @@ class Portfolio extends Component{
         })
     }
 
-
-
     render(){
 
         if(!this.state.offsetTrades.length || !this.state.openTrades){
@@ -45,13 +43,7 @@ class Portfolio extends Component{
             <div className='portfolio-wrapper container'>
                 <h5 className=''>Manage your portfolio</h5>
 
-                <div className="col s12">
-                    <OpenTrades openTrades={this.state.openTrades}/>
-                    <OffsetTrades offsetTrades={this.state.offsetTrades}/>
-                </div>
-
-               {/* <div className='portfolio-summary row card'>
-
+                <div className='portfolio-summary row card'>
                     <div className='col s6'>
                         <Stock_chart/>
                     </div>
@@ -62,10 +54,12 @@ class Portfolio extends Component{
                         <AddFunds/>
                     </div>
                     <div className="col s12">
-                        <RenderTable stocks={this.state.stocks}/>
+                        <OpenTrades openTrades={this.state.openTrades}/>
+                        <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                     </div>
+                </div>
 
-                </div>*/}
+
 
             </div>
         )

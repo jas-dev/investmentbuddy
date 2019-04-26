@@ -4,9 +4,11 @@ import RenderTable from '../render_table/render_table';
 export default props =>{
 
     return (
-        <div className='card'>
-            <h5 className='center'>Offset Trades</h5>
-            <RenderTable stocks={props.offsetTrades}/>
+        <div className=''>
+            <h6 className=''>Offset Trades</h6>
+            <div className='card'>
+                <RenderTable stocks={props.offsetTrades}/>
+            </div>
         </div>
     )
 }
