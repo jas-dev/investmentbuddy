@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import AddFunds from './add_funds/add_funds'
+import AddFunds from './add_funds/add_funds';
 import RenderTable from "../../render_table/render_table";
-import Stock_chart from '../../chart/stock_chart'
-import AccountInfo from '../../account/info'
+import Stock_chart from '../../chart/stock_chart';
+import AccountInfo from '../../account/info';
+import OpenTrades from '../../helpers/open_trades';
+import OffsetTrades from '../../helpers/offset_trades';
 
 class Portfolio extends Component{
     constructor(props){
@@ -29,19 +31,25 @@ class Portfolio extends Component{
         })
     }
 
+
+
     render(){
 
         if(!this.state.offsetTrades.length || !this.state.openTrades){
             return null;
         }
-        console.log('portfolio state:', this.state)
+
+        console.log('portfolio state:', this.state);
+
         return (
             <div className='portfolio-wrapper container'>
                 <h5 className=''>Manage your portfolio</h5>
 
                 <div className="col s12">
-                    <RenderTable offsetTrades={this.state.offsetTrades} openTrades={this.state.openTrades}/>
+                    <OpenTrades openTrades={this.state.openTrades}/>
+                    <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                 </div>
+
                {/* <div className='portfolio-summary row card'>
 
                     <div className='col s6'>
@@ -58,6 +66,7 @@ class Portfolio extends Component{
                     </div>
 
                 </div>*/}
+
             </div>
         )
     }
