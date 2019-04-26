@@ -11,10 +11,11 @@ set_exception_handler("handleError");
 $stockList = [];
 $stockListQuery = "SELECT * FROM `company`";
 $stockListResult = mysqli_query($conn, $stockListQuery);
-
 while ($row = mysqli_fetch_assoc($stockListResult)){
     array_push($stockList, $row["symbol"]);
 }
+
+
 $counter = 0;
 for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
     if ($counter>2){
