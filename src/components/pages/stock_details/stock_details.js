@@ -12,7 +12,8 @@ class StocksDetails extends Component{
 
         this.state = {
             company: null,
-            history: null
+            history: null,
+            stock: null
         }
     }
 
@@ -22,7 +23,8 @@ class StocksDetails extends Component{
 
             this.setState({
                 company: resp.data.company,
-                history: formatHistory(resp.data)
+                history: formatHistory(resp.data),
+                stock: resp.data.stock
             });
         })
     }
@@ -39,8 +41,8 @@ class StocksDetails extends Component{
                     <div className='col s12 center'>
                     <Stock_chart {...this.state.history}/>
                     </div>
-                    <div className='col s12 card'>
-                        <InfoCard {...this.state.company}/>
+                    <div className='col s12'>
+                        <InfoCard {...this.state.company} stocks={this.state.stock}/>
                     </div>
                 </div>
             </div>
