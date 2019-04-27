@@ -28,3 +28,4 @@ console.log("Home Props:", props);
         </div>
     )
 }
+
