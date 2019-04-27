@@ -57,10 +57,17 @@ const MakeTradesForm = props => {
     );
 }
 
-// function validate(inputs) {
-//     // if errors in inputs, errors.fieldname = text
-//     return errors;
-// }
+function validate(inputs) {
+    const errors = {};
+
+    // check if input fields are legal
+    // if (check fails)
+    //     errors.fieldname = 'error text here'
+
+    // uncomment the line below in export if using validate
+
+    return errors;
+}
 
 export default reduxForm({
     form: 'make-trades-form'

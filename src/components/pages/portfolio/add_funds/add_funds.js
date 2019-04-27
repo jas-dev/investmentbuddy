@@ -8,24 +8,31 @@ const AddFunds = props => {
             <div className='input-field add-funds-input'>
                 <label htmlFor='add-funds'>Add Funds</label>
                 <Field id='add-funds'
-                       name='add-funds'
+                       name='funds'
                        component='input'
                        type='number'/>
             </div>
-            <button type='submit' className='confirm btn btn-small black center'>Submit</button>
+            <button type='submit' className='confirm btn btn-small black center'>Add</button>
             <button onClick={(event) => {
                 props.dispatch(reset('add-funds-form'));
                 event.preventDefault();
-                }} className='cancel btn btn-small black center'>Cancel</button>
+                }} className='cancel btn btn-small black center'>Clear</button>
 
         </form>
     );
 }
 
-// function validate(inputs) {
-//     // if errors in inputs, errors.fieldname = text
-//     return errors;
-// }
+function validate(inputs) {
+    const errors = {};
+
+    // check if inputs.funds is an actual number here
+    // if (check fails)
+    //     errors.funds = 'error text here'
+
+    // uncomment the line below in export if using validate
+
+    return errors;
+}
 
 export default reduxForm({
     form: 'add-funds-form'
