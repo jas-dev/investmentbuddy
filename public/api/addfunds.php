@@ -6,7 +6,7 @@ set_exception_handler("handleError");
 require_once("mysqlconnect.php");
 
 //$accountId = $_GET["account_id"];
-//$amount = $_GET["amount"];
+$amount = $_GET["amount"];
 $accountId = 2;
 
 $accountQuery = "SELECT `total_asset`, `avail_balance`, `avail_to_trade` FROM `account` WHERE `account_id`=$accountId";

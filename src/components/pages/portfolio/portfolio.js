@@ -65,8 +65,15 @@ class Portfolio extends Component{
         )
     }
 
-    handleAddFunds = (inputs) => {
-        console.log(inputs);
+    handleAddFunds = async inputs => {
+        const {amount} = inputs;
+
+        // add account_id to the call eventually
+        const response = await axios.get(`/api/addfunds.php?amount=${amount}`);
+
+        if (response.success) {
+            console.log('funds added');
+        }
     }
 }
 

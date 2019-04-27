@@ -8,7 +8,7 @@ const AddFunds = props => {
             <div className='input-field add-funds-input'>
                 <label htmlFor='add-funds'>Add Funds</label>
                 <Field id='add-funds'
-                       name='funds'
+                       name='amount'
                        component='input'
                        type='number'/>
             </div>

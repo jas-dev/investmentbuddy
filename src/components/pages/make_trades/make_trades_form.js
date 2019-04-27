@@ -17,11 +17,11 @@ const MakeTradesForm = props => {
             <div className='row trade-type-input'>
                 <p className='col s2 offset-s1'>Type</p>
                 <label className='col s2'>
-                    <Field name='trade-type' component='input' type='radio' value='B'/>
+                    <Field name='buy_sell' component='input' type='radio' value='B'/>
                     <span>Buy</span>
                 </label>
                 <label className='col s2'>
-                    <Field name='trade-type' component='input' type='radio' value='S'/>
+                    <Field name='buy_sell' component='input' type='radio' value='S'/>
                     <span>Sell</span>
                 </label>
             </div>
