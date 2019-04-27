@@ -10,18 +10,12 @@ import Faq from '../faq/faq';
 export default props =>{
 console.log("Home Props:", props);
     return (
-        <div className='body '>
+        <div className='body'>
             <div>
                 <About/>
             </div>
 
-            <div className=''>
-                <StocksDetails/>
-            </div>
-            <div className=''>
-                <Portfolio/>
-            </div>
-            <Faq/>
+            
             <div className='footer'>
                 <div className='divider'/>
             </div>
