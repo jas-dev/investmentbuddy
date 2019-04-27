@@ -9,38 +9,37 @@ class Nav extends Component{
     renderLinks(){
         return (
             <Fragment>
-                <li>
+                <li className='.sidenav-close'>
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/trade'>Make Trades</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/portfolio'>Portfolio</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/stocks'>All Stocks</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/stockdetails'>Stock Details</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/transactions'>Transactions</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/home'>Home</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/about'>About</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/faq'>FAQ</Link>
                 </li>
-
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/sign-up'>Sign up</Link>
                 </li>
-                <li>
+                <li className='sidenav-close'>
                     <Link to='/sign-in'>Sign in</Link>
                 </li>
             </Fragment>
