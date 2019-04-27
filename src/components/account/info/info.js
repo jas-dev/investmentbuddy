@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './info.scss';
 import {convertAccountData} from "../../helpers";
+import RenderTable from '../../render_table/render_table';
 
 
 class AccountInfo extends Component{
@@ -11,38 +12,43 @@ class AccountInfo extends Component{
 
         this.state = {
             totalAsset: [],
-            availBal: [],
+            availBalance: [],
             availToTrade:[]
         }
     }
 
     componentDidMount() {
-        this.getAccountData()
+        console.log('info mounted');
+        this.getAccountData();
+
     }
 
     getAccountData(){
+        console.log('we getting here?')
         axios.get('/api/getaccountbalance.php').then(resp=>{
+            console.log('account info resp:', resp);
+
 
             this.setState({
-                availBalance: resp.data.avail_balance,
-                availToTrade: resp.data.avail_to_balance,
-                totalAsset: resp.data.total_asset
+                availBalance: resp.avail_balance,
+                availToTrade: resp.avail_to_trade,
+                totalAsset: resp.total_asset
             })
         });
     }
 
     render(){
-        if(!this.state.length){
-            return;
+       /* if(!this.state.length){
+            return console.log('async problem')
         }
-
-        {convertAccountData(this.state)}
-
-        return null;
-
-
+*/
+        return(
+            <div className="card">
+                hi
+                <RenderTable stocks={convertAccountData(this.state)}/>
+            </div>
+        );
     }
-
 }
 
 export default AccountInfo;

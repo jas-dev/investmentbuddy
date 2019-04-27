@@ -37,12 +37,9 @@ export function capitalize(str){
 }
 
 export function convertAccountData(props){
-    return (
-        <div className=''>
-            <h6 className=''>Account Info</h6>
-            <div className='card'>
-                <RenderTable stocks={props}/>
-            </div>
-        </div>
-    )
+    const {availBalance,totalAsset,availToTrade} = props;
+
+    console.log (props)
+
+
 }

@@ -6,7 +6,6 @@ import Stock_chart from '../../chart/stock_chart';
 import AccountInfo from '../../account/info';
 import OpenTrades from '../../helpers/open_trades';
 import OffsetTrades from '../../helpers/offset_trades';
-import {convertAccountData} from "../../helpers";
 
 class Portfolio extends Component{
     constructor(props){
