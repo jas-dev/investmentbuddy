@@ -26,7 +26,7 @@ const MakeTradesForm = props => {
                 </label>
             </div>
             <div className='row symbol-shares'>
-                <div className="input-field col s6 offset-s1">
+                <div className="input-field col s3 offset-s1">
                     <label htmlFor='symbol-field'>Symbol</label>
                     <Field id='symbol-field'
                            name='symbol'
@@ -34,6 +34,13 @@ const MakeTradesForm = props => {
                            type='text'/>
                 </div>
                 <div className="input-field col s3 offset-s1">
+                    <label htmlFor='price-field'>Price</label>
+                    <Field id='price-field'
+                           name='price'
+                           component='input'
+                           type='number'/>
+                </div>
+                <div className="input-field col s2 offset-s1">
                     <label htmlFor='shares-field'>Shares</label>
                     <Field id='shares-field'
                            name='shares'

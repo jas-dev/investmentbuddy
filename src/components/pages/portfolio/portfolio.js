@@ -51,7 +51,7 @@ class Portfolio extends Component{
                         <AccountInfo/>
                     </div>
                     <div className="col s6 container">
-                        <AddFunds/>
+                        <AddFunds handler={this.handleAddFunds}/>
                     </div>
                     <div className="col s12">
                         <OpenTrades openTrades={this.state.openTrades}/>
@@ -63,6 +63,10 @@ class Portfolio extends Component{
 
             </div>
         )
+    }
+
+    handleAddFunds = (inputs) => {
+        console.log(inputs);
     }
 }
 
