@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
 import './info.scss';
+import {convertAccountData} from "../../helpers";
 
 
 class AccountInfo extends Component{
@@ -22,7 +22,7 @@ class AccountInfo extends Component{
 
     getAccountData(){
         axios.get('/api/getaccountbalance.php').then(resp=>{
-            
+
             this.setState({
                 availBalance: resp.data.avail_balance,
                 availToTrade: resp.data.avail_to_balance,
@@ -32,7 +32,15 @@ class AccountInfo extends Component{
     }
 
     render(){
+        if(!this.state.length){
+            return;
+        }
+
+        {convertAccountData(this.state)}
+
         return null;
+
+
     }
 
 }
