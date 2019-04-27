@@ -6,10 +6,10 @@ require_once("mysqlconnect.php");
 
 //$accountId = $_GET["account_id"];
 $accountId = 2;
-$symbol = 'AAPL';
-$buy_sell = 'B';
-$shares = 80;
-$price = 203;
+$symbol = $_GET["symbol"];  //'AAPL'
+$buy_sell = $_GET["buy_sell"]; //'B'
+$shares = (int)$_GET["shares"]; //80
+$price = $_GET["price"]; //203
 $amountRequired = $price * $shares;
 
 //========================================================================================================
