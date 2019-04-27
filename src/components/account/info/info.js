@@ -1,23 +1,40 @@
-import React from 'react';
-import './info.scss'
+import React, {Component} from 'react';
+import axios from 'axios';
 
-export default props=>{
-    return(
-        <div className='container col s6'>
+import './info.scss';
 
-            <div className='col s6'>Account ID:</div>
-            <div className='col s6'>[ID]</div>
 
-            <div className='col s6'>Total Assets:</div>
-            <div className='col s6'>[assets]</div>
+class AccountInfo extends Component{
 
-            <div className='col s6'>Available to trade:</div>
-            <div className='col s6'>[funds]</div>
+    constructor(props){
+        super(props);
 
-            <div className='col s6'>Avail to withdraw:</div>
-            <div className='col s6'>[funds]</div>
-            <div className='col s6'>
-            </div>
-        </div>
-    )
+        this.state = {
+            totalAsset: [],
+            availBal: [],
+            availToTrade:[]
+        }
+    }
+
+    componentDidMount() {
+        this.getAccountData()
+    }
+
+    getAccountData(){
+        axios.get('/api/getaccountbalance.php').then(resp=>{
+            
+            this.setState({
+                availBalance: resp.data.avail_balance,
+                availToTrade: resp.data.avail_to_balance,
+                totalAsset: resp.data.total_asset
+            })
+        });
+    }
+
+    render(){
+        return null;
+    }
+
 }
+
+export default AccountInfo;
