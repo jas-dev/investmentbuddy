@@ -12,6 +12,7 @@ export default props =>{
     console.log('rt props:',props.stocks);
 
     const columnNames = Object.keys(props.stocks[0]);
+    columnNames.push('delete');
 
     // render the table headers
 
@@ -22,7 +23,7 @@ export default props =>{
 
     const tableRow = props.stocks.map((stock, index) => {
         return (
-            <RenderTr key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails}/>
+            <RenderTr delete={props.delete} watchlist={props.watchlist} key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails}/>
         )
     });
 
