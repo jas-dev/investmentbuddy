@@ -18,7 +18,11 @@ class StocksDetails extends Component{
     }
 
     componentDidMount(){
+        this.getStockData()
 
+    }
+
+    getStockData(){
         axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
 
             this.setState({
@@ -28,7 +32,7 @@ class StocksDetails extends Component{
             });
         })
     }
-
+    
     render(){
         console.log("Stock Details Props:", this.props);
         if (this.state.history===null || this.state.company===null){
