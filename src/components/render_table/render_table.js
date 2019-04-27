@@ -5,6 +5,12 @@ import RenderTr from './render_tr';
 
 export default props =>{
 
+    if(!props.stocks){
+        return null;
+    }
+
+    console.log('rt props:',props.stocks);
+
     const columnNames = Object.keys(props.stocks[0]);
 
     // render the table headers

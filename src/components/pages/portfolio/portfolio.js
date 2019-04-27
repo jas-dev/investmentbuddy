@@ -43,23 +43,25 @@ class Portfolio extends Component{
             <div className='portfolio-wrapper container'>
                 <h5 className=''>Manage your portfolio</h5>
 
-                <div className='portfolio-summary row card'>
-                    <div className='col s6'>
+                <div className='row card center'>
+                    <div className='col s12'>
                         <Stock_chart/>
-                    </div>
-                    <div className=''>
-                        <AccountInfo/>
-                    </div>
-                    <div className="col s6 container">
-                        <AddFunds handler={this.handleAddFunds}/>
-                    </div>
-                    <div className="col s12">
-                        <OpenTrades openTrades={this.state.openTrades}/>
-                        <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                     </div>
                 </div>
 
+                <div className="row card center ">
+                    <div className="col s12">
+                        <AccountInfo/>
+                    </div>
+                    <div className="col s12 container">
+                        <AddFunds handler={this.handleAddFunds}/>
+                    </div>
+                </div>
 
+                <div className="col s12">
+                    <OpenTrades openTrades={this.state.openTrades}/>
+                    <OffsetTrades offsetTrades={this.state.offsetTrades}/>
+                </div>
 
             </div>
         )
@@ -71,7 +73,7 @@ class Portfolio extends Component{
         // add account_id to the call eventually
         const response = await axios.get(`/api/addfunds.php?amount=${amount}`);
 
-        if (response.success) {
+        if (response.data.success) {
             console.log('funds added');
         }
     }
