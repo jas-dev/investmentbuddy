@@ -18,7 +18,6 @@ class StocksDetails extends Component{
 
     componentDidMount(){
 
-        console.log("Symbol:", this.props.match.params);
         axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
 
             this.setState({
