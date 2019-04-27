@@ -5,8 +5,11 @@ require_once("mysqlconnect.php");
 $symbol = "FB";
 
 //select date, close from stock_history where symbol='MSFT' order by date
+//$query = "SELECT `symbol`, `date`, `close` from `stock_history` where `symbol` =
+//'$symbol' order by `date` LIMIT 300";
+
 $query = "SELECT `symbol`, `date`, `close` from `stock_history` where `symbol` = 
-'$symbol' order by `date` LIMIT 100";
+'$symbol' order by `date`";
 
 //var_dump($query);
 
