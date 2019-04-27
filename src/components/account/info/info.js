@@ -1,23 +1,61 @@
-import React from 'react';
-import './info.scss'
+import React, {Component} from 'react';
+import axios from 'axios';
+import './info.scss';
+import {convertAccountData} from "../../helpers";
+import RenderTable from '../../render_table/render_table';
 
-export default props=>{
-    return(
-        <div className='container col s6'>
 
-            <div className='col s6'>Account ID:</div>
-            <div className='col s6'>[ID]</div>
+class AccountInfo extends Component{
 
-            <div className='col s6'>Total Assets:</div>
-            <div className='col s6'>[assets]</div>
+    constructor(props){
+        super(props);
 
-            <div className='col s6'>Available to trade:</div>
-            <div className='col s6'>[funds]</div>
+        this.state = {
+            accountData: []
+        }
+    }
 
-            <div className='col s6'>Avail to withdraw:</div>
-            <div className='col s6'>[funds]</div>
-            <div className='col s6'>
+    componentDidMount() {
+        console.log('info mounted');
+        this.getAccountData();
+
+    }
+
+    getAccountData(){
+        console.log('we getting here?')
+        axios.get('/api/getaccountbalance.php').then(resp=>{
+
+            console.log('account info resp:', resp);
+            this.setState({
+                accountData: resp.data
+            })
+        });
+    }
+
+    render(){
+        if(!this.state){
+            return;
+        }
+
+
+        console.log('account info state from render:',this.state);
+
+        return(
+            <div>
+                <div className="col s3">
+                    <div>Available Balance:</div>
+                    <div>Available to Trade:</div>
+                    <div>Total Assets:</div>
+                </div>
+
+                <div className="">{this.state.accountData.avail_balance}</div>
+                <div className="">{this.state.accountData.avail_to_trade}</div>
+                <div className="">{this.state.accountData.total_asset}</div>
+
             </div>
-        </div>
-    )
+
+        );
+    }
 }
+
+export default AccountInfo;

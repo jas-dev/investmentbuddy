@@ -17,16 +17,16 @@ const MakeTradesForm = props => {
             <div className='row trade-type-input'>
                 <p className='col s2 offset-s1'>Type</p>
                 <label className='col s2'>
-                    <Field name='trade-type' component='input' type='radio' value='B'/>
+                    <Field name='buy_sell' component='input' type='radio' value='B'/>
                     <span>Buy</span>
                 </label>
                 <label className='col s2'>
-                    <Field name='trade-type' component='input' type='radio' value='S'/>
+                    <Field name='buy_sell' component='input' type='radio' value='S'/>
                     <span>Sell</span>
                 </label>
             </div>
             <div className='row symbol-shares'>
-                <div className="input-field col s6 offset-s1">
+                <div className="input-field col s3 offset-s1">
                     <label htmlFor='symbol-field'>Symbol</label>
                     <Field id='symbol-field'
                            name='symbol'
@@ -34,6 +34,13 @@ const MakeTradesForm = props => {
                            type='text'/>
                 </div>
                 <div className="input-field col s3 offset-s1">
+                    <label htmlFor='price-field'>Price</label>
+                    <Field id='price-field'
+                           name='price'
+                           component='input'
+                           type='number'/>
+                </div>
+                <div className="input-field col s2 offset-s1">
                     <label htmlFor='shares-field'>Shares</label>
                     <Field id='shares-field'
                            name='shares'
@@ -50,10 +57,17 @@ const MakeTradesForm = props => {
     );
 }
 
-// function validate(inputs) {
-//     // if errors in inputs, errors.fieldname = text
-//     return errors;
-// }
+function validate(inputs) {
+    const errors = {};
+
+    // check if input fields are legal
+    // if (check fails)
+    //     errors.fieldname = 'error text here'
+
+    // uncomment the line below in export if using validate
+
+    return errors;
+}
 
 export default reduxForm({
     form: 'make-trades-form'

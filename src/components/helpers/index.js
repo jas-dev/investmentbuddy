@@ -1,3 +1,7 @@
+import React from 'react';
+import RenderTable from '../render_table/render_table';
+
+
 export function formatHistory(stock){
     console.log(stock);
     const xData = Object.keys(stock.history);
@@ -30,4 +34,12 @@ export function capitalize(str){
     firstLetter = firstLetter.toUpperCase();
     arr[0] = firstLetter;
     return arr.join("");
+}
+
+export function convertAccountData(props){
+    const {availBalance,totalAsset,availToTrade} = props;
+
+
+    console.log('convert helper props:',props);
+
 }
