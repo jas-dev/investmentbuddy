@@ -11,9 +11,7 @@ class AccountInfo extends Component{
         super(props);
 
         this.state = {
-            totalAsset: [],
-            availBalance: [],
-            availToTrade:[]
+            accountData: []
         }
     }
 
@@ -29,27 +27,38 @@ class AccountInfo extends Component{
 
             console.log('account info resp:', resp);
             this.setState({
-                availBalance: resp.data.avail_balance,
-                availToTrade: resp.data.avail_to_trade,
-                totalAsset: resp.data.total_asset
+                accountData: resp.data
             })
         });
     }
 
     render(){
-        if(!Array.isArray(this.state.totalAsset)){
+       if(!this.state){
+           return;
+       }
+
+        /* if(!Array.isArray(this.state.totalAsset)){
+            console.log('AccountInfo state:',this.state);
             return <div>not ready</div>
-        }
-       /* if(!this.state.length){
-            return console.log('async problem')
-        }
-*/
-        console.log('satate:',this.state);
+        }*/
+
+
+        console.log('account info state from render:',this.state);
+
         return(
-            <div className="card">
-                <RenderTable stocks={this.state.availBalance}/>
-                <RenderTable stocks={this.state.availToTrade}/>
+            <div>
+                <div className="col s3">
+                    <div>Available Balance:</div>
+                    <div>Available to Trade:</div>
+                    <div>Total Assets:</div>
+                </div>
+
+                <div className="">{this.state.accountData.avail_balance}</div>
+                <div className="">{this.state.accountData.avail_to_trade}</div>
+                <div className="">{this.state.accountData.total_asset}</div>
+
             </div>
+
         );
     }
 }
