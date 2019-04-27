@@ -39,7 +39,7 @@ export function capitalize(str){
 export function convertAccountData(props){
     const {availBalance,totalAsset,availToTrade} = props;
 
-    console.log (props)
 
+    console.log('convert helper props:',props);
 
 }

@@ -26,26 +26,29 @@ class AccountInfo extends Component{
     getAccountData(){
         console.log('we getting here?')
         axios.get('/api/getaccountbalance.php').then(resp=>{
+
             console.log('account info resp:', resp);
-
-
             this.setState({
-                availBalance: resp.avail_balance,
-                availToTrade: resp.avail_to_trade,
-                totalAsset: resp.total_asset
+                availBalance: resp.data.avail_balance,
+                availToTrade: resp.data.avail_to_trade,
+                totalAsset: resp.data.total_asset
             })
         });
     }
 
     render(){
+        if(!Array.isArray(this.state.totalAsset)){
+            return <div>not ready</div>
+        }
        /* if(!this.state.length){
             return console.log('async problem')
         }
 */
+        console.log('satate:',this.state);
         return(
             <div className="card">
-                hi
-                <RenderTable stocks={convertAccountData(this.state)}/>
+                <RenderTable stocks={this.state.availBalance}/>
+                <RenderTable stocks={this.state.availToTrade}/>
             </div>
         );
     }

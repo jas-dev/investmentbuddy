@@ -47,8 +47,11 @@ class Portfolio extends Component{
                     <div className='col s6'>
                         <Stock_chart/>
                     </div>
-                    <div className=''>
-                        <AccountInfo/>
+                    <div className='col s3'>
+                        <span>'hello'</span>
+                    </div>
+                    <div className='col s3'>
+                        <span>'hello'</span>
                     </div>
                     <div className="col s6 container">
                         <AddFunds/>
