@@ -44,15 +44,17 @@ class Portfolio extends Component{
                 <h5 className=''>Manage your portfolio</h5>
 
                 <div className='row card center'>
-                    <div className='col s6'>
+                    <div className='col s12'>
                         <Stock_chart/>
                     </div>
-                    <AccountInfo/>
+                </div>
 
-                    <div className="row ">
-                        <div className="col s6 container">
-                            <AddFunds/>
-                        </div>
+                <div className="row card center ">
+                    <div className="col s12">
+                        <AccountInfo/>
+                    </div>
+                    <div className="col s12">
+                        <AddFunds/>
                     </div>
                 </div>
 

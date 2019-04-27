@@ -9,8 +9,9 @@ export default props =>{
         return null;
     }
 
-    console.log('rt props:',props.stocks)
-    const columnNames = Object.keys(props.stocks);
+    console.log('rt props:',props.stocks);
+
+    const columnNames = Object.keys(props.stocks[0]);
 
     // render the table headers
 

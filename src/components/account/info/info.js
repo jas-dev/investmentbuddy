@@ -33,14 +33,9 @@ class AccountInfo extends Component{
     }
 
     render(){
-       if(!this.state){
-           return;
-       }
-
-        /* if(!Array.isArray(this.state.totalAsset)){
-            console.log('AccountInfo state:',this.state);
-            return <div>not ready</div>
-        }*/
+        if(!this.state){
+            return;
+        }
 
 
         console.log('account info state from render:',this.state);
