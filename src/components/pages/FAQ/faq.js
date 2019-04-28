@@ -1,29 +1,52 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-export default props=>(
-    <Fragment>
-        <h4 className='center'>FAQ</h4>
-        <div className='divider'/>
-        <ol className='container'>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est excepturi id incidunt mollitia
-                    suscipit temporibus veniam veritatis voluptas voluptatem. A aliquid ea eos harum nihil perferendis
-                    qui. Asperiores, cupiditate possimus!
-                </div>
-            </li>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta distinctio dolor eaque
-                    explicabo laborum laudantium, magni mollitia nihil nobis obcaecati, odit officiis porro, quae quasi
-                    quis reiciendis repudiandae sunt?
-                </div>
-            </li>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam consequatur id minima natus
-                    nostrum rem totam voluptate. Aut dolores est expedita facere hic ipsa molestiae odit recusandae sint
-                    tempora.
-                </div>
-            </li>
-        </ol>
-    </Fragment>
+class Faq extends Component {
 
-)
+    componentDidMount() {
+        const elems = document.querySelectorAll('.collapsible');
+        const instances = M.Collapsible.init(elems);
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <h4 className='center'>FAQ</h4>
+                <div className='divider'/>
+                <div className="container center">
+                    <ul className="collapsible">
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>How do I use
+                                your app?
+                            </div>
+                            <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>What kind of
+                                investments can
+                                I make?
+                            </div>
+                            <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>Does it cost
+                                anything?
+                            </div>
+                            <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>How accurate is
+                                your stock
+                                data?
+                            </div>
+                            <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </Fragment>
+        );
+    }
+}
+
+export default Faq;
