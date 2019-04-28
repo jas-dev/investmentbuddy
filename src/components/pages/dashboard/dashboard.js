@@ -16,7 +16,7 @@ export default props =>{
             </div>
             <div className='divider'/>
             <div className=''>
-                <Watchlist/>
+                <Watchlist history={props.history}/>
             </div>
             <div className='divider'/>
             <div className=''>
