@@ -49,7 +49,7 @@ const MakeTradesForm = props => {
                 </div>
             </div>
             <div className='center-align'>
-                <button className="btn waves-effect waves-light">Submit Trade
+                <button className="btn waves-effect waves-light green darken-2">Submit Trade
                     <i className="material-icons right">send</i>
                 </button>
             </div>
