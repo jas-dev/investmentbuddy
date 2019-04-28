@@ -1,29 +1,55 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-export default props=>(
-    <Fragment>
-        <h4 className='center'>FAQ</h4>
-        <div className='divider'/>
-        <ol className='container'>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est excepturi id incidunt mollitia
-                    suscipit temporibus veniam veritatis voluptas voluptatem. A aliquid ea eos harum nihil perferendis
-                    qui. Asperiores, cupiditate possimus!
-                </div>
-            </li>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta distinctio dolor eaque
-                    explicabo laborum laudantium, magni mollitia nihil nobis obcaecati, odit officiis porro, quae quasi
-                    quis reiciendis repudiandae sunt?
-                </div>
-            </li>
-            <li>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam consequatur id minima natus
-                    nostrum rem totam voluptate. Aut dolores est expedita facere hic ipsa molestiae odit recusandae sint
-                    tempora.
-                </div>
-            </li>
-        </ol>
-    </Fragment>
+class Faq extends Component {
 
-)
+    componentDidMount() {
+        const elems = document.querySelectorAll('.collapsible');
+        const instances = M.Collapsible.init(elems);
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <h4 className='center'>FAQ</h4>
+                <div className='divider'/>
+                <div className="container center">
+                    <ul className="collapsible">
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>How do I use
+                                your app?
+                            </div>
+                            <div className="collapsible-body">
+                                <span>
+                                    Our app is designed for the those who are new to investing and want to get comfortable with the basics of investing in the stock market. With a "what you see is what you get" design in mind, you can easily view and access all features of the app from the user dashboard. If you would prefer to see a single page view of any part of the app, you can use the navigation bar to get there.
+                                View stock, company, and historical data; add funds to your account and start trading!
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>What kind of
+                                investments can
+                                I make?
+                            </div>
+                            <div className="collapsible-body"><span>The app will allow you to buy and sell shares of stocks. Future versions will allow you to trade in more advanced stock market instruments, like options.</span></div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>Does it cost
+                                anything?
+                            </div>
+                            <div className="collapsible-body"><span>Only all of your free time!</span></div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">help</i>How accurate is
+                                your stock
+                                data?
+                            </div>
+                            <div className="collapsible-body"><span>Our app uses the AlphaVantage stock market API, and delivers accurate, real-world stock data up to the previous trading day.</span></div>
+                        </li>
+                    </ul>
+                </div>
+            </Fragment>
+        );
+    }
+}
+
+export default Faq;
