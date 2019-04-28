@@ -11,14 +11,11 @@ export default props =>{
             </div>
 
 
-            <h5 className='center'>Investment Buddy</h5>
+            <h5 className='center title'>Investment Buddy</h5>
             <div className='about-text card card-padout'>
-                <span>Welcome to Investment Buddy! We retrieve live stock prices and historical data so you can make better trading decisions! Simulate trades with your available funds and watch your profits rise!</span>
-                <div className='divider'/>
-
-                    <span>Welcome to Investment Buddy! We retrieve live stock prices and historical data so you can make better trading decisions! Simulate trades with your available funds and watch your profits rise!</span>
-
+                Welcome to Investment Buddy! We retrieve live stock prices and historical data so you can make better trading decisions! Simulate trades with your available funds and watch your profits rise!
             </div>
         </div>
     )
 }
+
