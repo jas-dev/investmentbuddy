@@ -11,14 +11,18 @@
     align-self: center;
   }
 
+  .title {
+    font-size: 40px;
+  }
+
   .card {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
     .divider {
       text-align: center;
     }
   }
-
-
-  p{
-
-  }
 }
+
+
