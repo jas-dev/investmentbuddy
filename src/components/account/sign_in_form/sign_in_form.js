@@ -1,23 +1,32 @@
-import React from 'react';
-import './sign_in.scss';
+import React, {Component} from 'react';
 
 
-const SignInForm = props =>{
+class SignIn extends Component{
+    handleSignIn = (values)=>{
+        console.log('Form Values:',values);
 
-    console.log('sign in form props:', props);
-    return(
-        <form>
-            <div className='input-field container'>
-                <input className='input' id='email' name='email' type='text'/>
-                <label htmlFor='email'>Email</label>
+        this.props.signIn(values);
+    };
+
+    render(){
+        return (
+            <div className='container'>
+                <h1 className="center">Sign In</h1>
+                <div className=''>
+                    <form>
+                        <div className='input-field'>
+                            <input className='input' id='email' name='email' type='text'/>
+                            <label htmlFor='email'>Email</label>
+                        </div>
+                        <div className='input-field'>
+                            <input id='password' name='password' type='text' className=''/>
+                            <label htmlFor='password'>Password</label>
+                        </div>
+                        <button className='btn btn-small black'>Sign In</button>
+                    </form>
+                </div>
             </div>
-            <div className='input-field container'>
-                <input id='password' name='password' type='text' className=''/>
-                <label htmlFor='password'>Password</label>
-            </div>
-            <button className='btn btn-small black'>Sign In</button>
-        </form>
-    );
-};
-
-export default SignInForm;
+        );
+    }
+}
+export default SignIn;

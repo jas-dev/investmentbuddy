@@ -1,9 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
-import Search from '../search/search'
 import './nav.scss'
-import Logo from '../../../public/dist/assets/images/stock_logo.jpg'
+
 
 class Nav extends Component{
     renderLinks(){
@@ -20,9 +19,6 @@ class Nav extends Component{
                 </li>
                 <li className='sidenav-close'>
                     <Link to='/stocks'>All Stocks</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/stockdetails'>Stock Details</Link>
                 </li>
                 <li className='sidenav-close'>
                     <Link to='/transactions'>Transactions</Link>
@@ -52,23 +48,24 @@ class Nav extends Component{
         const links = this.renderLinks();
         return (
             <Fragment>
-                <nav className='nav'>
-                    <div className='nav-wrapper'>
-                        <a href='#' data-target='sidenav' className='sidenav-trigger'>
-                            <i className='material-icons'>menu</i>
-                        </a>
+                <div className='navbar-fixed'>
+                    <nav className='nav'>
+                        <div className='nav-wrapper'>
+                            <a href='#' data-target='sidenav' className='sidenav-trigger'>
+                                <i className='material-icons'>menu</i>
+                            </a>
 
-                        <Link className='brand-logo' to='/home'>
-                            <img src={Logo}/>
+                            <Link className='brand-logo' to='/home'>
+                                The Cash Game
+                            </Link>
 
-                        </Link>
-
-                        <ul className='right hide-on-med-and-down'>
-                            {links}
-                        </ul>
-                    </div>
-                </nav>
-                <SideNav links={links}/>
+                            <ul className='right hide-on-med-and-down'>
+                                {links}
+                            </ul>
+                        </div>
+                    </nav>
+                    <SideNav links={links}/>
+                </div>
             </Fragment>
         );
     }
