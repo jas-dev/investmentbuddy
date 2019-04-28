@@ -6,6 +6,7 @@ import Stock_chart from '../../chart/stock_chart';
 import AccountInfo from '../../account/info';
 import OpenTrades from '../../helpers/open_trades';
 import OffsetTrades from '../../helpers/offset_trades';
+import './portfolio.scss';
 
 class Portfolio extends Component{
     constructor(props){
@@ -49,11 +50,11 @@ class Portfolio extends Component{
                     </div>
                 </div>
 
-                <div className="row card center ">
-                    <div className="col s12">
+                <div className="row card center card-padout valign-wrapper">
+                    <div className="col s6">
                         <AccountInfo/>
                     </div>
-                    <div className="col s12 container">
+                    <div className="col s6 container">
                         <AddFunds handler={this.handleAddFunds}/>
                     </div>
                 </div>
