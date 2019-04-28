@@ -4,7 +4,7 @@ class Faq extends Component {
 
     componentDidMount() {
         const elems = document.querySelectorAll('.collapsible');
-        const instances = M.Collapsible.init(elems);
+        M.Collapsible.init(elems);
     }
 
     render() {

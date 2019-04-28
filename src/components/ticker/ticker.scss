@@ -29,15 +29,16 @@ $duration: 70s;
 
 .ticker-wrap {
 
-  position: static;
-  display: block;
-  top: 10vh;
-  width: 100%;
+  position: fixed;
+
+  width: 100vw;
   overflow: hidden;
   height: 2.75rem;
   background-color: rgba(#000, 0.9);
   padding-left: 100%;
   box-sizing: content-box;
+
+
 
 
   .ticker {

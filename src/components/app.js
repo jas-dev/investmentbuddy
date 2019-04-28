@@ -20,28 +20,28 @@ import Ticker from './ticker'
 
 const App = () => (
     <div>
-            <Nav/>
-            <div>
-                    <Ticker/>
-            </div>
+        <Nav/>
+        <div className='ticker-container'>
+            <Ticker/>
+        </div>
 
-            <Switch>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/stockdetails/:symbol" render={(routingProps)=>{
-                            return <StockDetails {...routingProps}/>
-                    }}/>
-                    <Route path="/portfolio" component={Portfolio}/>
-                    <Route path="/faq" component={Faq}/>
-                    <Route path="/sign-in" component={SignIn}/>
-                    <Route path="/sign-up" component={SignUp}/>
-                    <Route path="/dashboard" component={Dashboard}/>
-                    <Route path="/stocks" component={AllStocks}/>
-                    <Route path="/transactions" component={Transactions}/>
-                    <Route path="/trade" component={MakeTrades}/>
-                    <Route path="/" component={Home}/>
-                    <Route component={Page404}/>
-            </Switch>
+        <Switch>
+            <Route path="/home" component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/stockdetails/:symbol" render={(routingProps)=>{
+                return <StockDetails {...routingProps}/>
+            }}/>
+            <Route path="/portfolio" component={Portfolio}/>
+            <Route path="/faq" component={Faq}/>
+            <Route path="/sign-in" component={SignIn}/>
+            <Route path="/sign-up" component={SignUp}/>
+            <Route path="/dashboard" component={Dashboard}/>
+            <Route path="/stocks" component={AllStocks}/>
+            <Route path="/transactions" component={Transactions}/>
+            <Route path="/trade" component={MakeTrades}/>
+            <Route path="/" component={Home}/>
+            <Route component={Page404}/>
+        </Switch>
     </div>
 );
 
