@@ -27,7 +27,7 @@ export default props =>{
     });
 
     return (
-        <div className='card'>
+        <div className='card card-padout'>
             <table className='responsive-table highlight'>
                 <thead>
                     <tr>

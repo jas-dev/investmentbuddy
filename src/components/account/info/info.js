@@ -42,7 +42,7 @@ class AccountInfo extends Component{
 
         return(
             <div>
-                <div className="col s3">
+                <div className="col s6">
                     <div>Available Balance:</div>
                     <div>Available to Trade:</div>
                     <div>Total Assets:</div>
