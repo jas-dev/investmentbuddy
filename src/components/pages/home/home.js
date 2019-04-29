@@ -3,13 +3,19 @@ import './home.scss'
 import About from '../about/about';
 import Faq from '../faq/faq';
 import {nyseImg} from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
+import M from 'materialize-css';
+import "materialize-css/dist/css/materialize.min.css";
 
 
 
 class Home extends Component {
     componentDidMount() {
-        const elems = document.querySelectorAll('.parallax');
-        const instances = M.Parallax.init(elems);
+
+        this.parallax = document.querySelectorAll('.parallax');
+
+
+        M.Parallax.init(this.parallax);
+
     }
 
     render() {
@@ -17,7 +23,9 @@ class Home extends Component {
         return (
             <div>
                 <div className="parallax-container">
-                    <div className="parallax">
+                    <div id="parallax" className="parallax" ref={Parallax=>{
+                        this.parallax = Parallax;
+                    }}>
                         <img src={nyseImg}/>
                     </div>
                 </div>
@@ -28,7 +36,9 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="parallax-container">
-                    <div className="parallax">
+                    <div id="parallax" className="parallax" ref={Parallax=>{
+                        this.parallax = Parallax;
+                    }}>
                         <img src={nyseImg}/>
                     </div>
                 </div>

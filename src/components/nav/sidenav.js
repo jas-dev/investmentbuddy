@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class SideNav extends Component{
     componentDidMount() {
         M.Sidenav.init(this.sidenav) /*M is the materialize object*/
