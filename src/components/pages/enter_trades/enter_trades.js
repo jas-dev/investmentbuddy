@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import MakeTradesForm from './make_trades_form';
+import MakeTradesForm from './enter_trades_form';
 
-import './make_trades.scss';
+import './enter_trades.scss';
 import axios from "axios";
 
 class MakeTrades extends Component {
@@ -31,8 +31,7 @@ class MakeTrades extends Component {
     render() {
         return (
             <div className='trade-page container'>
-                <h5>Make Trades</h5>
-                <div className='divider'/>
+                <h5>Enter Trades</h5>
                 <MakeTradesForm handler={this.submit}/>
             </div>
         )

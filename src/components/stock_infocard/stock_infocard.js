@@ -23,7 +23,7 @@ class Card extends Component{
         return (
 
             <div className=''>
-                <table className='responsive-table striped card'>
+                <table className='responsive-table striped card card-padout'>
                     <thead>
                         <tr>
                             <th>Company Name</th>
@@ -42,7 +42,7 @@ class Card extends Component{
                     </tbody>
                 </table>
 
-                <table className='responsive-table striped card'>
+                <table className='responsive-table striped card card-padout'>
                     <thead>
                         <tr>
                             <th>Price</th>

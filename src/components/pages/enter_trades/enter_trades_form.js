@@ -5,6 +5,7 @@ const MakeTradesForm = props => {
     const {handler, handleSubmit} = props;
     return (
         <form onSubmit={handleSubmit(handler)} className='trade-form card'>
+
             <div className="row accountNum-wrapper">
                 <div className='input-field account-num-input col s10 offset-s1'>
                     <label htmlFor='accountNum-field'>Account Number</label>
