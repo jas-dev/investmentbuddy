@@ -4,17 +4,17 @@ require_once("functions.php");
 set_exception_handler("handleError");
 require_once("mysqlconnect.php");
 
-//$accountId = $_GET["account_id"];
-//$symbol = $_GET["symbol"];  //'AAPL'
-//$buy_sell = $_GET["buy_sell"]; //'B'
-//$shares = (int)$_GET["shares"]; //80
-//$price = $_GET["price"]; //203
+$accountId = $_GET["account_id"];
+$symbol = $_GET["symbol"];  //'AAPL'
+$buy_sell = $_GET["buy_sell"]; //'B'
+$shares = (int)$_GET["shares"]; //80
+$price = $_GET["price"]; //203
 
-$accountId = 2;
-$symbol = 'AAPL';
-$buy_sell = 'S';
-$shares = 110;
-$price = 210;
+//$accountId = 2;
+//$symbol = 'AAPL';
+//$buy_sell = 'S';
+//$shares = 110;
+//$price = 210;
 
 $price_range = 0.5;
 if($buy_sell === 'B'){

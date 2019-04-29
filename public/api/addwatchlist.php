@@ -36,7 +36,7 @@ if ($symbol === $row["symbol"]) {
         throw new Exception(mysqli_error($conn));
     }
     $output['success']=true;
-    $output['message']="Symbol has been added to your watchlist";
+    $output['message']="$symbol has been added to your watchlist";
 }
 
 print(json_encode($output));

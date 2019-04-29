@@ -34,7 +34,7 @@ if ($symbol === $row["symbol"]) {
         throw new Exception(mysqli_error($conn));
     }
     $output['success']=true;
-    $output['message']="Symbol has been removed from your watchlist";
+    $output['message']="$symbol has been removed from your watchlist";
 } else {
     $output['message']="This symbol is NOT on your watchlist - unable to delete";
 }
