@@ -1,6 +1,17 @@
 .nav{
   background-color: #004d00;
 
+  .nav-wrapper {
+    ul {
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
 }
 img{
   height: 5vh;
