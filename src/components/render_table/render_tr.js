@@ -14,7 +14,7 @@ export default props =>{
             <button onClick={(event) => {
                 props.delete(props.values[0]);
                 event.stopPropagation();
-            }} className="btn waves-effect waves-light green darken-2">Delete</button>
+            }} className="btn green darken-2">Delete</button>
         </td>
     }
 
