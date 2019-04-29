@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import axios from 'axios';
 import './info.scss';
 import {convertAccountData} from "../../helpers";
@@ -41,19 +41,24 @@ class AccountInfo extends Component{
         console.log('account info state from render:',this.state);
 
         return(
-            <div>
-                <div className="col s6">
-                    <div>Available Balance:</div>
-                    <div>Available to Trade:</div>
-                    <div>Total Assets:</div>
+            <Fragment>
+                <div className='row'>
+                    <div className="col s6 "><i className="material-icons">account_balance</i><b>Available</b></div>
+                    <div className="col s5 left offset-s2">
+
+                        <div>Balance:</div>
+                        <div>To Trade:</div>
+                        <b>Total</b>
+                        <div>Assets:</div>
+                    </div>
+                    <div className="col s3">
+                        <div className="">{this.state.accountData.avail_balance}</div>
+                        <div className="">{this.state.accountData.avail_to_trade}</div>
+                        <br/>
+                        <div className="">{this.state.accountData.total_asset}</div>
+                    </div>
                 </div>
-
-                <div className="">{this.state.accountData.avail_balance}</div>
-                <div className="">{this.state.accountData.avail_to_trade}</div>
-                <div className="">{this.state.accountData.total_asset}</div>
-
-            </div>
-
+            </Fragment>
         );
     }
 }

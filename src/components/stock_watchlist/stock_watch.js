@@ -46,11 +46,14 @@ class Watchlist extends Component{
         }
 
         return(
-           <div className='container'>
+
+            <div className='container'>
                 <h5 className=''>Watchlist</h5>
                 <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>
                 <AddToWatchlistForm handler={this.handleAddToWatchlist}/>
-           </div>
+
+            </div>
+
         )
     }
 }

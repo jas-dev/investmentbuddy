@@ -2,24 +2,24 @@ import React from 'react';
 import Portfolio from '../portfolio/portfolio';
 import Transactions from '../transactions/transactions';
 import Watchlist from "../../stock_watchlist/stock_watch";
+import EnterTrades from '../enter_trades/enter_trades';
 
 export default props =>{
     return (
         <div className='dashboard-wrapper'>
             <div className='container'>
-                <h4>Dashboard</h4>
+                <h1>Dashboard</h1>
             </div>
-
-            <div className='divider'/>
             <div className=''>
                 <Portfolio/>
             </div>
-            <div className='divider'/>
+            <div>
+                <EnterTrades/>
+            </div>
             <div className=''>
                 <Watchlist history={props.history}/>
             </div>
-            <div className='divider'/>
-            <div className=''>
+            <div id='transactions'>
                 <Transactions/>
             </div>
         </div>

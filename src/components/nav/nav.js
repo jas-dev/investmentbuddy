@@ -5,42 +5,64 @@ import './nav.scss'
 
 
 class Nav extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            signedIn: true
+        }
+    }
     renderLinks(){
-        return (
-            <Fragment>
-                <li className='.sidenav-close'>
-                    <Link to='/dashboard'>Dashboard</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/trade'>Make Trades</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/portfolio'>Portfolio</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/stocks'>All Stocks</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/transactions'>Transactions</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/home'>Home</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/about'>About</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/faq'>FAQ</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/sign-up'>Sign up</Link>
-                </li>
-                <li className='sidenav-close'>
-                    <Link to='/sign-in'>Sign in</Link>
-                </li>
-            </Fragment>
+        if (!!this.state.signedIn){
+            return (
+                <Fragment>
+                    <li className='.sidenav-close'>
+                        <Link to='/dashboard'>Dashboard</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/trade'>Enter Trades</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/portfolio'>Portfolio</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/stocks'>All Stocks</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/transactions'>Transactions</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/home'>Home</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/about'>About</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/faq'>FAQ</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/sign-out'>Sign Out</Link>
+                    </li>
+                </Fragment>
+            );
+        } else {
+            return (
+                <Fragment>
+                    <li className='sidenav-close'>
+                        <Link to='/home'>Home</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/about'>About</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/faq'>FAQ</Link>
+                    </li>
+                    <li className='sidenav-close'>
+                        <Link to='/sign-in'>Sign in</Link>
+                    </li>
+                </Fragment>
+            );
+        }
 
-        )
 
     }
 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import AddFunds from './add_funds/add_funds';
-import RenderTable from "../../render_table/render_table";
 import Stock_chart from '../../chart/stock_chart';
 import AccountInfo from '../../account/info';
 import OpenTrades from '../../helpers/open_trades';
@@ -50,11 +49,12 @@ class Portfolio extends Component{
                     </div>
                 </div>
 
-                <div className="row card center card-padout valign-wrapper">
+                <div className="row card card-padout">
                     <div className="col s6">
                         <AccountInfo/>
                     </div>
-                    <div className="col s6 container">
+
+                    <div className="col s6 ">
                         <AddFunds handler={this.handleAddFunds}/>
                     </div>
                 </div>

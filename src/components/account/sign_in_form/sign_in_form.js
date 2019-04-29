@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 
 class SignIn extends Component{
+
     handleSignIn = (values)=>{
         console.log('Form Values:',values);
 
@@ -10,9 +11,8 @@ class SignIn extends Component{
 
     render(){
         return (
-            <div className='container'>
-                <h1 className="center">Sign In</h1>
-                <div className=''>
+            <div className='col s6 container'>
+                <div className='card card-padout'>
                     <form>
                         <div className='input-field'>
                             <input className='input' id='email' name='email' type='text'/>

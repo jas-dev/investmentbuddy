@@ -32,7 +32,7 @@ class Transactions extends Component{
 
         return (
             <div className='container'>
-                <h5>Transactions</h5>
+                <h5>Transaction History</h5>
                 <RenderTable stocks={this.state.stocks}/>
             </div>
         )
