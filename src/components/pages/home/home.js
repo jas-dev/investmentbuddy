@@ -3,8 +3,7 @@ import './home.scss'
 import About from '../about/about';
 import Faq from '../faq/faq';
 import {nyseImg} from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
-import M from 'materialize-css';
-import "materialize-css/dist/css/materialize.min.css";
+
 
 
 
