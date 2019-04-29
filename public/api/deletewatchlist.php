@@ -4,10 +4,15 @@ require_once("functions.php");
 set_exception_handler("handleError");
 require_once("mysqlconnect.php");
 
+$output = [
+    "success"=>false,
+    "message"=>""
+];
+
 $accountId = $_GET["account_id"];
 $symbol = $_GET["symbol"];
 //$accountId = 2;
-//$symbol = 'AAPL';
+//$symbol = 'MSFT';
 
 $query = "SELECT `symbol` FROM `account_watchlist` 
 WHERE `account_id`=$accountId AND `symbol`='$symbol' ";
@@ -28,14 +33,12 @@ if ($symbol === $row["symbol"]) {
     if (!$queryResult){
         throw new Exception(mysqli_error($conn));
     }
+    $output['success']=true;
+    $output['message']="$symbol has been removed from your watchlist";
 } else {
-    echo ("This symbol is not on your watchlist - unable to delete");
-    exit;
+    $output['message']="This symbol is NOT on your watchlist - unable to delete";
 }
 
-$output = [
-    "success"=>true
-];
 print(json_encode($output));
 
 ?>

@@ -72,7 +72,7 @@ class Watchlist extends Component{
     }
 
     render(){
-        if(!this.state.stocks.length){
+        if(!this.state){
             return null;
         }
 
@@ -80,9 +80,8 @@ class Watchlist extends Component{
 
             <div className='container'>
                 <h5 className=''>Watchlist</h5>
-                {this.state.stocks && <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>}
+                {this.state.stocks && this.state.stocks.length && <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>}
                 <AddToWatchlistForm handler={this.handleAddToWatchlist}/>
-
             </div>
 
         )
