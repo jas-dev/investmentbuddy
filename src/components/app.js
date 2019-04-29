@@ -33,10 +33,6 @@ class App extends Component {
             return (
                 <div>
                     <Nav/>
-                    <div className='ticker-container'>
-                        <Ticker/>
-                    </div>
-
                     <Switch>
                         <Route path="/home" component={Home}/>
                         <Route path="/about" component={About}/>
