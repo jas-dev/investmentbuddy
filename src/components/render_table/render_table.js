@@ -13,7 +13,7 @@ export default props =>{
 
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {
-        columnNames.push('delete');
+        columnNames.push('Remove');
     }
 
     // render the table headers
