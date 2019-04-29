@@ -1,32 +1,39 @@
 import React, {Component} from 'react';
+import {reduxForm, Field} from 'redux-form';
 
-
-class SignIn extends Component{
-
-    handleSignIn = (values)=>{
-        console.log('Form Values:',values);
-
-        this.props.signIn(values);
-    };
+class SignInForm extends Component{
 
     render(){
+        const {handleSubmit, signIn} = this.props;
+        console.log('sign in form props:', this.props);
+
+
         return (
             <div className='col s6 container'>
                 <div className='card card-padout'>
-                    <form>
+                    <form onSubmit={handleSubmit(signIn)}>
                         <div className='input-field'>
-                            <input className='input' id='email' name='email' type='text'/>
+                            <Field id='email' name='email' type='text' component='input'/>
                             <label htmlFor='email'>Email</label>
                         </div>
                         <div className='input-field'>
-                            <input id='password' name='password' type='text' className=''/>
+                            <Field id='password' name='password' type='text' component='input'/>
                             <label htmlFor='password'>Password</label>
                         </div>
-                        <button className='btn btn-small black'>Sign In</button>
+                        <div className="row">
+                            <div className="col s12 center">
+                                <button className='btn btn-small black'>Sign-In</button>
+                                <button className='btn btn-small black'>Clear</button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
         );
     }
 }
-export default SignIn;
+
+export default reduxForm({
+    form: 'sign_in_form'
+})(SignInForm);
