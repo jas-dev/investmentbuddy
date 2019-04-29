@@ -41,7 +41,7 @@ class Faq extends Component {
                             </div>
                         </li>
                         <li>
-                            <div className="collapsible-header"><i className="material-icons">help</i>How was The Cash Game made?
+                            <div className="collapsible-header"><i className="material-icons">help</i>How was InvestmentBuddy made?
                             </div>
                             <div className="collapsible-body"><span>Please see the About section for complete list of tools, technologies, and developers involved.</span></div>
                         </li>
@@ -50,7 +50,7 @@ class Faq extends Component {
                                 your stock
                                 data?
                             </div>
-                            <div className="collapsible-body"><span>Our app uses the AlphaVantage stock market API, and delivers accurate, real-world stock data up to the previous trading day.</span>
+                            <div className="collapsible-body"><span>Our app uses the AlphaVantage stock market API, and delivers real data accurate up to the current trading day.</span>
                             </div>
                         </li>
                     </ul>

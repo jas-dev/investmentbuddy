@@ -33,7 +33,7 @@ if ($symbol === $row["symbol"]) {
        VALUES ($accountId, '$symbol')";
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult){
-        throw new Exception(mysqli_error($conn));
+        throw new Exception('This symbol does not exist.');
     }
     $output['success']=true;
     $output['message']="$symbol has been added to your watchlist";

@@ -14,7 +14,6 @@ console.log("Tr props: ", props);
             <button onClick={(event) => {
                 props.delete(props.values[0]);
                 event.stopPropagation();
-
             }} className="btn green darken-2">Remove</button>
         </td>
     }
