@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.scss'
-import Logo from '../../../assets/images/usdcoin.png'
+import Logo from '../../../assets/images/moneytree.jpg'
 
 
 export default props =>{
