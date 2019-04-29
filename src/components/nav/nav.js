@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import Search from '../search/search'
 import './nav.scss'
-import Logo from '../../assets/images/moneybag.png'
+import Logo from '../../assets/images/dollar.gif'
 
 class Nav extends Component{
     renderLinks(){
