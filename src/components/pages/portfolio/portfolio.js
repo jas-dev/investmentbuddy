@@ -10,7 +10,6 @@ import './portfolio.scss';
 class Portfolio extends Component{
     constructor(props){
         super(props);
-
         this.state = {
             offsetTrades: [],
             openTrades: []

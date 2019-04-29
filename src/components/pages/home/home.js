@@ -2,16 +2,14 @@ import React, {Component} from 'react';
 import './home.scss'
 import About from '../about/about';
 import Faq from '../faq/faq';
-import {nyseImg} from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
-
-
+import nyseImg from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
 
 
 class Home extends Component {
     componentDidMount() {
         document.querySelectorAll('.parallax');
         M.Parallax.init(this.parallax);
-
+        M.Parallax.init(this.parallax2);
     }
 
     render() {
@@ -33,7 +31,7 @@ class Home extends Component {
                 </div>
                 <div className="parallax-container">
                     <div id="parallax" className="parallax" ref={element=>{
-                        this.parallax = element
+                        this.parallax2 = element
                     }}>
                         <img src={nyseImg}/>
                     </div>
