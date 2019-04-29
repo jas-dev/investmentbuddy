@@ -9,10 +9,7 @@ import {nyseImg} from "../../../../public/dist/assets/images/NewYorkStockExchang
 
 class Home extends Component {
     componentDidMount() {
-
-        this.parallax = document.querySelectorAll('.parallax');
-
-
+        document.querySelectorAll('.parallax');
         M.Parallax.init(this.parallax);
 
     }
@@ -22,8 +19,8 @@ class Home extends Component {
         return (
             <div>
                 <div className="parallax-container">
-                    <div id="parallax" className="parallax" ref={Parallax=>{
-                        this.parallax = Parallax;
+                    <div id="parallax" className="parallax" ref={element=> {
+                        this.parallax = element
                     }}>
                         <img src={nyseImg}/>
                     </div>
@@ -35,8 +32,8 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="parallax-container">
-                    <div id="parallax" className="parallax" ref={Parallax=>{
-                        this.parallax = Parallax;
+                    <div id="parallax" className="parallax" ref={element=>{
+                        this.parallax = element
                     }}>
                         <img src={nyseImg}/>
                     </div>

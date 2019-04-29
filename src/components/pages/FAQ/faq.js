@@ -4,14 +4,14 @@ class Faq extends Component {
 
     componentDidMount() {
         const elems = document.querySelectorAll('.collapsible');
-        M.Collapsible.init(elems);
+        const instances = M.Collapsible.init(elems);
     }
 
     render() {
         return (
             <div className="container">
                 <h1 className='center'>FAQ</h1>
-                <div className="card">
+                <div className="card faq">
                     <ul className="collapsible">
                         <li>
                             <div className="collapsible-header"><i className="material-icons">help</i>How do I use

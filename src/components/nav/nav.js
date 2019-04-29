@@ -12,7 +12,7 @@ class Nav extends Component{
         }
     }
     renderLinks(){
-        if (!!this.state.signedIn){
+        if (this.state.signedIn){
             return (
                 <Fragment>
                     <li className='.sidenav-close'>
@@ -86,8 +86,8 @@ class Nav extends Component{
                             </ul>
                         </div>
                     </nav>
-                    <SideNav links={links}/>
                 </div>
+                    <SideNav links={links}/>
             </Fragment>
         );
     }

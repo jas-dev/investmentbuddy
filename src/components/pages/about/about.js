@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.scss'
-import Logo from '../../../assets/images/usdcoin.png'
+
 
 
 export default props =>{
@@ -8,7 +8,7 @@ export default props =>{
         <div className='about-wrapper container'>
             <h1 className='center'> About</h1>
             <div className='about'>
-                <span>Welcome to MoneyTrainer! We retrieve live stock prices and historical data so you can make better trading decisions! Simulate trades with your available funds and watch your profits rise!</span>
+                <span>Welcome to MoneyTrainer! We retrieve live stock prices and historical data so you can learn to make trading decisions! Simulate trades with your available funds and watch your profits rise!</span>
 
 
             </div>
