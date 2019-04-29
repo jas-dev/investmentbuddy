@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import RenderTable from "../../render_table/render_table";
 import axios from "axios";
+import Search from '../../search';
 
 
 class AllStocks extends Component{
@@ -43,7 +44,10 @@ class AllStocks extends Component{
 
         return(
             <div className='all-stocks container'>
-                <h5 className=''>All Stocks</h5>
+                <h1 className=''>All Stocks</h1>
+                <div className="row">
+                    <Search/>
+                </div>
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>
         )

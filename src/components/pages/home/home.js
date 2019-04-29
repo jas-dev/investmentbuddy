@@ -1,25 +1,48 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './home.scss'
 import About from '../about/about';
-import StocksDetails from '../stock_details/stock_details';
-import Portfolio from '../portfolio/portfolio';
 import Faq from '../faq/faq';
+import {nyseImg} from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
 
 
 
-export default props =>{
-console.log("Home Props:", props);
-    return (
-        <div className='body'>
+
+class Home extends Component {
+    componentDidMount() {
+        document.querySelectorAll('.parallax');
+        M.Parallax.init(this.parallax);
+
+    }
+
+    render() {
+        console.log("Home Props:", this.props);
+        return (
             <div>
-                <About/>
+                <div className="parallax-container">
+                    <div id="parallax" className="parallax" ref={element=> {
+                        this.parallax = element
+                    }}>
+                        <img src={nyseImg}/>
+                    </div>
+                </div>
+                <div className="section white">
+                    <div className="row container">
+                        <About/>
+                        <Faq/>
+                    </div>
+                </div>
+                <div className="parallax-container">
+                    <div id="parallax" className="parallax" ref={element=>{
+                        this.parallax = element
+                    }}>
+                        <img src={nyseImg}/>
+                    </div>
+                </div>
             </div>
+        )
 
-            
-            <div className='footer'>
-                <div className='divider'/>
-            </div>
-        </div>
-    )
+    }
 }
+
+export default Home;
 
