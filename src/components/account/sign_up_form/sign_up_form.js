@@ -11,24 +11,24 @@ const SignUpForm = props =>{
                 <form onSubmit={handleSubmit(signUp)}>
                     <div className='input-field'>
                         <Field component='input'
-                               id='email'
+                               id='signUpEmail'
                                name='email'
                                type='text'
                         />
 
-                        <label htmlFor='email'>Email</label>
+                        <label htmlFor='signUpEmail'>Email</label>
                     </div>
 
                     <div className='input-field'>
                         <Field component='input'
-                               id='password'
+                               id='signUpPassword'
                                name='password'
                                type='text'
                         />
 
-                        <label htmlFor='password'>Create Password</label>
+                        <label htmlFor='signUpPassword'>Create Password</label>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col s12 center">
                             <button className='confirm btn btn-small black'>Submit</button>

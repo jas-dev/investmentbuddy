@@ -13,7 +13,9 @@ class SignInForm extends Component{
                 <div className='card card-padout'>
                     <form onSubmit={handleSubmit(signIn)}>
                         <div className='input-field'>
-                            <Field id='email' name='email' type='text' component='input'/>
+                            <Field id='email'
+                                   name='email'
+                                   type='text' component='input'/>
                             <label htmlFor='email'>Email</label>
                         </div>
                         <div className='input-field'>
