@@ -28,12 +28,43 @@ class Watchlist extends Component{
     }
 
     handleAddToWatchlist = inputs => {
-        console.log('trying to add to watchlist, need endpoint');
-        console.log(inputs);
+        const {symbol} = inputs;
+        const account_id = 2;
+        let message = '';
+        axios.get(`/api/addwatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
+            console.log('response from addtowatchlist:', resp);
+            if (resp.data.message) {
+                message = resp.data.message;
+                if (resp.data.success) {
+                    this.getStockData();
+                }
+            } else {
+                message = 'Could not connect to database, try again later.'
+            }
+            M.toast({
+                html: message
+            });
+            this.getStockData();
+        })
     }
 
     handleDeleteFromWatchlist = symbol => {
-        console.log('trying to delete ', symbol);
+        const account_id = 2;
+        let message = '';
+        axios.get(`/api/deletewatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
+            console.log('response from deletewatchlist:', resp);
+            if (resp.data.message) {
+                message = resp.data.message;
+                if (resp.data.success) {
+                    this.getStockData();
+                }
+            } else {
+                message = 'Could not connect to database, try again later.'
+            }
+            M.toast({
+                html: message
+            });
+        })
     }
 
     goToDetails = symbol =>{
@@ -41,7 +72,7 @@ class Watchlist extends Component{
     }
 
     render(){
-        if(!this.state.stocks.length){
+        if(!this.state){
             return null;
         }
 
@@ -49,9 +80,8 @@ class Watchlist extends Component{
 
             <div className='container'>
                 <h5 className=''>Watchlist</h5>
-                <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>
+                {this.state.stocks && this.state.stocks.length && <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>}
                 <AddToWatchlistForm handler={this.handleAddToWatchlist}/>
-
             </div>
 
         )
