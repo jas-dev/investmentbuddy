@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import axios from 'axios';
-import './info.scss';
+import './account_info.scss';
 import {convertAccountData} from "../../helpers";
 import RenderTable from '../../render_table/render_table';
 

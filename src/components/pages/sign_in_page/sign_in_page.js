@@ -1,6 +1,6 @@
 import React from 'react';
-import SignInForm from '../sign_in_form';
-import SignUpForm from '../sign_up_form';
+import SignInForm from '../../account/sign_in_form/sign_in_form';
+import SignUpForm from '../../account/sign_up_form/sign_up_form';
 
 export default props =>{
     return (

@@ -8,7 +8,7 @@ import About from './pages/about';
 import StockDetails from './pages/stock_details/stock_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
-import SignIn from './account/sign_in_page';
+import SignIn from './pages/sign_in_page';
 import Dashboard from './pages/dashboard/dashboard';
 import AllStocks from './pages/all_stocks/all_stocks';
 import Transactions from './pages/transactions/transactions';

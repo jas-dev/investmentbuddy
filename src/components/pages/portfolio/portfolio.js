@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import AddFunds from './add_funds/add_funds';
 import Stock_chart from '../../chart/stock_chart';
-import AccountInfo from '../../account/info';
+import AccountInfo from '../../account/account_info';
 import OpenTrades from '../../helpers/open_trades';
 import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
