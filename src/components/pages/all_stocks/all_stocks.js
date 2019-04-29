@@ -36,6 +36,12 @@ class AllStocks extends Component{
         this.props.history.push(`/stockdetails/${symbol}`)
     }
 
+    addToWatchList(symbol){
+        axios.get("/api/addwatchlist.php").then(response=>{
+            console.log("Add to watch list response: ", response);
+        })
+    }
+
     render(){
         console.log("All Stocks Props:", this.props);
         if(!this.state.stocks.length){
@@ -48,7 +54,7 @@ class AllStocks extends Component{
                 <div className="row">
                     <Search/>
                 </div>
-                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} addWatch={this.addToWatchList}/>
             </div>
         )
     }

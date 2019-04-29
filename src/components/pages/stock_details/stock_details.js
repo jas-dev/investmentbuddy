@@ -39,10 +39,10 @@ class StocksDetails extends Component{
             return <Loader/>;
         } else {
         return(
-            <div className='details-wrapper container'>
+            <div className='details-wrapper container center'>
                 <h5 className=''>Stock Details</h5>
-                <div className='row card'>
-                    <div className='col s12 center'>
+                <div className='row'>
+                    <div className='col s12'>
                     <Stock_chart {...this.state.history}/>
                     </div>
                     <div className='col s12'>

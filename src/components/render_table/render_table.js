@@ -9,11 +9,14 @@ export default props =>{
         return null;
     }
 
-    console.log('rt props:',props.stocks);
+    console.log('render table props:',props);
 
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {
-        columnNames.push('Remove');
+        columnNames.push('');
+    }
+    if (props.addWatch) {
+        columnNames.push('');
     }
 
     // render the table headers
@@ -25,7 +28,7 @@ export default props =>{
 
     const tableRow = props.stocks.map((stock, index) => {
         return (
-            <RenderTr delete={props.delete} watchlist={props.watchlist} key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails}/>
+            <RenderTr delete={props.delete} watchlist={props.watchlist} key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails} addWatch={props.addWatch}/>
         )
     });
 
