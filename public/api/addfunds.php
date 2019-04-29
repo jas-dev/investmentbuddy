@@ -11,7 +11,7 @@ $output = [
 ];
 
 $accountId = $_GET["account_id"];
-$amount = $_GET["amount"];
+$amount = (int)$_GET["amount"];
 
 $accountQuery = "
     SELECT `total_asset`, `avail_balance`, `avail_to_trade` 
