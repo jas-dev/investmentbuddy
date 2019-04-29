@@ -11,48 +11,18 @@ require_once("functions.php");
 set_exception_handler("handleError");
 
 //$companyQuery = "SELECT * FROM `company`";
-//$companyResult = mysqli_query($conn, $companyQuery);
-//if (!$companyResult){
-//    throw new Exception(mysqli_error($conn));
-//}
+//SELECT symbol FROM `company` WHERE symbol not in (select distinct symbol from stock_history);
+$companyQuery = "SELECT `symbol` FROM `company` WHERE `symbol` NOT IN (SELECT DISTINCT SYMBOL FROM `stock_history`)";
+$companyResult = mysqli_query($conn, $companyQuery);
+if (!$companyResult){
+    throw new Exception(mysqli_error($conn));
+}
 
-$stockList = ['AAPL',
-    'AMZN',
-    'AXP',
-    'BA',
-    'CAT',
-    'COST',
-    'CSCO',
-    'CVX',
-    'DIS',
-    'FB',
-    'GOOGL',
-    'GS',
-    'IBM',
-    'INTC',
-    'JNJ',
-    'JPM',
-    'MCD',
-    'MMM',
-    'MRK',
-    'MSFT',
-    'NKE',
-    'PFE',
-    'PG',
-    'TRV',
-    'UNH',
-    'UTX',
-    'V',
-    'VZ',
-    'WBA',
-    'WMT',
-    'XOM',
-];
-//while($companyRow=mysqli_fetch_assoc($companyResult)){
-//    $stockList[] = $companyRow["symbol"];
-//}
+while($companyRow=mysqli_fetch_assoc($companyResult)){
+    $stockList[] = $companyRow["symbol"];
+}
 
-$counter = 0;
+//$counter = 0;
 for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
 //    if ($counter>2){
 //        break;
@@ -70,7 +40,7 @@ for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
 
 //    $historyCounter = 0;
     foreach ($data as $key=>$value) {
-//        if ($historyCounter >= 300){
+//        if ($historyCounter >= 2700){
 //            break;
 //        }
 

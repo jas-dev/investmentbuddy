@@ -7,7 +7,7 @@ class Search extends Component {
                 <form action="">
                     <input type="text" placeholder="Search by company or symbol"/>
                     <label htmlFor=""></label>
-                    <button className="search btn btn-small">Find</button>
+                    <button className="search btn green darken-2">Find</button>
                 </form>
             </div>
         )

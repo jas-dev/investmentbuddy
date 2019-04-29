@@ -40,15 +40,11 @@ var chartOptions = {
             }
         }]
     },
-    legend:{
-        display:true,
-        position:'right',
-        labels:{
-            fontColor:'black',
-            fontSize: 16
-        }
+    legend: {
+        display: false
+    }, 
 
-    },
+
     layout: {
         padding: {
             left: 50,
@@ -67,12 +63,13 @@ class Stock_chart extends Component{
 
     constructor (props) {
         super (props);
+        chartOptions.title.text = "Stock Price Chart - "+props.label;
         this.state = {
             lineChartData: {
                 labels: props.xData, 
                 datasets: [
                     {
-                        label: props.label,
+                        
                         data: props.yData,
                         borderColor: 'darkblue',
                         fill: false
@@ -94,7 +91,7 @@ class Stock_chart extends Component{
 
     render(){
         return(
-            <div className="container">
+            <div>
                 <canvas id="stockChart" ref={this.chartRef} />
             </div>
         )

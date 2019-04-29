@@ -13,7 +13,7 @@ const AddToWatchlistForm = props => {
                            type='text'/>
                 </div>
                 <button className="btn green darken-2">Add to watchlist
-                    <i className="material-icons right">send</i>
+                    <i className="material-icons left">add</i>
                 </button>
         </form>
     );

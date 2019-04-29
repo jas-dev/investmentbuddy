@@ -4,17 +4,16 @@ require_once("functions.php");
 set_exception_handler("handleError");
 require_once("mysqlconnect.php");
 
-//$accountId = $_GET["account_id"];
-//$symbol = $_GET["symbol"];  //'AAPL'
-//$buy_sell = $_GET["buy_sell"]; //'B'
-//$shares = (int)$_GET["shares"]; //80
-//$price = $_GET["price"]; //203
+$accountId = $_GET["account_id"];
+$symbol = $_GET["symbol"];  //'AAPL'
+$buy_sell = $_GET["buy_sell"]; //'B'
+$shares = (int)$_GET["shares"]; //80
+$price = $_GET["price"]; //203
 
-$accountId = 2;
-$symbol = 'AAPL';
-$buy_sell = 'S';
-$shares = 110;
-$price = 210;
+$output = [
+    'success' => false,
+    'message' => ''
+];
 
 $price_range = 0.5;
 if($buy_sell === 'B'){
@@ -33,13 +32,12 @@ if (!$queryResult){
     throw new Exception(mysqli_error($conn));
 }
 if(mysqli_num_rows($queryResult) === 0){
-    throw new Exception('stock symbol does not exist in company table - must add symbol before trading');
+    throw new Exception('Stock symbol does not exist in company table - must add symbol before trading.');
 }
 
 // validate Shares must be > 0, Price must be > 0
 if ($shares <= 0 || $price <= 0){
-    throw new Exception('Share and/or Price must be greater than 0');
-    exit;
+    throw new Exception('Share and/or price must be greater than 0.');
 }
 
 //=====================================================================================================
@@ -56,8 +54,7 @@ $currPrice = $row["price"];
 //if current price is null or 0, skip this check, user can buy whatever price they entered
 if ($currPrice != 0 && $currPrice != null) {
     if ($price < $currPrice * (1-$price_range) or $price > $currPrice * (1+$price_range)) {
-        throw new Exception('Price out of range, must be within last market price +/- '.$price_range);
-        exit;
+        throw new Exception('Price out of range, must be within last market price +/- '.$price_range.'.');
     }
 }
 
@@ -74,13 +71,13 @@ if ($buy_sell === 'S') {
         throw new Exception(mysqli_error($conn));
     }
     if (mysqli_num_rows($queryResult) === 0) {
-        throw new Exception("You cannot sell stocks that you don't have");
+        throw new Exception("You cannot sell stocks that you don't have.");
     }
     $row = mysqli_fetch_assoc($queryResult);
     $numBuyShares = $row["total_buy_shares"];
     if ($shares > $numBuyShares) {
-        echo("You don't have enough shares in your portfolio to sell");
-        exit;
+        $output['message'] = 'You don\'t have enough shares in your portfolio to sell.';
+        print(json_encode($output));
     }
 // this is a BUY transaction - verify there is enough money in the account to make trade
 } else {
@@ -92,8 +89,8 @@ if ($buy_sell === 'S') {
     $row = mysqli_fetch_assoc($queryResult);
     $availableToTrade = $row["avail_to_trade"];
     if ($availableToTrade < abs($amountRequired)){
-        echo ("You do not have enough available balance to make this trade");
-        exit;
+        $output['message'] = 'You do not have enough available balance to make this trade.';
+        print(json_encode($output));
     }
 }
 
@@ -164,5 +161,10 @@ if ($buy_sell === 'B') {
 else {
         include_once('offsettrades.php');
      }
+
+$output['success'] = true;
+$output['message'] = 'Trade was successfully added.';
+
+print(json_encode($output));
 
 ?>

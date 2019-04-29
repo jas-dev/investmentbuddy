@@ -10,15 +10,16 @@ import './portfolio.scss';
 class Portfolio extends Component{
     constructor(props){
         super(props);
-
         this.state = {
             offsetTrades: [],
-            openTrades: []
+            openTrades: [],
+            accountData:[]
         };
     }
 
     componentDidMount() {
-        this.getStockData()
+        this.getStockData();
+        this.getAccountData();
     }
 
     getStockData(){
@@ -27,20 +28,48 @@ class Portfolio extends Component{
             this.setState({
                 offsetTrades: resp.data.offsetTrades,
                 openTrades: resp.data.openTrades
-            })
+            });
         })
     }
 
-    render(){
+    getAccountData() {
+        axios.get('/api/getaccountbalance.php').then(resp=>{
+            this.setState({
+                accountData: resp.data
+            });
+        });
+    }
 
+    handleAddFunds = inputs => {
+        const {amount} = inputs;
+
+        if (amount > 0) {
+            const account_id = 2;
+
+            let message = '';
+            axios.get(`/api/addfunds.php?account_id=${account_id}&amount=${amount}`).then(resp => {
+                if (resp.data.message) {
+                    message = resp.data.message;
+                    this.getAccountData();
+                } else {
+                    message = 'Could not connect to database, try again later.'
+                }
+
+                M.toast({html: message});
+            });
+        } else {
+            M.toast({html: 'Please choose a positive number.'});
+        }
+    }
+
+    render(){
         if(!this.state.offsetTrades.length || !this.state.openTrades){
             return null;
         }
 
-        console.log('portfolio state:', this.state);
-
         return (
             <div className='portfolio-wrapper container'>
+
                 <h5 className=''>Manage your portfolio</h5>
 
                 <div className='row card center'>
@@ -51,7 +80,7 @@ class Portfolio extends Component{
 
                 <div className="row card card-padout">
                     <div className="col s6">
-                        <AccountInfo/>
+                        <AccountInfo accountData={this.state.accountData}/>
                     </div>
 
                     <div className="col s6 ">
@@ -66,19 +95,6 @@ class Portfolio extends Component{
 
             </div>
         )
-    }
-
-    handleAddFunds = async inputs => {
-        const {amount} = inputs;
-
-        // add account_id to the call eventually
-        const response = await axios.get(`/api/addfunds.php?amount=${amount}`);
-
-        if (response.data.success) {
-            M.toast({
-                html: `$${amount} added to funds.`
-            });
-        }
     }
 }
 

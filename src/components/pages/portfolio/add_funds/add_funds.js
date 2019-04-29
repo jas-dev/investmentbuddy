@@ -7,6 +7,7 @@ const AddFunds = props => {
         <div className="row card card-padout">
             <div className='col s12'>
                 <form onSubmit={handleSubmit(handler)} className='add-funds-form'>
+
                     <div className='input-field add-funds-input'>
                         <label htmlFor='add-funds'>Add Funds</label>
                         <Field id='add-funds'
@@ -14,11 +15,23 @@ const AddFunds = props => {
                                component='input'
                                type='number'/>
                     </div>
-                    <button type='submit' className='confirm btn btn-small black center'>Add</button>
-                    <button onClick={(event) => {
-                        props.dispatch(reset('add-funds-form'));
-                        event.preventDefault();
-                    }} className='cancel btn btn-small black center'>Clear</button>
+
+                    <div className="row">
+                        <div className="col s6 center">
+                            <button type='submit' className='confirm btn btn green darken-2'>
+                                <i className="material-icons left">add</i>Add
+                            </button>
+                        </div>
+
+                        <div className='col s6 center'>
+                            <button onClick={(event) => {
+                                    props.dispatch(reset('add-funds-form'));
+                                    event.preventDefault();
+                                }} className='cancel btn btn green darken-2'>
+                                <i className="material-icons left">close</i>Clear
+                            </button>
+                        </div>
+                    </div>
 
                 </form>
             </div>
