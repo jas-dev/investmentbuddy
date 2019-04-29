@@ -29,8 +29,38 @@ class Portfolio extends Component{
             this.setState({
                 offsetTrades: resp.data.offsetTrades,
                 openTrades: resp.data.openTrades
-            })
+            });
         })
+    }
+
+    getAccountData() {
+        axios.get('/api/getaccountbalance.php').then(resp=>{
+            this.setState({
+                accountData: resp.data
+            });
+        });
+    }
+
+    handleAddFunds = inputs => {
+        const {amount} = inputs;
+
+        if (amount > 0) {
+            const account_id = 2;
+
+            let message = '';
+            axios.get(`/api/addfunds.php?account_id=${account_id}&amount=${amount}`).then(resp => {
+                if (resp.data.message) {
+                    message = resp.data.message;
+                    this.getAccountData();
+                } else {
+                    message = 'Could not connect to database, try again later.'
+                }
+
+                M.toast({html: message});
+            });
+        } else {
+            M.toast({html: 'Please choose a positive number.'});
+        }
     }
 
     render(){
@@ -66,32 +96,6 @@ class Portfolio extends Component{
 
             </div>
         )
-    }
-
-    handleAddFunds = inputs => {
-        const {amount} = inputs;
-        const account_id = 2;
-
-        let message = '';
-        axios.get(`/api/addfunds.php?account_id=${account_id}&amount=${amount}`).then(resp => {
-            if (resp.data.message) {
-                message = resp.data.message;
-                this.getAccountData();
-            } else {
-                message = 'Could not connect to database, try again later.'
-            }
-            M.toast({
-                html: message
-            });
-        });
-    }
-
-    getAccountData() {
-        axios.get('/api/getaccountbalance.php').then(resp=>{
-            this.setState({
-                accountData: resp.data
-            })
-        });
     }
 }
 

@@ -34,7 +34,9 @@ $totalAsset = $totalAsset+$amount;
 
 $updateQuery = "
     UPDATE `account` 
-    SET `total_asset`=$totalAsset, `avail_balance`=$availableBalance, `avail_to_trade`=$availableToTrade
+    SET `total_asset`    = $totalAsset, 
+        `avail_balance`  = $availableBalance, 
+        `avail_to_trade` = $availableToTrade
     WHERE `account_id` = $accountId";
 
 $updateResult = mysqli_query($conn, $updateQuery);

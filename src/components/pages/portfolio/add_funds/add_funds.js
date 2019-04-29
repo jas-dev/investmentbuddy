@@ -14,12 +14,13 @@ const AddFunds = props => {
                                component='input'
                                type='number'/>
                     </div>
-                    <button type='submit' className='confirm btn btn-small black center'>Add</button>
-                    <button onClick={(event) => {
-                        props.dispatch(reset('add-funds-form'));
-                        event.preventDefault();
-                    }} className='cancel btn btn-small black center'>Clear</button>
-
+                    <div className="row">
+                        <button type='submit' className='col s4 offset-s1 confirm btn btn green darken-2 center'>Add</button>
+                        <button onClick={(event) => {
+                            props.dispatch(reset('add-funds-form'));
+                            event.preventDefault();
+                        }} className='col s4 offset-s2 cancel btn btn green darken-2 center'>Clear</button>
+                    </div>
                 </form>
             </div>
         </div>
