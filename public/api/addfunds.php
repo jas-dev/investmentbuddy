@@ -30,6 +30,19 @@ if (!$updateResult){
     throw new Exception(mysqli_error($conn));
 }
 
+//=====================================================================================
+// insert the new cash transaction in cash_transaction table
+//=====================================================================================
+$timestamp = date_create('now')->format('Y-m-d H:i:s');
+$query="INSERT INTO `cash_transaction` (`account_id`, `date`, `trans_type`, `amount`) 
+        VALUES($accountId, '$timestamp', 'D', $amount)";
+print($query);
+$queryResult = mysqli_query($conn, $query);
+if (!$queryResult){
+    throw new Exception(mysqli_error($conn));
+}
+
+
 $output = [
     "success"=>true
 ];
