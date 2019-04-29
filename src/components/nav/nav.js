@@ -78,7 +78,7 @@ class Nav extends Component{
                             </a>
 
                             <Link className='brand-logo' to='/home'>
-                                The Cash Game
+                                MoneyTrainer
                             </Link>
 
                             <ul className='right hide-on-med-and-down'>
