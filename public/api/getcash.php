@@ -15,7 +15,7 @@ $output = [
 //    throw new Exception('Missing account id');
 //}
 //$acct_id = $_SESSION['acct_id'];
-$acct_id = 1;
+$acct_id = 2;
 
 $query="SELECT `date`, `trans_type`, `amount`, `memo` FROM `cash_transaction` WHERE `account_id` = $acct_id";
 

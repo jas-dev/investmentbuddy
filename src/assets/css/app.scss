@@ -6,22 +6,45 @@
 //  background-image: url("/dist/assets/images/NewYorkStockExchange.png");
 //  opacity: .5;
 //}
-*{
-  font-family: Rubik;
-}
-.card {
-  border-radius: 10px;
-  z-index: 1;
 
+*{
+  font-family: Rubik, "Arial";
 }
 
 body {
   background-color: #FFF8DC ;  //#F0FFFF DCDCDC;
+}
+
+.ticker-wrap{
+  z-index: 1;
+}
+
+.card {
+  border-radius: 10px;
 
 }
 
-.ticker-container{
-  z-index: -1;
+html {
+  --input-color: rgb(0, 100, 0);
+}
+
+.input-field input:focus{
+  color: var(--input-color);
+}
+
+.input-field > input:focus {
+  color: var(--input-color);
+}
+
+.input-field > input:focus {
+  border-bottom: 1px solid var(--input-color) !important;
+  box-shadow: 0 1px 0 0 var(--input-color) !important;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: var(--input-color);
+  border: 2px var(--input-color) solid;
 }
 
 /*

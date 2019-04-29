@@ -75,7 +75,9 @@ class Portfolio extends Component{
         const response = await axios.get(`/api/addfunds.php?amount=${amount}`);
 
         if (response.data.success) {
-            console.log('funds added');
+            M.toast({
+                html: `$${amount} added to funds.`
+            });
         }
     }
 }

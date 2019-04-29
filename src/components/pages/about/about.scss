@@ -1,11 +1,18 @@
 .about-wrapper{
   font-size: 18px;
 
+  .card {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
 
-  /*img{
-    height: 20vh;
-    align-self: center;
-  }*/
-
-
+    .divider {
+      text-align: center;
+    }
+  }
 }
+
+
+
+
+

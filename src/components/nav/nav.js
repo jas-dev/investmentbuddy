@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import './nav.scss'
 
-
 class Nav extends Component{
     constructor(props){
         super(props);
@@ -11,6 +10,7 @@ class Nav extends Component{
             signedIn: true
         }
     }
+
     renderLinks(){
         if (this.state.signedIn){
             return (
