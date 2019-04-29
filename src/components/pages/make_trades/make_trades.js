@@ -12,6 +12,20 @@ class MakeTrades extends Component {
         const response = await axios.get(`/api/addtransaction.php?symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
 
         console.log(response);
+        let message = '';
+        if (!response.data) {
+            message = 'Transaction was added.'
+        } else {
+            if (response.data.hasOwnProperty('success') && response.data.success === false) {
+                message = response.data.message;
+            } else {
+                message = response.data;
+            }
+        }
+
+        M.toast({
+            html: message
+        });
     };
 
     render() {
