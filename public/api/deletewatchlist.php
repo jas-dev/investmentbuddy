@@ -4,10 +4,10 @@ require_once("functions.php");
 set_exception_handler("handleError");
 require_once("mysqlconnect.php");
 
-//$accountId = $_GET["account_id"];
-//$symbol = $_GET["symbol"];
-$accountId = 2;
-$symbol = 'AAPL';
+$accountId = $_GET["account_id"];
+$symbol = $_GET["symbol"];
+//$accountId = 2;
+//$symbol = 'AAPL';
 
 $query = "SELECT `symbol` FROM `account_watchlist` 
 WHERE `account_id`=$accountId AND `symbol`='$symbol' ";

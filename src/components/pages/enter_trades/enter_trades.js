@@ -9,7 +9,7 @@ class MakeTrades extends Component {
         const {symbol, buy_sell, shares, price} = inputs;
         console.log(inputs);
 
-        const response = await axios.get(`/api/addtransaction.php?symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
+        const response = await axios.get(`/api/addtransaction.php?account_id=2&symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
 
         console.log(response);
         let message = '';
