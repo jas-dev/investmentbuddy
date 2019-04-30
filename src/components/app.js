@@ -17,13 +17,6 @@ import Nav from './nav';
 import AccountRoutes from './account';
 
 class App extends Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            signedIn: true
-        }
-    }
 
     render() {
 

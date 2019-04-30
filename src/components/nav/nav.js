@@ -2,17 +2,14 @@ import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import './nav.scss'
+import {connect} from 'react-redux';
 
 class Nav extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            signedIn: true
-        }
-    }
+
 
     renderLinks(){
-        if (this.state.signedIn){
+        console.log('haha');
+        if (this.props.signedIn){
             return (
                 <Fragment>
                     <li className='.sidenav-close'>
@@ -87,10 +84,17 @@ class Nav extends Component{
                         </div>
                     </nav>
                 </div>
-                    <SideNav links={links}/>
+                <SideNav links={links}/>
             </Fragment>
         );
     }
 }
 
-export default Nav;
+function mapStateToProps(state){ /*whatever we return here will be mapped to props*/
+    console.log('mstp:', state);
+    return {
+        signedIn: state.user.auth
+    }
+}
+
+export default connect(mapStateToProps)(Nav);
