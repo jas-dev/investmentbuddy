@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm, Field, reset} from 'redux-form';
 
 class SignInForm extends Component{
 
@@ -11,7 +11,7 @@ class SignInForm extends Component{
         return (
             <div className='col s6 container'>
                 <div className='card card-padout'>
-                    <form onSubmit={handleSubmit(signIn)}>
+                    <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
                         <div className='input-field'>
                             <Field id='email'
                                    name='email'
@@ -25,10 +25,12 @@ class SignInForm extends Component{
                         <div className="row">
                             <div className="col s12 center">
                                 <button className='btn btn-small black'>Sign-In</button>
-                                <button className='btn btn-small black'>Clear</button>
+                                <button className='btn btn-small black' onClick={(event) => {
+                                    this.props.dispatch(reset('sign_in_form'));
+                                    event.preventDefault();
+                                }}>Clear</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
