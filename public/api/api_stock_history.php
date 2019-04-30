@@ -11,7 +11,6 @@ require_once("functions.php");
 set_exception_handler("handleError");
 
 //$companyQuery = "SELECT * FROM `company`";
-//SELECT symbol FROM `company` WHERE symbol not in (select distinct symbol from stock_history);
 $companyQuery = "SELECT `symbol` FROM `company` WHERE `symbol` NOT IN (SELECT DISTINCT SYMBOL FROM `stock_history`)";
 $companyResult = mysqli_query($conn, $companyQuery);
 if (!$companyResult){

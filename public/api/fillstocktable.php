@@ -15,7 +15,6 @@ while ($row = mysqli_fetch_assoc($stockListResult)){
     array_push($stockList, $row["symbol"]);
 }
 
-
 $counter = 0;
 for ($stockIndex=0; $stockIndex<count($stockList); $stockIndex++){
     //if ($counter>4){
