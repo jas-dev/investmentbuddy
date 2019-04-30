@@ -13,12 +13,12 @@ $output = [
 //  (1) either name or email (if both are entered, use only name to verify)
 //  (2) password (required input)
 //==============================================================================================
-//$json_input = file_get_contents("php://input");
-//$input = json_decode($json_input, true);  //true-convert all objects to associative arrays, as opposed to standard class object
-//$name = $input['name'];
-//$password = $input['password'];
-$name = 'Daniel Paschal';
-$password = 'fluffybunny';
+$json_input = file_get_contents("php://input");
+$input = json_decode($json_input, true);  //true-convert all objects to associative arrays, as opposed to standard class object
+$name = $input['name'];
+$password = $input['password'];
+//$name = 'Daniel Paschal';
+//$password = 'fluffybunny';
 
 if($name === null) {
     throw new Exception('name is a required value');

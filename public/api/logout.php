@@ -2,7 +2,6 @@
 
 require_once('functions.php');
 set_exception_handler('handleError');
-require_once('config.php');
 require_once('mysqlconnect.php');
 
 $output = [
@@ -31,11 +30,12 @@ if(empty($_SESSION['user_data']['token'])) {
         throw new Exception('unable to delete - token not deleted');
     }
     $output['success'] = true;
+
+    //=============================================================
+    //  clear user session
+    //=============================================================
+    unset($_SESSION['user_data']);
 }
-//=============================================================
-//  clear user session
-//=============================================================
-unset($_SESSION['user_data']);
 
 $json_output = json_encode($output);
 print($json_output);
