@@ -3,7 +3,7 @@ import RenderTable from '../render_table/render_table';
 
 
 export function formatHistory(stock){
-    console.log(stock);
+    
     const xData = Object.keys(stock.history);
     const yData = [];
 
@@ -27,19 +27,34 @@ export function formatHistory(stock){
     };
 }
 
-export function capitalize(str){
+export function formatHeaders(str){
+    if (str===""){
+        return str;
+    } else if (str==="timestamp"){
+        return "Last Updated";
+    }
     const arr = str.split("");
     let firstLetter = arr[0];
 
     firstLetter = firstLetter.toUpperCase();
     arr[0] = firstLetter;
+    for (let index=1; index<arr.length; index++){
+        if (arr[index]===arr[index].toUpperCase() && arr[index]!=="_"){
+            arr.splice(index, 0, " ");
+            break;
+        } else if (arr[index]==="_"){
+            arr[index]=" ";
+            arr[index+1] = arr[index+1].toUpperCase();
+            break;
+        }
+    }
+
     return arr.join("");
 }
 
 export function convertAccountData(props){
     const {availBalance,totalAsset,availToTrade} = props;
 
-
-    console.log('convert helper props:',props);
-
 }
+
+

@@ -13,7 +13,7 @@ class Home extends Component {
     }
 
     render() {
-        console.log("Home Props:", this.props);
+
         return (
             <div>
                 <div className="parallax-container">

@@ -16,16 +16,16 @@ class AccountInfo extends Component{
     }
 
     componentDidMount() {
-        console.log('info mounted');
+        
         this.getAccountData();
 
     }
 
     getAccountData(){
-        console.log('we getting here?')
+        
         axios.get('/api/getaccountbalance.php').then(resp=>{
 
-            console.log('account info resp:', resp);
+            
             this.setState({
                 accountData: resp.data
             })
@@ -38,7 +38,7 @@ class AccountInfo extends Component{
         }
 
 
-        console.log('account info state from render:',this.state);
+        
 
         return(
             <Fragment>

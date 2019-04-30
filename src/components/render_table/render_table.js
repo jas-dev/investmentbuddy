@@ -9,7 +9,7 @@ export default props =>{
         return null;
     }
 
-    console.log('render table props:',props);
+
 
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {

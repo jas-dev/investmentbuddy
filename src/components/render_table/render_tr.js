@@ -8,7 +8,7 @@ export default props =>{
 
        )
     });
-console.log("Tr props: ", props);
+
     if (props.watchlist) {
         rowData[props.values.length - 1] = <td key={props.values.length}>
             <button onClick={(event) => {
@@ -20,7 +20,7 @@ console.log("Tr props: ", props);
     }
     if (props.addWatch){
         rowData[props.values.length - 1] = <td key={props.values.length}>
-            <button onClick={()=>{props.addWatch(props.values[0]);}} className="btn green darken-2">Add To Watchlist</button>
+            <button onClick={(event)=>{props.addWatch(props.values[0]); event.stopPropagation();}} className="btn green darken-2">Add To Watchlist</button>
             </td>
     }
 

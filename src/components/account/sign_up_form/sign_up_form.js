@@ -3,7 +3,6 @@ import React from 'react';
 
 const SignUpForm = props =>{
 
-    console.log('sign in form props:', props);
     return(
         <div className="container col s6">
             <div className="card card-padout">

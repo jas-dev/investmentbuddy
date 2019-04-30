@@ -5,9 +5,17 @@ class Search extends Component {
         return (
             <div className='search-wrapper col s3 card card-padout'>
                 <form action="">
-                    <input type="text" placeholder="Search by company or symbol"/>
-                    <label htmlFor=""></label>
-                    <button className="search btn btn-small">Find</button>
+                    <div className="row">
+                    <div className="col s12 center">
+                        <input type="text" placeholder="Search by company or symbol"/>
+                        <label htmlFor=""></label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col s12 center">
+                        <button className="search btn btn-small">Find</button>
+                    </div>
+                    </div>
                 </form>
             </div>
         )
