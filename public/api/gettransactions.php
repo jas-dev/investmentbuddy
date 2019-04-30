@@ -2,14 +2,14 @@
 
 require_once("functions.php");
 require_once("mysqlconnect.php");
-$accountId = 2;
+$account_id = 2;
 
 $output = [
     "success"=>true,
     "transactions"=>[]
 ];
 
-$transactionsQuery = "SELECT * FROM `transaction` WHERE `account_id`=$accountId";
+$transactionsQuery = "SELECT * FROM `transaction` WHERE `account_id`=$account_id";
 $transactionsResult = mysqli_query($conn, $transactionsQuery);
 if (!$transactionsResult){
     throw new Exception(mysqli_error($conn));

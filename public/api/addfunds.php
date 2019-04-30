@@ -1,22 +1,24 @@
 <?php
 
-require_once("functions.php");
+require_once('functions.php');
 set_exception_handler("handleError");
-
-require_once("mysqlconnect.php");
+require_once('config.php');
+require_once('mysqlconnect.php');
 
 $output = [
-    'success' => false,
-    'message' => ''
+    'success' => false
 ];
 
-$accountId = $_GET["account_id"];
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
 $amount = (int)$_GET["amount"];
 
 $accountQuery = "
     SELECT `total_asset`, `avail_balance`, `avail_to_trade` 
     FROM `account` 
-    WHERE `account_id` = $accountId";
+    WHERE `account_id` = $account_id";
 
 $accountQueryResult = mysqli_query($conn, $accountQuery);
 if (!$accountQueryResult){
@@ -37,7 +39,7 @@ $updateQuery = "
     SET `total_asset`    = $totalAsset, 
         `avail_balance`  = $availableBalance, 
         `avail_to_trade` = $availableToTrade
-    WHERE `account_id` = $accountId";
+    WHERE `account_id` = $account_id";
 
 $updateResult = mysqli_query($conn, $updateQuery);
 if (!$updateResult){
@@ -49,8 +51,10 @@ if (!$updateResult){
 //=====================================================================================
 $timestamp = date_create('now')->format('Y-m-d H:i:s');
 $query="
-    INSERT INTO `cash_transaction` (`account_id`, `date`, `trans_type`, `amount`) 
-    VALUES($accountId, '$timestamp', 'D', $amount)";
+    INSERT INTO `cash_transaction` 
+        (`account_id`, `date`, `trans_type`, `amount`) 
+    VALUES
+        ($account_id, '$timestamp', 'D', $amount)";
 
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
@@ -58,7 +62,7 @@ if (!$queryResult){
 }
 
 $output = [
-    "success"=>true,
+    "success" => true,
     'message' => "$$amount was added to your funds."
 ];
 

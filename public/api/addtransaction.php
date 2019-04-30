@@ -1,18 +1,22 @@
 <?php
 
-require_once("functions.php");
+require_once('functions.php');
 set_exception_handler("handleError");
-require_once("mysqlconnect.php");
+require_once('config.php');
+require_once('mysqlconnect.php');
 
-$accountId = $_GET["account_id"];
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
+
 $symbol = $_GET["symbol"];  //'AAPL'
 $buy_sell = $_GET["buy_sell"]; //'B'
 $shares = (int)$_GET["shares"]; //80
 $price = $_GET["price"]; //203
 
 $output = [
-    'success' => false,
-    'message' => ''
+    'success' => false
 ];
 
 $price_range = 0.5;
@@ -22,11 +26,15 @@ if($buy_sell === 'B'){
     $amountRequired = $price * $shares;
 }
 
-
 //========================================================================================================
 //  Step 1: validate input data: tick symbol needs to exist in company table before you can trade
 //========================================================================================================
-$query = "SELECT `symbol` FROM `company` WHERE `symbol` = '$symbol' ";
+$query = "
+    SELECT `symbol` 
+    FROM `company` 
+    WHERE `symbol` = '$symbol'
+";
+
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -43,8 +51,16 @@ if ($shares <= 0 || $price <= 0){
 //=====================================================================================================
 //  Step 2: check if trade price entered is within reasonable range (5%) of last market price
 //=====================================================================================================
-$query = "SELECT `price` FROM `stock` WHERE `symbol` = '$symbol' 
-AND `datetime` in (SELECT MAX(`datetime`) FROM `stock` GROUP BY `symbol`) ";
+$query = "
+    SELECT `price` 
+    FROM `stock` 
+    WHERE `symbol` = '$symbol' AND 
+          `datetime` in (
+              SELECT MAX(`datetime`) 
+              FROM `stock` 
+              GROUP BY `symbol`)
+";
+
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -64,8 +80,15 @@ if ($currPrice != 0 && $currPrice != null) {
 //========================================================================================================
 // if this transaction is a SELL - verify that there are equal BUY open trades in the open_trades table
 if ($buy_sell === 'S') {
-    $query = "SELECT `symbol`, sum(`open_qty`) as `total_buy_shares` FROM `open_trades` WHERE `account_id` = $accountId 
-      AND `symbol` = '$symbol' AND `buy_sell` = 'B' GROUP BY `symbol` ";
+    $query = "
+        SELECT `symbol`, sum(`open_qty`) as `total_buy_shares` 
+        FROM `open_trades` 
+        WHERE `account_id` = $account_id AND 
+              `symbol` = '$symbol' AND 
+              `buy_sell` = 'B' 
+        GROUP BY `symbol` 
+    ";
+
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult) {
         throw new Exception(mysqli_error($conn));
@@ -81,7 +104,12 @@ if ($buy_sell === 'S') {
     }
 // this is a BUY transaction - verify there is enough money in the account to make trade
 } else {
-    $query = "SELECT `avail_to_trade` FROM `account` WHERE `account_id` = $accountId";
+    $query = "
+        SELECT `avail_to_trade` 
+        FROM `account` 
+        WHERE `account_id` = $account_id
+    ";
+
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult){
         throw new Exception(mysqli_error($conn));
@@ -98,8 +126,13 @@ if ($buy_sell === 'S') {
 //  Step 4: insert new trade in transaction table
 //=====================================================================================================
 $timestamp = date_create('now')->format('Y-m-d H:i:s');
-$query = "INSERT INTO `transaction` (`account_id`, `trade_date`, `symbol`, `buy_sell`, `trade_price`, `quantity`, `status`, `amount`) 
-VALUES ($accountId, '$timestamp', '$symbol', '$buy_sell', $price, $shares, 'Open', $amountRequired)";
+$query = "
+    INSERT INTO `transaction` 
+        (`account_id`, `trade_date`, `symbol`, `buy_sell`, `trade_price`, `quantity`, `status`, `amount`) 
+    VALUES 
+           ($account_id, '$timestamp', '$symbol', '$buy_sell', $price, $shares, 'Open', $amountRequired)
+";
+
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -110,8 +143,16 @@ if (!$queryResult){
 //      (1) need to get the newly created trade transaction id and timestamp from transaction table
 //      (2) create a new record in open_trades table
 //=====================================================================================================
-$query = "SELECT `id`, `trade_date`, `account_id`, `symbol` FROM `transaction` WHERE `id` =
-    ( SELECT MAX(id) FROM `transaction` WHERE `account_id` = $accountId AND `symbol` = '$symbol' ) ";
+$query = "
+    SELECT `id`, `trade_date`, `account_id`, `symbol` 
+    FROM `transaction` 
+    WHERE `id` =(
+        SELECT MAX(id) 
+        FROM `transaction` 
+        WHERE `account_id` = $account_id AND 
+              `symbol` = '$symbol')
+";
+
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -121,8 +162,13 @@ $newTradeId = $row["id"];
 $newTradeDateTime = $row["trade_date"];
 
 //insert into open_trades (account_id, orig_trade_id, orig_trade_date, symbol, buy_sell, trade_price, open_qty)
-$query = "INSERT INTO `open_trades` (`account_id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty`) 
-VALUES ($accountId, $newTradeId, '$newTradeDateTime', '$symbol', '$buy_sell', $price, $shares)";
+$query = "
+    INSERT INTO `open_trades` 
+        (`account_id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty`) 
+    VALUES 
+        ($account_id, $newTradeId, '$newTradeDateTime', '$symbol', '$buy_sell', $price, $shares)
+";
+
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -132,8 +178,12 @@ if (!$queryResult){
 // step 6: update account balance to account for a BUY trade
 //=====================================================================================================
 if ($buy_sell === 'B') {
-    $query = "SELECT `total_asset`, `avail_balance`, `avail_to_trade` FROM `account` 
-      WHERE `account_id` = $accountId ";
+    $query = "
+        SELECT `total_asset`, `avail_balance`, `avail_to_trade`
+        FROM `account` 
+        WHERE `account_id` = $account_id
+    ";
+
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult) {
         throw new Exception(mysqli_error($conn));
@@ -147,9 +197,14 @@ if ($buy_sell === 'B') {
     $availBalance = $availBalance + $amountRequired;
     $availToTrade = $availToTrade + $amountRequired;
 
-    $query = "UPDATE `account` SET `total_asset` = $totalAsset, 
-      `avail_balance` = $availBalance, `avail_to_trade` = $availToTrade 
-      WHERE `account_id` = $accountId ";
+    $query = "
+        UPDATE `account` 
+        SET `total_asset` = $totalAsset,
+            `avail_balance` = $availBalance, 
+            `avail_to_trade` = $availToTrade 
+        WHERE `account_id` = $account_id
+    ";
+
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult) {
         throw new Exception(mysqli_error($conn));

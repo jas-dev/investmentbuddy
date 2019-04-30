@@ -7,16 +7,17 @@ import axios from "axios";
 class MakeTrades extends Component {
     submit = async inputs => {
         const {symbol, buy_sell, shares, price} = inputs;
-        const resp = await axios.get(`/api/addtransaction.php?account_id=2&symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
+        const resp = await axios.get(`/api/addtransaction.php?symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
 
-        let message = '';
-        if (resp.data.message) {
-            message = resp.data.message;
+        let toastMessage = '';
+        const {message, error, success} = resp.data;
+        if (message) {
+            toastMessage = message;
         } else {
-            message = 'Could not connect to database, try again later.'
+            toastMessage = error ? error : 'Could not connect to database, try again later.';
         }
 
-        M.toast({html: message});
+        M.toast({html: toastMessage});
     };
 
     render() {

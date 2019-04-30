@@ -1,17 +1,27 @@
 <?php
 
-require_once("mysqlconnect.php");
-require_once("functions.php");
+require_once('functions.php');
 set_exception_handler("handleError");
+require_once('config.php');
+require_once('mysqlconnect.php');
 
-$accountId = 2;
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
+
 $output = [
-    "success"=>true,
-    "openTrades"=>[],
-    "offsetTrades"=>[]
+    "success" => true,
+    "openTrades" => [],
+    "offsetTrades" => []
 ];
 
-$openTradesQuery = "SELECT * FROM `open_trades` WHERE `account_id`=$accountId";
+$openTradesQuery = "
+    SELECT * 
+    FROM `open_trades` 
+    WHERE `account_id` = $account_id
+";
+
 $openTradesResult = mysqli_query($conn, $openTradesQuery);
 if (!$openTradesResult){
     throw new Exception(mysqli_error($conn));
@@ -30,7 +40,12 @@ while($row = mysqli_fetch_assoc($openTradesResult)){
     $output["openTrades"][] = $openTrade;
 }
 
-$offsetTradesQuery = "SELECT * FROM `offset_trades` WHERE `account_id`=$accountId";
+$offsetTradesQuery = "
+    SELECT * 
+    FROM `offset_trades` 
+    WHERE `account_id` = $account_id
+";
+
 $offsetTradesResult = mysqli_query($conn, $offsetTradesQuery);
 if (!$offsetTradesResult){
     throw new Exception(mysqli_error($conn));

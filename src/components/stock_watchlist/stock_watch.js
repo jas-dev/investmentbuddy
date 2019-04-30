@@ -18,51 +18,47 @@ class Watchlist extends Component{
     }
 
     getStockData(){
-        axios.get('/api/getwatchliststocks.php').then(resp=>{
-            
+        axios.get(`/api/getwatchliststocks.php`).then(resp => {
             this.setState({
                 stocks: resp.data.stocks
             });
-
-        })
+        });
     }
 
     handleAddToWatchlist = inputs => {
         const {symbol} = inputs;
-        const account_id = 2;
-        let message = '';
-        axios.get(`/api/addwatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
-            
-            if (resp.data.message) {
-                message = resp.data.message;
-                if (resp.data.success) {
+        axios.get(`/api/addwatchlist.php?symbol=${symbol.toUpperCase()}`).then(resp => {
+
+            let toastMessage = '';
+            const {message, success, error} = resp.data;
+            if (message) {
+                toastMessage = message;
+                if (success) {
                     this.getStockData();
                 }
             } else {
-                message = 'Could not connect to database, try again later.'
+                toastMessage = error ? error : 'Could not connect to database, try again later.'
             }
-            M.toast({
-                html: message
-            });
-            this.getStockData();
-        })
+
+            M.toast({html: toastMessage});
+        });
     }
 
     handleDeleteFromWatchlist = symbol => {
-        const account_id = 2;
-        let message = '';
-        axios.get(`/api/deletewatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
-            
-            if (resp.data.message) {
-                message = resp.data.message;
-                if (resp.data.success) {
+        axios.get(`/api/deletewatchlist.php?symbol=${symbol.toUpperCase()}`).then(resp=>{
+
+            let toastMessage = '';
+            const {message, success, error} = resp.data;
+            if (message) {
+                toastMessage = message;
+                if (success) {
                     this.getStockData();
                 }
             } else {
-                message = 'Could not connect to database, try again later.'
+                toastMessage = error ? error : 'Could not connect to database, try again later.'
             }
             M.toast({
-                html: message
+                html: toastMessage
             });
         })
     }
