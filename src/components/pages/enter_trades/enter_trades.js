@@ -7,25 +7,16 @@ import axios from "axios";
 class MakeTrades extends Component {
     submit = async inputs => {
         const {symbol, buy_sell, shares, price} = inputs;
-        console.log(inputs);
+        const resp = await axios.get(`/api/addtransaction.php?account_id=2&symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
 
-        const response = await axios.get(`/api/addtransaction.php?account_id=2&symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
-
-        console.log(response);
         let message = '';
-        if (!response.data) {
-            message = 'Transaction was added.'
+        if (resp.data.message) {
+            message = resp.data.message;
         } else {
-            if (response.data.hasOwnProperty('success') && response.data.success === false) {
-                message = response.data.message;
-            } else {
-                message = response.data;
-            }
+            message = 'Could not connect to database, try again later.'
         }
 
-        M.toast({
-            html: message
-        });
+        M.toast({html: message});
     };
 
     render() {

@@ -5,6 +5,7 @@ class Search extends Component {
         return (
             <div className='search-wrapper col s4 card card-padout'>
                 <form action="">
+
                     <div className="row">
                     <div className="col s12 center">
                         <input type="text" placeholder="Search by company or symbol"/>
@@ -16,6 +17,7 @@ class Search extends Component {
                         <button className="search btn btn-small">Find</button>
                     </div>
                     </div>
+
                 </form>
             </div>
         )
