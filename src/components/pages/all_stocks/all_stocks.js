@@ -12,7 +12,7 @@ class AllStocks extends Component{
             stocks: []
         };
         this.goToDetails = this.goToDetails.bind(this);
-        console.log('all stocks state:', this.state)
+       
     }
     
     componentDidMount() {
@@ -22,7 +22,6 @@ class AllStocks extends Component{
 
     getStockData(){
         axios.get('/api/getstocks.php').then(response=> {
-            console.log('all stocks server response:', response);
 
             this.setState({
                 stocks: response.data.stocks
@@ -37,13 +36,11 @@ class AllStocks extends Component{
     }
 
     addToWatchList(symbol){
-        axios.get("/api/addwatchlist.php").then(response=>{
-            console.log("Add to watch list response: ", response);
-        })
+        axios.get(`/api/addwatchlist.php?account_id=2&symbol=${symbol}`);
     }
 
     render(){
-        console.log("All Stocks Props:", this.props);
+    
         if(!this.state.stocks.length){
             return null;
         }
@@ -54,7 +51,8 @@ class AllStocks extends Component{
                 <div className="row">
                     <Search/>
                 </div>
-                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} addWatch={this.addToWatchList}/>
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} 
+                    addWatch={this.addToWatchList} allStocks={true}/>
             </div>
         )
     }

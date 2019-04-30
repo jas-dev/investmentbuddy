@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm, Field, reset} from 'redux-form';
 
 const SignUpForm = props =>{
+
     const {handleSubmit, signUp} = props;
     console.log('sign in form props:', props);
 

@@ -6,7 +6,7 @@ import RenderTable from '../render_table/render_table'
 class Card extends Component{
 
     render(){
-        console.log('props from stock infocard:',this.props.stocks);
+        
 
         const {
             changeAmount,

@@ -34,7 +34,7 @@ class StocksDetails extends Component{
     }
     
     render(){
-        console.log("Stock Details Props:", this.props);
+        
         if (this.state.history===null || this.state.company===null){
             return <Loader/>;
         } else {

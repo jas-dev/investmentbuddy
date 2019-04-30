@@ -3,7 +3,7 @@ import RenderTable from '../render_table/render_table';
 
 
 export function formatHistory(stock){
-    console.log(stock);
+    
     const xData = Object.keys(stock.history);
     const yData = [];
 
@@ -27,19 +27,60 @@ export function formatHistory(stock){
     };
 }
 
-export function capitalize(str){
+export function formatHeaders(str){
+    if (str===""){
+        return str;
+    } else if (str==="timestamp"){
+        return "Last Updated";
+    } else if (str==="unrealized"){
+        return "Urealized P/L";
+    } else if (str==="realizedPl"){
+        return "Realized P/L";
+    }
     const arr = str.split("");
     let firstLetter = arr[0];
 
     firstLetter = firstLetter.toUpperCase();
     arr[0] = firstLetter;
+    for (let index=1; index<arr.length; index++){
+        if (arr[index]===arr[index].toUpperCase() && arr[index]!=="_"){
+            arr.splice(index, 0, " ");
+            break;
+        } else if (arr[index]==="_"){
+            arr[index]=" ";
+            arr[index+1] = arr[index+1].toUpperCase();
+            break;
+        }
+    }
+
     return arr.join("");
 }
 
 export function convertAccountData(props){
     const {availBalance,totalAsset,availToTrade} = props;
-
-
-    console.log('convert helper props:',props);
-
 }
+
+export function formatDateTime(str){
+    const arr = str.split(" ");
+
+    const dateString = arr[0];
+    const dateArray = dateString.split("-");
+    if (dateArray[1][0]==="0"){
+        dateArray[1] = dateArray[1][1];
+    }
+    let formattedDateString = dateArray[1]+"/"+dateArray[2]+"/"+dateArray[0];
+
+    const timeString = arr[1];
+    if (timeString==="00:00:00"){
+        return formattedDateString;
+    }
+    const timeArray = timeString.split(":");
+    if (timeArray[0]>12){
+        timeArray[0]-=12;
+    }
+    formattedDateString += (", "+timeArray[0]+":"+timeArray[1]+":"+timeArray[2]);
+
+    return formattedDateString;
+}
+
+

@@ -19,7 +19,7 @@ class Watchlist extends Component{
 
     getStockData(){
         axios.get('/api/getwatchliststocks.php').then(resp=>{
-            console.log('response from stockwatch:', resp);
+            
             this.setState({
                 stocks: resp.data.stocks
             });
@@ -32,7 +32,7 @@ class Watchlist extends Component{
         const account_id = 2;
         let message = '';
         axios.get(`/api/addwatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
-            console.log('response from addtowatchlist:', resp);
+            
             if (resp.data.message) {
                 message = resp.data.message;
                 if (resp.data.success) {
@@ -52,7 +52,7 @@ class Watchlist extends Component{
         const account_id = 2;
         let message = '';
         axios.get(`/api/deletewatchlist.php?account_id=${account_id}&symbol=${symbol.toUpperCase()}`).then(resp=>{
-            console.log('response from deletewatchlist:', resp);
+            
             if (resp.data.message) {
                 message = resp.data.message;
                 if (resp.data.success) {

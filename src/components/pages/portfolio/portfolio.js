@@ -24,12 +24,13 @@ class Portfolio extends Component{
 
     getStockData(){
         axios.get('/api/getportfoliodata.php').then(resp=>{
-            console.log('response from portfolio call:', resp);
+            
             this.setState({
                 offsetTrades: resp.data.offsetTrades,
                 openTrades: resp.data.openTrades
             });
-        })
+        });
+
     }
 
     getAccountData() {
@@ -66,6 +67,7 @@ class Portfolio extends Component{
         if(!this.state.offsetTrades.length || !this.state.openTrades){
             return null;
         }
+
 
         return (
             <div className='portfolio-wrapper container'>
