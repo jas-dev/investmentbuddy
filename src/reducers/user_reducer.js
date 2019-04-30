@@ -1,6 +1,6 @@
 
 const DEFAULT_STATE = {
-    auth: false,
+    auth: true,
     email: ''
 };
 
