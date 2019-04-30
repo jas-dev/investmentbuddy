@@ -12,7 +12,8 @@ class StocksDetails extends Component{
 
         this.state = {
             company: null,
-            history: null,
+            priceHistory: null,
+            percentHistory: null,
             stock: null
         }
     }
@@ -23,11 +24,13 @@ class StocksDetails extends Component{
     }
 
     getStockData(){
+        
         axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
-
+console.log(resp);
             this.setState({
                 company: resp.data.company,
-                history: formatHistory(resp.data),
+                priceHistory: formatHistory(resp.data, "price"),
+                percentHistory: formatHistory(resp.data, "percent"),
                 stock: resp.data.stock
             });
         })
@@ -35,7 +38,7 @@ class StocksDetails extends Component{
     
     render(){
         
-        if (this.state.history===null || this.state.company===null){
+        if (this.state.priceHistory===null || this.state.percentHistory===null || this.state.company===null){
             return <Loader/>;
         } else {
         return(
@@ -43,7 +46,10 @@ class StocksDetails extends Component{
                 <h5 className=''>Stock Details</h5>
                 <div className='row'>
                     <div className='col s12'>
-                    <Stock_chart {...this.state.history}/>
+                    <Stock_chart {...this.state.priceHistory} price={true}/>
+                    </div>
+                    <div className="col s12">
+                    <Stock_chart {...this.state.percentHistory} percent={true}/>
                     </div>
                     <div className='col s12'>
                         <InfoCard {...this.state.company} stocks={this.state.stock}/>
