@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Search extends Component {
     render() {
         return (
-            <div className='search-wrapper col s3 card card-padout'>
+            <div className='search-wrapper col s4 card card-padout'>
                 <form action="">
                     <div className="row">
                     <div className="col s12 center">
@@ -23,3 +23,4 @@ class Search extends Component {
 }
 
 export default Search;
+

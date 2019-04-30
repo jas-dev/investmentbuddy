@@ -32,6 +32,10 @@ export function formatHeaders(str){
         return str;
     } else if (str==="timestamp"){
         return "Last Updated";
+    } else if (str==="unrealized"){
+        return "Urealized P/L";
+    } else if (str==="realizedPl"){
+        return "Realized P/L";
     }
     const arr = str.split("");
     let firstLetter = arr[0];
@@ -54,7 +58,29 @@ export function formatHeaders(str){
 
 export function convertAccountData(props){
     const {availBalance,totalAsset,availToTrade} = props;
+}
 
+export function formatDateTime(str){
+    const arr = str.split(" ");
+
+    const dateString = arr[0];
+    const dateArray = dateString.split("-");
+    if (dateArray[1][0]==="0"){
+        dateArray[1] = dateArray[1][1];
+    }
+    let formattedDateString = dateArray[1]+"/"+dateArray[2]+"/"+dateArray[0];
+
+    const timeString = arr[1];
+    if (timeString==="00:00:00"){
+        return formattedDateString;
+    }
+    const timeArray = timeString.split(":");
+    if (timeArray[0]>12){
+        timeArray[0]-=12;
+    }
+    formattedDateString += (", "+timeArray[0]+":"+timeArray[1]+":"+timeArray[2]);
+
+    return formattedDateString;
 }
 
 

@@ -51,7 +51,8 @@ class AllStocks extends Component{
                 <div className="row">
                     <Search/>
                 </div>
-                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} addWatch={this.addToWatchList}/>
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} 
+                    addWatch={this.addToWatchList} allStocks={true}/>
             </div>
         )
     }

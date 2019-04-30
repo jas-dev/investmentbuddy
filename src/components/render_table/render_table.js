@@ -9,7 +9,19 @@ export default props =>{
         return null;
     }
 
+    let allStocks;
+    if (props.allStocks){
+        allStocks = true;
+    } else {
+        allStocks = false;
+    }
 
+    let openTrades; 
+    if (props.openTrades){
+        openTrades = true;
+    } else {
+        openTrades = false;
+    }
 
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {
@@ -28,7 +40,9 @@ export default props =>{
 
     const tableRow = props.stocks.map((stock, index) => {
         return (
-            <RenderTr delete={props.delete} watchlist={props.watchlist} key={index } values={columnNames.map(key => stock[key])} details={props.goToDetails} addWatch={props.addWatch}/>
+            <RenderTr delete={props.delete} watchlist={props.watchlist} key={index} 
+                values={columnNames.map(key => stock[key])} details={props.goToDetails} 
+                addWatch={props.addWatch} allStocks={allStocks} openTrades={openTrades}/>
         )
     });
 
