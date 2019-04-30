@@ -2,18 +2,26 @@ import React from 'react';
 import RenderTable from '../render_table/render_table';
 
 
-export function formatHistory(stock){
-    
-    const xData = Object.keys(stock.history);
-    const yData = [];
-
-    const reorderXData = [];
+export function formatHistory(stock, type){
+    console.log(stock);
+    let xData = [];
+    let yData = [];
+    if (type==="price"){
+        xData = Object.keys(stock.priceHistory);
+    } else if (type==="percent"){
+        xData = Object.keys(stock.percentHistory);
+    }
+    let reorderXData = [];
     for (let reorderIndex=xData.length-1; reorderIndex>=0; reorderIndex--){
         reorderXData.push(xData[reorderIndex]);
     }
 
     for (let index=0; index<reorderXData.length; index++){
-        yData.push(parseFloat(stock.history[reorderXData[index]]));
+        if (type==="price"){
+            yData.push(parseFloat(stock.priceHistory[reorderXData[index]]));
+        } else if (type==="percent"){
+            yData.push(parseFloat(stock.percentHistory[reorderXData[index]]));
+        }
     }
 
     const symbol = stock.company.symbol;
@@ -61,10 +69,14 @@ export function convertAccountData(props){
 }
 
 export function formatDateTime(str){
+    if (str===null){
+        return "N/A";
+    }
     const arr = str.split(" ");
 
     const dateString = arr[0];
     const dateArray = dateString.split("-");
+    
     if (dateArray[1][0]==="0"){
         dateArray[1] = dateArray[1][1];
     }

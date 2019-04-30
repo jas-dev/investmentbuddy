@@ -26,34 +26,7 @@ var lineChartData = {
 };
 */
 
-var chartOptions = {
-    title: {
-        display: true,
-        text: 'Stock Price Chart',
-        fontColor: 'darkblue',
-        fontSize: 24
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
-    },
-    legend: {
-        display: false
-    }, 
 
-
-    layout: {
-        padding: {
-            left: 50,
-            right: 0,
-            top: 0,
-            bottom: 0
-        }
-    }
-};
 
 
 
@@ -63,7 +36,41 @@ class Stock_chart extends Component{
 
     constructor (props) {
         super (props);
-        chartOptions.title.text = "Stock Price Chart - "+props.label;
+        
+        let chartOptions = {
+            title: {
+                display: true,
+                text: 'Stock Price Chart',
+                fontColor: 'darkblue',
+                fontSize: 24
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            }, 
+        
+        
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            }
+        };
+
+        if (props.price){
+            chartOptions.title.text = "Price Chart - "+props.label;
+        } else if (props.percent){
+            chartOptions.title.text = "Percent Change Chart - "+props.label;
+        }
         this.state = {
             lineChartData: {
                 labels: props.xData, 

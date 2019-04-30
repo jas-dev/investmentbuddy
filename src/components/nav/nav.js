@@ -8,7 +8,6 @@ class Nav extends Component{
 
 
     renderLinks(){
-        console.log('haha');
         if (this.props.signedIn){
             return (
                 <Fragment>
@@ -91,10 +90,11 @@ class Nav extends Component{
 }
 
 function mapStateToProps(state){ /*whatever we return here will be mapped to props*/
-    console.log('mstp:', state);
     return {
         signedIn: state.user.auth
     }
 }
 
 export default connect(mapStateToProps)(Nav);
+
+

@@ -4,19 +4,22 @@ import { formatDateTime } from '../helpers';
 export default props =>{
 
     const rowData = props.values.map((row, index)=>{
-        if ((props.allStocks||props.watchlist||props.openTrades) && index===1){
+        if (row===null){
+            row = "N/A";
+        }
+        else if ((props.allStocks||props.watchlist||props.openTrades) && index===1){
             row = formatDateTime(row);
         }
-        if ((props.allStocks||props.watchlist) && index===2){
+        else if ((props.allStocks||props.watchlist) && index===2){
             row = "$"+row;
         }
-        if ((props.allStocks||props.watchlist) && index===3){
+        else if ((props.allStocks||props.watchlist) && index===3){
             row = row+"%";
         }
-        if (props.openTrades && (index===3||index===6||index===7)){
+        else if (props.openTrades && (index===3||index===6||index===7)){
             row = "$"+row;
         }
-        if (props.openTrades && index===5){
+        else if (props.openTrades && index===5){
             row = formatDateTime(row);
         }
        return(

@@ -5,7 +5,6 @@ export default props =>{
     //if receiving data from get stocks
 
     const headingKey = props.headings.map( (key, index)=>{
-        console.log(key);
         return(
             <th key={index}>{formatHeaders(key)}</th>
         )
