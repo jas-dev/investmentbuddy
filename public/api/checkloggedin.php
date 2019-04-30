@@ -1,7 +1,6 @@
 <?php
 require_once('functions.php');
 set_exception_handler('handleError');
-require_once('config.php');
 require_once('mysqlconnect.php');
 $output = [
     'success' => false
@@ -15,8 +14,8 @@ if(!empty($_SESSION['user_data'])){
         throw new Exception('token is required');
     }
     $token = addslashes($input['token']);
-
 }
+
 $login_check_query = "SELECT * FROM `user_connections` WHERE `token`='$token'";
 $login_result = mysqli_query($conn, $login_check_query);
 if(!$login_result){

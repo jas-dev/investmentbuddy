@@ -13,36 +13,35 @@ $output = [
 //  (1) either name or email (if both are entered, use only name to verify)
 //  (2) password (required input)
 //==============================================================================================
-$name = $_GET["name"];
-$email = $_GET["email"];
-$password = $_GET["password"];
-//$name = 'Daniel Paschal';
-//$email = 'dan@learning-fuze.com';
-//$password = 'fluffybunny';
+//$json_input = file_get_contents("php://input");
+//$input = json_decode($json_input, true);  //true-convert all objects to associative arrays, as opposed to standard class object
+//$name = $input['name'];
+//$password = $input['password'];
+$name = 'Daniel Paschal';
+$password = 'fluffybunny';
 
-if($name === null || $email === null ){
-    throw new Exception('name or email is a required value');
+if($name === null) {
+    throw new Exception('name is a required value');
 }
 if($password === null){
     throw new Exception('password is a required value');
 }
-$email = addslashes($email);
-$hashedPassword = sha1($password);
-unset($input['password']);
-$query = "SELECT `id`,`name` FROM `account` WHERE `email`='$email' AND `password`='$hashedPassword' ";
+//unset($input['password']);
+
+$query = "SELECT `account_id`,`name` FROM `account` WHERE `name`='$name' AND `password`='$password' ";
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult) {
     throw new Exception(mysqli_error($conn));
 }
 if (mysqli_num_rows($queryResult) !== 1) {
-    throw new Exception("Invalid email or password");
+    throw new Exception("Invalid username or password");
 }
 $data = mysqli_fetch_assoc($queryResult);
-$token = $email . $data['id'] . microtime();
+$token = $name . $data['account_id'] . microtime();
 $token = sha1($token);
 $connect_query = "INSERT INTO `user_connections` SET 
 	`token` = '$token',
-	`user_id` = {$data['id']},
+	`user_id` = {$data['account_id']},
 	`created` = NOW(),
 	`ip_address` = '{$_SERVER['REMOTE_ADDR']}'
 ";
@@ -54,11 +53,12 @@ if(mysqli_affected_rows($conn)!==1){
     throw new Exception('could not log you in: connection not saved');
 }
 $_SESSION['user_data'] = [
-    'id'=>$data['id'],
+    'id'=>$data['account_id'],
     'username'=>$data['name'],
     'token'=>$token
 ];
 $output['success'] = true;
+$output['id'] = $data['account_id'];
 $output['username'] = $data['name'];
 $output['token'] = $token;
 $json_output = json_encode($output);
