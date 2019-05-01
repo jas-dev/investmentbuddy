@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 
-const MakeTradesForm = props => {
+const EnterTradesForm = props => {
     const {handler, handleSubmit} = props;
     return (
         <form onSubmit={handleSubmit(handler)} className='trade-form card'>
@@ -71,6 +71,6 @@ function validate(inputs) {
 }
 
 export default reduxForm({
-    form: 'make-trades-form'
+    form: 'enter-trades-form'
     // , validate
-})(MakeTradesForm);
+})(EnterTradesForm);

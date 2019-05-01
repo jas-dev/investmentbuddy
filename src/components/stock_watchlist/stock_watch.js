@@ -13,7 +13,7 @@ class Watchlist extends Component{
         };
     }
 
-    componentDidMount() {
+    componentDidMount(){
         this.getStockData();
     }
 

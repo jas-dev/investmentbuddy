@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Portfolio from '../portfolio/portfolio';
-import Transactions from '../transactions/transactions';
 import Watchlist from "../../stock_watchlist/stock_watch";
-import EnterTrades from '../enter_trades/enter_trades';
 import Ticker from '../../ticker';
 import Loader from "../../loader";
 import axios from "axios";
@@ -22,33 +20,28 @@ class Dashboard extends Component {
         });
     }
     render(){
-    if (this.state.ticker===null){
-        return <Loader/>
-    } else {
-    return (
-        <div className='dashboard-wrapper'>
-            <div className='ticker-container'>
-                <Ticker stocks={this.state.ticker}/>
-            </div>
-            <div className='container'>
-                <h1>Dashboard</h1>
-            </div>
-            <div className=''>
-                <Portfolio/>
-            </div>
-            <div>
-                <EnterTrades/>
-            </div>
-            <div className=''>
-                <Watchlist history={this.props.history}/>
-            </div>
-            <div id='transactions'>
-                <Transactions/>
-            </div>
-        </div>
-    )
+        if (this.state.ticker===null){
+            return <Loader/>
+        } else {
+
+            return (
+                <div className='dashboard-wrapper'>
+                    <div className='ticker-container'>
+                        <Ticker stocks={this.state.ticker}/>
+                    </div>
+                    <div className='container'>
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div className='portfolio'>
+                        <Portfolio/>
+                    </div>
+                    <div className='watchlist'>
+                        <Watchlist history={this.props.history}/>
+                    </div>
+                </div>
+            )
+        }
     }
-}
 }
 
 export default Dashboard;

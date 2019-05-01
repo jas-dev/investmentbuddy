@@ -15,9 +15,6 @@ class Nav extends Component{
                         <Link to='/dashboard'>Dashboard</Link>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/trade'>Enter Trades</Link>
-                    </li>
-                    <li className='sidenav-close'>
                         <Link to='/portfolio'>Portfolio</Link>
                     </li>
                     <li className='sidenav-close'>
