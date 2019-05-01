@@ -1,5 +1,6 @@
 import React from 'react';
 import RenderTable from '../render_table/render_table';
+import { COPYFILE_FICLONE_FORCE } from 'constants';
 
 
 export function formatHistory(stock, type){
@@ -95,4 +96,15 @@ export function formatDateTime(str){
     return formattedDateString;
 }
 
+
+export function randomizeStocks(arr){
+    let result = [];
+    for (let index=0; index<arr.length; index++){
+        let randomStock = Math.floor(Math.random()*(arr.length-1));
+        result.push(arr[randomStock]);
+        arr.slice(index, 1);
+    }
+
+    return result;
+}
 

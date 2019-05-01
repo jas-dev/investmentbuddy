@@ -1,9 +1,10 @@
 import React from 'react';
-import './ticker.scss'
+import './ticker.scss';
+import {randomizeStocks} from "../helpers"
 
 export default props =>{
-    console.log(props);
-    let tickerStocks = props.stocks.map((stock, index)=>{
+    let randomStocks = randomizeStocks(props.stocks);
+    let tickerStocks = randomStocks.map((stock, index)=>{
         return (
             <div key={index} className="ticker__item">{`${stock.symbol} | $${stock.price}, Percentage Change: ${stock.percentChange}%          `}</div>
         )

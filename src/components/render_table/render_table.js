@@ -23,6 +23,13 @@ export default props =>{
         openTrades = false;
     }
 
+    let offsetTrades;
+    if (props.offsetTrades){
+        offsetTrades = true;
+    } else {
+        offsetTrades = false;
+    }
+
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {
         columnNames.push('');
@@ -42,7 +49,8 @@ export default props =>{
         return (
             <RenderTr delete={props.delete} watchlist={props.watchlist} key={index} 
                 values={columnNames.map(key => stock[key])} details={props.goToDetails} 
-                addWatch={props.addWatch} allStocks={allStocks} openTrades={openTrades}/>
+                addWatch={props.addWatch} allStocks={allStocks} openTrades={openTrades} 
+                offsetTrades={offsetTrades}/>
         )
     });
 
