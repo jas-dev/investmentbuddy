@@ -1,11 +1,17 @@
 <?php
 
-require_once("functions.php");
-require_once("mysqlconnect.php");
-$account_id = 2;
+require_once('functions.php');
+set_exception_handler("handleError");
+require_once('config.php');
+require_once('mysqlconnect.php');
+
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
 
 $output = [
-    "success"=>true,
+    "success"=>false,
     "transactions"=>[]
 ];
 

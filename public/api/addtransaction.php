@@ -164,9 +164,9 @@ $newTradeDateTime = $row["trade_date"];
 //insert into open_trades (account_id, orig_trade_id, orig_trade_date, symbol, buy_sell, trade_price, open_qty)
 $query = "
     INSERT INTO `open_trades` 
-        (`account_id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty`) 
+        (`account_id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty`, `settlement_date`, `close_price`, `unrealized_pl`) 
     VALUES 
-        ($account_id, $newTradeId, '$newTradeDateTime', '$symbol', '$buy_sell', $price, $shares)
+        ($account_id, $newTradeId, '$newTradeDateTime', '$symbol', '$buy_sell', $price, $shares, '$newTradeDateTime', $price, 0 )
 ";
 
 $queryResult = mysqli_query($conn, $query);
