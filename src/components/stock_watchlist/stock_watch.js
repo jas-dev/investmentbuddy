@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import RenderTable from '../render_table/render_table'
 import AddToWatchlistForm from './stock_watch_form';

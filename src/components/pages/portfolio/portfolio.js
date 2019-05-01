@@ -8,7 +8,7 @@ import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
 
 import {connect} from 'react-redux';
-import EnterTradesForm from "../enter_trades/enter_trades_form";
+import EnterTradesForm from "../../enter_trades/enter_trades_form";
 
 class Portfolio extends Component{
     constructor(props){
@@ -119,8 +119,6 @@ class Portfolio extends Component{
                     <OpenTrades openTrades={this.state.openTrades}/>
                     <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                 </div>
-
-
 
             </div>
         )
