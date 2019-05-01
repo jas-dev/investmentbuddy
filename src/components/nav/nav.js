@@ -36,7 +36,7 @@ class Nav extends Component{
                         <Link to='/faq'>FAQ</Link>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/sign-out'>Sign Out</Link>
+                        <Link to='/account/sign-out'>Sign Out</Link>
                     </li>
                 </Fragment>
             );
@@ -53,7 +53,7 @@ class Nav extends Component{
                         <Link to='/faq'>FAQ</Link>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/sign-in'>Sign in</Link>
+                        <Link to='/account/sign-in'>Sign in</Link>
                     </li>
                 </Fragment>
             );
