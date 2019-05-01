@@ -15,18 +15,18 @@ const AccountInfo = props => {
     return(
         <Fragment>
             <div className='row'>
-                <div className="col s6 "><i className="material-icons">account_balance</i><b>Available</b></div>
+                <div className="col s6 "><i className="material-icons">account_balance</i></div>
                 <div className="col s5 left offset-s2">
-                    <div>Balance:</div>
-                    <div>To Trade:</div>
-                    <b>Total</b>
-                    <div>Assets:</div>
+                    <div>Available Balance:</div>
+                    <div>Available To Trade:</div>
+                    <br/>
+                    <div>Total Assets:</div>
                 </div>
                 <div className="col s3">
-                    <div className="">{accountData.avail_balance}</div>
-                    <div className="">{accountData.avail_to_trade}</div>
+                    <div className="">{`$${accountData.avail_balance}`}</div>
+                    <div className="">{`$${accountData.avail_to_trade}`}</div>
                     <br/>
-                    <div className="">{accountData.total_asset}</div>
+                    <div className="">{`$${accountData.total_asset}`}</div>
                 </div>
             </div>
         </Fragment>
@@ -34,3 +34,4 @@ const AccountInfo = props => {
 }
 
 export default AccountInfo;
+
