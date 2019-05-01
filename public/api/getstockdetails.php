@@ -12,7 +12,8 @@ $response = [
     "success"=>true,
     "company"=>[],
     "stock"=>[], 
-    "history"=>[], 
+    "priceHistory"=>[], 
+    "percentHistory"=>[],
     "intraday"=>[]
 ];
 
@@ -54,8 +55,8 @@ $changeAmount = $data["09. change"];
 $changePercent = $data["10. change percent"];
 $changePercent = substr($changePercent, 0, -1);
 
-$updateStockTableQuery = "INSERT INTO `stock` (`symbol`, `datetime`, `open`, `high`, `low`, `price`, `volume`, `latest_trade_day`, `previous_close`, `change_amount`, `change_percent`) 
-                            VALUES ('$ticker', NOW(), $open, $high, $low, $price, $volume, '$latestTradingDay', $previousClose, $changeAmount, $changePercent)";
+$updateStockTableQuery = "UPDATE`stock` SET `symbol`='$ticker', `datetime`=NOW(), `open`=$open, `high`=$high, `low`=$low, `price`=$price, `volume`=$volume, 
+                            `latest_trade_day`='$latestTradingDay', `previous_close`=$previousClose, `change_amount`=$changeAmount, `change_percent`=$changePercent WHERE `symbol`='$ticker'";
 
 $updateStockTableResult = mysqli_query($conn, $updateStockTableQuery);
 if (!$updateStockTableResult){
@@ -79,10 +80,11 @@ if (!$historyResult){
 }
 
 while($row=mysqli_fetch_assoc($historyResult)){
-    
-    $response["history"][$row["date"]] = $row["close"];
+    $response["percentHistory"][$row["date"]] = $row["percent_change"];
+    $response["priceHistory"][$row["date"]] = $row["close"];
 }
 
+/*
 $intraDayQuery = "SELECT * FROM `stock` WHERE `symbol`='$ticker'";
 $intraDayResult = mysqli_query($conn, $intraDayQuery);
 if (!$intraDayResult){
@@ -92,7 +94,7 @@ if (!$intraDayResult){
 while($row=mysqli_fetch_assoc($intraDayResult)){
     $response["intraday"][$row["datetime"]] = $row["price"];
 }
-
+*/
 print(json_encode($response));
 
 ?>

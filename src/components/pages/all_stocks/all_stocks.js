@@ -12,7 +12,7 @@ class AllStocks extends Component{
             stocks: []
         };
         this.goToDetails = this.goToDetails.bind(this);
-       
+       this.checkSearch = this.checkSearch.bind(this);
     }
     
     componentDidMount() {
@@ -32,11 +32,24 @@ class AllStocks extends Component{
     }
 
     goToDetails(symbol){
-        this.props.history.push(`/stockdetails/${symbol}`)
+        this.props.history.push(`/stockdetails/${symbol}`);
     }
 
     addToWatchList(symbol){
         axios.get(`/api/addwatchlist.php?account_id=2&symbol=${symbol}`);
+    }
+
+    checkSearch(symbol){
+        axios.get(`/api/getsymbollist.php`).then(response=>{
+            for (let index=0; index<response.data.length; index++){
+                if (symbol.toUpperCase()===response.data[index]){
+                    this.goToDetails(symbol.toUpperCase());
+                    return;
+                }
+            }
+            M.toast({html: "No companies found!"});
+
+        });
     }
 
     render(){
@@ -49,7 +62,7 @@ class AllStocks extends Component{
             <div className='all-stocks container'>
                 <h1 className=''>All Stocks</h1>
                 <div className="row">
-                    <Search/>
+                    <Search checkSearch={this.checkSearch}/>
                 </div>
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} 
                     addWatch={this.addToWatchList} allStocks={true}/>
