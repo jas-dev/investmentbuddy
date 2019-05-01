@@ -21,7 +21,6 @@ class Dashboard extends Component {
             });
         });
     }
-
     render(){
     if (this.state.ticker===null){
         return <Loader/>

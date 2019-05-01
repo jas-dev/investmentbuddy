@@ -15,6 +15,7 @@ import MakeTrades from './pages/enter_trades/enter_trades';
 import NotFound from './pages/404/404';
 import Nav from './nav';
 import AccountRoutes from './account';
+import auth from '../hoc/auth';
 
 class App extends Component {
 
@@ -29,12 +30,12 @@ class App extends Component {
                     <Route path="/stockdetails/:symbol" render={(routingProps) => {
                         return <StockDetails {...routingProps}/>
                     }}/>
-                    <Route path="/portfolio" component={Portfolio}/>
+                    <Route path="/portfolio" component={auth(Portfolio)}/>
                     <Route path="/faq" component={Faq}/>
-                    <Route path="/dashboard" component={Dashboard}/>
-                    <Route path="/stocks" component={AllStocks}/>
-                    <Route path="/transactions" component={Transactions}/>
-                    <Route path="/trade" component={MakeTrades}/>
+                    <Route path="/dashboard" component={auth(Dashboard)}/>
+                    <Route path="/stocks" component={auth(AllStocks)}/>
+                    <Route path="/transactions" component={auth(Transactions)}/>
+                    <Route path="/trade" component={auth(MakeTrades)}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/account" component={AccountRoutes}/>
                     <Route component={NotFound}/>
