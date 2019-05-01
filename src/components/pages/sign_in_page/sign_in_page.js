@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 import SignInForm from '../../account/sign_in_form/sign_in_form';
 import SignUpForm from '../../account/sign_up_form/sign_up_form';
+import axios from 'axios'
+import {signIn} from '../../../actions';
+import {connect} from 'react-redux';
 
 class SignIn extends Component{
-    handleSignIn(values){
-        console.log('sign in form values:', values);
+    handleSignIn = values => {
+        axios.post('/api/login.php', values).then(resp => {
 
+            if (resp.data.success) {
+                this.props.signIn(resp.data.userData);
+                this.props.history.push('/dashboard');
+            } else {
+                M.toast({
+                    html: 'Invalid username or password.'
+                });
+            }
+        });
     }
 
     handleSignUp(values){
@@ -26,4 +38,6 @@ class SignIn extends Component{
     }
 }
 
-export default SignIn;
+export default connect(null, {
+    signIn: signIn
+})(SignIn);

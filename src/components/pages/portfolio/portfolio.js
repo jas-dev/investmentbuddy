@@ -7,6 +7,8 @@ import OpenTrades from '../../helpers/open_trades';
 import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
 
+import {connect} from 'react-redux';
+
 class Portfolio extends Component{
     constructor(props){
         super(props);
@@ -23,18 +25,19 @@ class Portfolio extends Component{
     }
 
     getStockData(){
-        axios.get('/api/getportfoliodata.php').then(resp=>{
+        axios.get('/api/getportfoliodata.php').then(resp => {
             
             this.setState({
                 offsetTrades: resp.data.offsetTrades,
                 openTrades: resp.data.openTrades
             });
+
         });
 
     }
 
     getAccountData() {
-        axios.get('/api/getaccountbalance.php').then(resp=>{
+        axios.get('/api/getaccountbalance.php').then(resp => {
             this.setState({
                 accountData: resp.data
             });
@@ -43,20 +46,19 @@ class Portfolio extends Component{
 
     handleAddFunds = inputs => {
         const {amount} = inputs;
-
         if (amount > 0) {
-            const account_id = 2;
+            axios.get(`/api/addfunds.php?amount=${amount}`).then(resp => {
 
-            let message = '';
-            axios.get(`/api/addfunds.php?account_id=${account_id}&amount=${amount}`).then(resp => {
-                if (resp.data.message) {
-                    message = resp.data.message;
+                let toastMessage = '';
+                const {message, success, error} = resp.data;
+                if (message) {
+                    toastMessage = message;
                     this.getAccountData();
                 } else {
-                    message = 'Could not connect to database, try again later.'
+                    toastMessage = error ? error : 'Could not connect to database, try again later.'
                 }
 
-                M.toast({html: message});
+                M.toast({html: toastMessage});
             });
         } else {
             M.toast({html: 'Please choose a positive number.'});
@@ -67,7 +69,6 @@ class Portfolio extends Component{
         if(!this.state.offsetTrades.length || !this.state.openTrades){
             return null;
         }
-
 
         return (
             <div className='portfolio-wrapper container'>
@@ -100,4 +101,10 @@ class Portfolio extends Component{
     }
 }
 
-export default Portfolio;
+function mapStateToProps(state) {
+    return {
+        id: state.user.id
+    };
+}
+
+export default connect(mapStateToProps)(Portfolio);

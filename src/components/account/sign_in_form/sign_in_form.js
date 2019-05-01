@@ -5,18 +5,16 @@ class SignInForm extends Component{
 
     render(){
         const {handleSubmit, signIn} = this.props;
-        console.log('sign in form props:', this.props);
-
 
         return (
             <div className='col s6 container'>
                 <div className='card card-padout'>
                     <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
                         <div className='input-field'>
-                            <Field id='email'
-                                   name='email'
+                            <Field id='name'
+                                   name='name'
                                    type='text' component='input'/>
-                            <label htmlFor='email'>Email</label>
+                            <label htmlFor='name'>Name</label>
                         </div>
                         <div className='input-field'>
                             <Field id='password' name='password' type='text' component='input'/>

@@ -4,7 +4,6 @@ import {reduxForm, Field, reset} from 'redux-form';
 const SignUpForm = props =>{
 
     const {handleSubmit, signUp} = props;
-    console.log('sign in form props:', props);
 
     return(
         <div className="col s6 container">

@@ -1,8 +1,9 @@
 <?php
+
 require_once('functions.php');
-//require_once('config.php');
-require_once('mysqlconnect.php');
 set_exception_handler("handleError");
+require_once('config.php');
+require_once('mysqlconnect.php');
 
 //=======================================================
 // get list of stocks for an account based on watchlist
@@ -11,19 +12,22 @@ $output = [
     'success' => false
 ];
 
-//if(empty($_SESSION['acct_id'])){
-//    throw new Exception('Missing account id');
-//}
-//$acct_id = $_SESSION['acct_id'];
-$acct_id = 2;
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
 
-//$query="SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent`
-//FROM `stock` as s JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol` WHERE a.`account_id` = $acct_id";
-
-$query = "SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent` 
-FROM (SELECT `symbol`, `datetime`, `price`, `change_percent` FROM `stock`
-WHERE `datetime` in (SELECT MAX(`datetime`) FROM `stock` GROUP BY `symbol`)) s
-JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol` WHERE a.`account_id` = $acct_id";
+$query = "
+    SELECT a.`account_id`, a.`symbol`, s.`datetime`, s.`price`, s.`change_percent` 
+    FROM (SELECT `symbol`, `datetime`, `price`, `change_percent` 
+          FROM `stock`
+          WHERE `datetime` in 
+                (SELECT MAX(`datetime`) 
+                 FROM `stock`
+                 GROUP BY `symbol`)) as s
+    JOIN `account_watchlist` as a ON s.`symbol` = a.`symbol`
+    WHERE a.`account_id` = $account_id
+";
 
 $queryResult = mysqli_query($conn, $query);
 
@@ -46,4 +50,5 @@ while($row = mysqli_fetch_assoc($queryResult)){
 
 $output['success'] = true;
 print(json_encode($output));
+
 ?>

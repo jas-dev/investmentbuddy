@@ -1,8 +1,14 @@
 <?php
 
-require_once("functions.php");
+require_once('functions.php');
 set_exception_handler("handleError");
-require_once("mysqlconnect.php");
+require_once('config.php');
+require_once('mysqlconnect.php');
+
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
 
 //=====================================================================================================
 // Trade Offset: Find pairs of trades that can be offset and/or close out
@@ -31,15 +37,13 @@ require_once("mysqlconnect.php");
 //    ***   - CONTINUE the LOOP to check for next offset
 // (5) UPDATE account balances - with realized PL
 //=====================================================================================================
-//$accountId = $_GET["account_id"];
-$accountId = 2;
 $realized_pl = 0;       // set default to 0, in case there are no trades to offset
 $total_realized_pl = 0; // need to track p/l for all offset trades
 
 //=====================================================================================================
 // step 1: check open_trades table - does this account have at least TWO open trades to offset?
 //=====================================================================================================
-$query = "SELECT * FROM `open_trades` WHERE `account_id` = $accountId ";
+$query = "SELECT * FROM `open_trades` WHERE `account_id` = $account_id ";
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -51,7 +55,7 @@ if(mysqli_num_rows($queryResult) < 2){
 // step 2: get the most recent open trade for this account using MAX (trade_id) (i.e. the new trade)
 //=====================================================================================================
 $query = "SELECT `id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty` 
-FROM `open_trades` WHERE `id` = ( SELECT MAX(id) FROM `open_trades` WHERE `account_id` = $accountId )";
+FROM `open_trades` WHERE `id` = ( SELECT MAX(id) FROM `open_trades` WHERE `account_id` = $account_id )";
 $queryResult = mysqli_query($conn, $query);
 if (!$queryResult){
     throw new Exception(mysqli_error($conn));
@@ -76,7 +80,7 @@ if ($newTradeBuySell === 'B') {
 //   sort in DESC order - offset trades in LAST IN FIRST OUT
 //=====================================================================================================
 $queryOldTrade = "SELECT `id`, `orig_trade_id`, `orig_trade_date`, `symbol`, `buy_sell`, `trade_price`, `open_qty` 
-FROM `open_trades` WHERE `account_id` = $accountId AND `symbol` = '$symbol' AND `buy_sell` = '$oldTradeBuySell'
+FROM `open_trades` WHERE `account_id` = $account_id AND `symbol` = '$symbol' AND `buy_sell` = '$oldTradeBuySell'
 ORDER BY `orig_trade_date` DESC ";
 $queryOldTradeResult = mysqli_query($conn, $queryOldTrade);
 if (!$queryOldTradeResult){
@@ -114,7 +118,7 @@ while($newTradeOpenQty > 0) {
     // insert a new record in offset_trade table
     $timestamp = date_create('now')->format('Y-m-d H:i:s');
     $query = "INSERT INTO `offset_trades` (`account_id`, `settlement_date`, `buy_id`, `sell_id`, `symbol`, `offset_qty`, `realized_pl`) 
-      VALUES ($accountId, '$timestamp', $buyTradeId, $sellTradeId, '$symbol', $offset_qty, $realized_pl )";
+      VALUES ($account_id, '$timestamp', $buyTradeId, $sellTradeId, '$symbol', $offset_qty, $realized_pl )";
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult){
         throw new Exception(mysqli_error($conn));
@@ -127,7 +131,7 @@ while($newTradeOpenQty > 0) {
     // check if the new trade is completely offset? if yes, exit the loop, no need to check for any more offset
     if ($newTradeOpenQty === 0) {
         // delete the new trade from open_trades table
-        $query = "DELETE FROM `open_trades` WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+        $query = "DELETE FROM `open_trades` WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
           AND `orig_trade_id` = $newTradeId ";
         $queryResult = mysqli_query($conn, $query);
         if (!$queryResult){
@@ -135,7 +139,7 @@ while($newTradeOpenQty > 0) {
         }
         // update trade status in transaction table
         $query = "UPDATE `transaction` SET `status` = 'Closed' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $newTradeId ";
         $queryResult = mysqli_query($conn, $query);
         if (!$queryResult){
@@ -148,7 +152,7 @@ while($newTradeOpenQty > 0) {
             //================================================================================
             // if old trade is completely offset - remove from open_trades and update status
             //================================================================================
-            $query = "DELETE FROM `open_trades` WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            $query = "DELETE FROM `open_trades` WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
             AND `orig_trade_id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -156,7 +160,7 @@ while($newTradeOpenQty > 0) {
             }
             // update trade status in transaction table for the old trade
             $query = "UPDATE `transaction` SET `status` = 'Closed' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -169,14 +173,14 @@ while($newTradeOpenQty > 0) {
             // old trade is partially offset - update open_trade qty and status
             //================================================================================
             $query = "UPDATE `open_trades` SET `open_qty` = $oldTradeOpenQty 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `orig_trade_id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
                 throw new Exception(mysqli_error($conn));
             }
             $query = "UPDATE `transaction` SET `status` = 'Offset' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -188,14 +192,14 @@ while($newTradeOpenQty > 0) {
     } else {
         // update the new trade's open qty in open_trades table
         $query = "UPDATE `open_trades` SET open_qty = $newTradeOpenQty
-           WHERE `account_id` = $accountId AND `orig_trade_id` = $newTradeId ";
+           WHERE `account_id` = $account_id AND `orig_trade_id` = $newTradeId ";
         $queryResult = mysqli_query($conn, $query);
         if (!$queryResult){
             throw new Exception(mysqli_error($conn));
         }
         // update new trade status in transaction table
         $query = "UPDATE `transaction` SET `status` = 'Offset' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $newTradeId ";
         $queryResult = mysqli_query($conn, $query);
         if (!$queryResult){
@@ -205,7 +209,7 @@ while($newTradeOpenQty > 0) {
         // if old trade is completely offset - remove from open_trades and update status
         //================================================================================
         if ($oldTradeOpenQty === 0) {
-            $query = "DELETE FROM `open_trades` WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            $query = "DELETE FROM `open_trades` WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
           AND `orig_trade_id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -213,7 +217,7 @@ while($newTradeOpenQty > 0) {
             }
             // update trade status in transaction table for the old trade
             $query = "UPDATE `transaction` SET `status` = 'Closed' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -225,14 +229,14 @@ while($newTradeOpenQty > 0) {
             // old trade is partially offset - update open_trade qty and status
             //================================================================================
             $query = "UPDATE `open_trades` SET `open_qty` = $oldTradeOpenQty 
-             WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+             WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
              AND `orig_trade_id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
                 throw new Exception(mysqli_error($conn));
             }
             $query = "UPDATE `transaction` SET `status` = 'Offset' 
-            WHERE `account_id` = $accountId AND `symbol` = '$symbol' 
+            WHERE `account_id` = $account_id AND `symbol` = '$symbol' 
               AND `id` = $oldTradeId ";
             $queryResult = mysqli_query($conn, $query);
             if (!$queryResult){
@@ -253,7 +257,7 @@ while($newTradeOpenQty > 0) {
 //=====================================================================================================
 if ($total_realized_pl !== 0) {
     $query = "SELECT `total_asset`, `avail_balance`, `avail_to_trade` FROM `account` 
-      WHERE `account_id` = $accountId ";
+      WHERE `account_id` = $account_id ";
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult) {
         throw new Exception(mysqli_error($conn));
@@ -269,7 +273,7 @@ if ($total_realized_pl !== 0) {
 
     $query = "UPDATE `account` SET `total_asset` = $totalAsset, 
       `avail_balance` = $availBalance, `avail_to_trade` = $availToTrade 
-      WHERE `account_id` = $accountId ";
+      WHERE `account_id` = $account_id ";
     $queryResult = mysqli_query($conn, $query);
     if (!$queryResult) {
         throw new Exception(mysqli_error($conn));
