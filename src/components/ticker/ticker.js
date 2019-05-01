@@ -6,7 +6,7 @@ export default props =>{
     let randomStocks = randomizeStocks(props.stocks);
     let tickerStocks = randomStocks.map((stock, index)=>{
         return (
-            <div key={index} className="ticker__item">{`${stock.symbol} | $${stock.price}, Percentage Change: ${stock.percentChange}%          `}</div>
+            <div key={index} className="ticker__item" onClick={props.details}>{`${stock.symbol} | $${stock.price}, Percentage Change: ${stock.percentChange}%          `}</div>
         )
     });
 

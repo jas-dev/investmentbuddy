@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { formatDateTime } from '../helpers';
+import { formatDateTime, moneyCommas, formatNegativeMoney } from '../helpers';
 
 export default props =>{
 
@@ -11,17 +11,32 @@ export default props =>{
             row = formatDateTime(row);
         }
         else if ((props.allStocks||props.watchlist) && index===2){
-            row = "$"+row;
+            row = "$"+moneyCommas(row);
         }
         else if ((props.allStocks||props.watchlist) && index===3){
             row = row+"%";
         }
         else if (props.openTrades && (index===3||index===6||index===7)){
-            row = "$"+row;
+            row = "$"+moneyCommas(row);
         }
         else if (props.openTrades && index===5){
             row = formatDateTime(row);
+        } 
+        else if (props.offsetTrades && index===1){
+            row = formatDateTime(row);
+        } 
+        else if (props.offsetTrades && index===3){
+            row = "$"+moneyCommas(row);
+        } 
+        else if (index===3 || index===7){
+            if (row<0){
+                row = moneyCommas(row);
+                row = formatNegativeMoney(row);
+            } else {
+                row = "$"+moneyCommas(row);
+            }
         }
+    
        return(
             <td key={index}>{row}</td>
 

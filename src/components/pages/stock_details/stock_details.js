@@ -26,7 +26,7 @@ class StocksDetails extends Component{
     getStockData(){
         
         axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
-console.log(resp);
+
             this.setState({
                 company: resp.data.company,
                 priceHistory: formatHistory(resp.data, "price"),

@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 class SignIn extends Component{
     handleSignIn = values => {
         axios.post('/api/login.php', values).then(resp => {
-
+console.log(resp);
             if (resp.data.success) {
                 this.props.signIn(resp.data.userData);
                 this.props.history.push('/dashboard');
@@ -41,3 +41,4 @@ class SignIn extends Component{
 export default connect(null, {
     signIn: signIn
 })(SignIn);
+
