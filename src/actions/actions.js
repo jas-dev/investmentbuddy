@@ -4,3 +4,9 @@ export function signIn(userData) {
         ...userData
     };
 }
+
+export function signOut() {
+    return {
+        type: 'LOG_USER_OUT'
+    };
+}
