@@ -1,15 +1,16 @@
 <?php
 
+//======================================================================
+// this code was used to test creating chart - not used for application
+//======================================================================
+
 //set_exception_handler('handleError');
 require_once("mysqlconnect.php");
 $symbol = "FB";
 
 //select date, close from stock_history where symbol='MSFT' order by date
-//$query = "SELECT `symbol`, `date`, `close` from `stock_history` where `symbol` =
-//'$symbol' order by `date` LIMIT 300";
-
 $query = "SELECT `symbol`, `date`, `close` from `stock_history` where `symbol` = 
-'$symbol' order by `date`";
+'$symbol' order by `date` LIMIT 300";
 
 //var_dump($query);
 
