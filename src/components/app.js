@@ -16,7 +16,7 @@ import NotFound from './pages/404/404';
 import Nav from './nav';
 import AccountRoutes from './account';
 import auth from '../hoc/auth';
-import Multi_Stock_chart from "./chart/multi_stock_chart";
+
 
 class App extends Component {
 
@@ -28,9 +28,6 @@ class App extends Component {
                 <Switch>
                     <Route path="/home" component={Home}/>
                     <Route path="/about" component={About}/>
-                    <Route path="/stockdetails/market_index" render={(routingProps) => {
-                        return <MarketIndex />
-                    }}/>
                     <Route path="/stockdetails/:symbol" render={(routingProps) => {
                         return <StockDetails {...routingProps}/>
                     }}/>

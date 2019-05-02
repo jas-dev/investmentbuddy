@@ -5,7 +5,7 @@ import { COPYFILE_FICLONE_FORCE } from 'constants';
 
 export function formatMarketIndex(stocks) {
     const linesData = [];
-    debugger;
+
     stocks.symbols.forEach(function(symbol, symbolIndex, symbols) {
         const symbolData = stocks.prices[symbolIndex];
         const xData = Object.keys(symbolData);
