@@ -8,8 +8,7 @@ class Nav extends Component{
 
 
     renderLinks(){
-        debugger;
-        if (this.props.signedIn){
+        if (this.props.signedIn || localStorage.getItem("investmentBuddy")){
             return (
                 <Fragment>
                     <li className='.sidenav-close'>

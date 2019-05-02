@@ -12,7 +12,7 @@ class SignIn extends Component{
 
             if (resp.data.success) {
                 localStorage.setItem("investmentBuddy", resp.data.userData.token);
-                this.props.signIn(resp.data.userData);
+                this.props.signIn();
                 this.props.history.push('/dashboard');
             } else {
                 M.toast({

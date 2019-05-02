@@ -1,7 +1,6 @@
-export function signIn(userData) {
+export function signIn() {
     return {
-        type: 'LOG_USER_IN',
-        ...userData
+        type: 'LOG_USER_IN'
     };
 }
 
@@ -10,3 +9,4 @@ export function signOut() {
         type: 'LOG_USER_OUT'
     };
 }
+
