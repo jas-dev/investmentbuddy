@@ -38,8 +38,10 @@ class Portfolio extends Component{
 
     getAccountData() {
         axios.get('/api/getaccountbalance.php').then(resp => {
+    
+        let newArray = [resp.data];
             this.setState({
-                accountData: resp.data
+                accountData: newArray
             });
         });
     }
@@ -66,10 +68,10 @@ class Portfolio extends Component{
     }
 
     render(){
-        if(!this.state.offsetTrades.length || !this.state.openTrades){
+        if(!this.state.offsetTrades.length || !this.state.openTrades.length || !this.state.accountData.length){
             return null;
         }
-
+        
         return (
             <div className='portfolio-wrapper container'>
 
@@ -108,3 +110,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Portfolio);
+

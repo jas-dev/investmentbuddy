@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import SignInForm from '../../account/sign_in_form/sign_in_form';
 import SignUpForm from '../../account/sign_up_form/sign_up_form';
-import axios from 'axios'
+import axios from 'axios';
 import {signIn} from '../../../actions';
 import {connect} from 'react-redux';
 
 class SignIn extends Component{
+    
     handleSignIn = values => {
         axios.post('/api/login.php', values).then(resp => {
 
             if (resp.data.success) {
-                this.props.signIn(resp.data.userData);
+                localStorage.setItem("investmentBuddy", resp.data.userData.token);
+                this.props.signIn();
                 this.props.history.push('/dashboard');
             } else {
                 M.toast({
@@ -25,6 +27,7 @@ class SignIn extends Component{
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className='container'>
                 <div className='row'>
@@ -41,3 +44,4 @@ class SignIn extends Component{
 export default connect(null, {
     signIn: signIn
 })(SignIn);
+

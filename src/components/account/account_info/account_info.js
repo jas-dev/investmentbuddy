@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import './account_info.scss';
 import {convertAccountData} from "../../helpers";
+import {moneyCommas} from "../../helpers";
 import RenderTable from '../../render_table/render_table';
 
 
@@ -23,10 +24,10 @@ const AccountInfo = props => {
                     <div>Total Assets:</div>
                 </div>
                 <div className="col s3">
-                    <div className="">{`$${accountData.avail_balance}`}</div>
-                    <div className="">{`$${accountData.avail_to_trade}`}</div>
+                    <div className="">{`$${moneyCommas(accountData[0].avail_balance)}`}</div>
+                    <div className="">{`$${moneyCommas(accountData[0].avail_to_trade)}`}</div>
                     <br/>
-                    <div className="">{`$${accountData.total_asset}`}</div>
+                    <div className="">{`$${moneyCommas(accountData[0].total_asset)}`}</div>
                 </div>
             </div>
         </Fragment>

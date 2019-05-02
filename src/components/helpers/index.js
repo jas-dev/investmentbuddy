@@ -103,8 +103,12 @@ export function formatDateTime(str){
         dateArray[1] = dateArray[1][1];
     }
     let formattedDateString = dateArray[1]+"/"+dateArray[2]+"/"+dateArray[0];
+    let timeString;
 
-    const timeString = arr[1];
+    if (typeof arr[1] === "undefined"){
+        return formattedDateString;
+    } else {
+    timeString = arr[1]; }
     if (timeString==="00:00:00"){
         return formattedDateString;
     }
@@ -126,6 +130,42 @@ export function randomizeStocks(arr){
         arr.slice(index, 1);
     }
 
+    return result;
+}
+
+export function moneyCommas(num){
+    let str = num.toString();
+    let arr = str.split("");
+
+    let decimal = false;
+    let startIndex = arr.length-1;
+    for (let index=0; index<arr.length; index++){
+        if (arr[index]==="."){
+            decimal = true;
+            startIndex=index-1;
+        }
+    }
+
+    let counter = 1;
+ 
+    for (let index=startIndex; index>=0; index--){
+        if (counter%3===0 && (arr[index-1]!=="-"&&typeof arr[index-1]!=="undefined")){
+            arr.splice(index, 0, ",");
+        }
+        counter++;
+    }
+
+    const result = arr.join("");
+    return result;
+}
+
+
+export function formatNegativeMoney(num){
+    let str = num.toString();
+    let arr = str.split("");
+    arr.splice(1, 0, "$");
+
+    const result = arr.join("");
     return result;
 }
 

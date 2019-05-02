@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import RenderTable from '../render_table/render_table'
-
+import RenderTable from '../render_table/render_table';
+import {formatNegativeMoney, moneyCommas, formatDateTime} from "../helpers";
 
 class Card extends Component{
 
@@ -58,15 +58,15 @@ class Card extends Component{
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{price}</td>
-                            <td>{open}</td>
-                            <td>{high}</td>
-                            <td>{low}</td>
-                            <td>{changeAmount}</td>
-                            <td>{changePercent}</td>
-                            <td>{previousClose}</td>
-                            <td>{latestTradingDay}</td>
-                            <td>{volume}</td>
+                            <td>{`$${moneyCommas(price)}`}</td>
+                            <td>{`$${moneyCommas(open)}`}</td>
+                            <td>{`$${moneyCommas(high)}`}</td>
+                            <td>{`$${moneyCommas(low)}`}</td>
+                            <td>{`${formatNegativeMoney(moneyCommas(changeAmount))}`}</td>
+                            <td>{`${changePercent}%`}</td>
+                            <td>{`$${moneyCommas(previousClose)}`}</td>
+                            <td>{formatDateTime(latestTradingDay)}</td>
+                            <td>{`${moneyCommas(volume)}`}</td>
                         </tr>
                     </tbody>
                 </table>
