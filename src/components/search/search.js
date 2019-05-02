@@ -25,7 +25,7 @@ class Search extends Component {
         return (
             <form action="" onSubmit={this.handleForm}>
                 <div className="row right-aligned">
-                    <div className="col s3 input-field right">
+                    <div className="col s4 input-field right">
                         <i className="material-icons prefix">
                             search
                         </i>

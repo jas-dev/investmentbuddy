@@ -6,23 +6,23 @@ const SignUpForm = props =>{
     const {handleSubmit, signUp} = props;
 
     return(
-        <div className="col s6 container">
+        <div className="col s6 offset-s3">
             <div className="card card-padout">
                 <form onSubmit={handleSubmit(signUp)} className='sign_up_form'>
                     <div className='input-field'>
                         <Field component='input'
-                               id='signUpEmail'
-                               name='email'
+                               id='signUpName'
+                               name='name'
                                type='text'
                         />
-                        <label htmlFor='signUpEmail'>Email</label>
+                        <label htmlFor='signUpName'>Name</label>
                     </div>
 
                     <div className='input-field'>
                         <Field component='input'
                                id='signUpPassword'
                                name='password'
-                               type='text'
+                               type='password'
                         />
                         <label htmlFor='signUpPassword'>Create Password</label>
                     </div>

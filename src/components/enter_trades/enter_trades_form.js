@@ -41,7 +41,7 @@ const EnterTradesForm = props => {
                     <span>Sell</span>
                 </label>
                 <div className="col s6 center">
-                    <button className="btn green darken-2 right">Submit</button>
+                    <button className="btn-small green darken-4 ">Submit</button>
                 </div>
             </div>
 

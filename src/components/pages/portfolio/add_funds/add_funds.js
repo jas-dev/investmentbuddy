@@ -20,7 +20,7 @@ const AddFunds = props => {
                 <div className="row">
                     <div className="col s6 center">
                         <button type='submit' className='confirm btn-small green darken-4'>
-                            <i className="material-icons left">add</i>Add
+                            Add
                         </button>
                     </div>
 
@@ -29,7 +29,7 @@ const AddFunds = props => {
                             props.dispatch(reset('add-funds-form'));
                             event.preventDefault();
                         }} className='cancel btn-small green darken-4'>
-                            <i className="material-icons left">close</i>Clear
+                            Clear
                         </button>
                     </div>
                 </div>
