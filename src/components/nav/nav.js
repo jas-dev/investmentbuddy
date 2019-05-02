@@ -8,6 +8,7 @@ class Nav extends Component{
 
 
     renderLinks(){
+        debugger;
         if (this.props.signedIn){
             return (
                 <Fragment>
