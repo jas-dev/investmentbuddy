@@ -101,7 +101,7 @@ class Portfolio extends Component{
                 </div>
 
                 <div className="row card card-padout">
-                    <div className="col s6">
+                    <div className="col s12">
                         <AccountInfo accountData={this.state.accountData}/>
                     </div>
                 </div>

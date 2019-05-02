@@ -14,21 +14,30 @@ const AccountInfo = props => {
 
     return(
         <Fragment>
-            <div className='row'>
-                <div className="col s6 "><i className="material-icons">account_balance</i></div>
-                <div className="col s5 left offset-s2">
-                    <div>Available Balance:</div>
-                    <div>Available To Trade:</div>
-                    <br/>
-                    <div>Total Assets:</div>
-                </div>
-                <div className="col s3">
-                    <div className="">{`$${accountData.avail_balance}`}</div>
-                    <div className="">{`$${accountData.avail_to_trade}`}</div>
-                    <br/>
-                    <div className="">{`$${accountData.total_asset}`}</div>
-                </div>
-            </div>
+            <i className="material-icons">account_balance</i>
+            <table className='responsive-table'>
+                <thead>
+                <tr>
+                    <th>Available Balance</th>
+                    <th>Available to Trade</th>
+                    <th>Total Assets</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>{`$${accountData.avail_balance}`}</td>
+                    <td>{`$${accountData.avail_to_trade}`}</td>
+                    <td>{`$${accountData.total_asset}`}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
         </Fragment>
     );
 }
