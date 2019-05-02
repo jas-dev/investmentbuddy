@@ -7,18 +7,6 @@ const EnterTradesForm = props => {
 
         <form onSubmit={handleSubmit(handler)} className='trade-form'>
 
-            <div className="row type-wrapper">
-                <span className='col s2 offset-s1'>Type</span>
-                <label className='col s2 offset-s2'>
-                    <Field name='buy_sell' component='input' type='radio' value='B'/>
-                    <span>Buy</span>
-                </label>
-                <label className='col s2 offset-s2'>
-                    <Field name='buy_sell' component='input' type='radio' value='S'/>
-                    <span>Sell</span>
-                </label>
-            </div>
-
             <div className='row symbol-shares'>
                 <div className="input-field col s2 offset-s1">
                     <label htmlFor='symbol-field'>Symbol</label>
@@ -44,8 +32,16 @@ const EnterTradesForm = props => {
             </div>
 
             <div className="row">
-                <div className="col s12 center">
-                    <button className="btn green darken-2 center">Submit</button>
+                <label className='col s2 offset-s1'>
+                    <Field name='buy_sell' component='input' type='radio' value='B'/>
+                    <span>Buy</span>
+                </label>
+                <label className='col s2 offset-s1'>
+                    <Field name='buy_sell' component='input' type='radio' value='S'/>
+                    <span>Sell</span>
+                </label>
+                <div className="col s6 center">
+                    <button className="btn green darken-2 right">Submit</button>
                 </div>
             </div>
 

@@ -104,19 +104,20 @@ class Portfolio extends Component{
                     <div className="col s6">
                         <AccountInfo accountData={this.state.accountData}/>
                     </div>
+                </div>
 
-                    <div className="col s6">
+                <div className='row'>
+
+                    <div className="col s6 card card-padout">
+                        <h5>Enter Trades</h5>
+                        <EnterTradesForm handler={this.submitTrade}/>
+                    </div>
+                    <div className="col s6 card card-padout">
+                        <h5>Add Funds</h5>
                         <AddFunds handler={this.handleAddFunds}/>
                     </div>
                 </div>
 
-                <div className='row'>
-                    <h5>Enter Trades</h5>
-                    <div className="col s6 card card-padout">
-                        <EnterTradesForm handler={this.submitTrade}/>
-                    </div>
-
-                </div>
 
                 <div className="col s12">
                     <OpenTrades openTrades={this.state.openTrades}/>
