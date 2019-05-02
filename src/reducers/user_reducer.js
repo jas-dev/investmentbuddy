@@ -11,7 +11,7 @@ function userReducer(state = DEFAULT_STATE, action){
     switch(action.type){
         case 'LOG_USER_IN':
             return {
-                ...state, auth: true, ...action
+                ...state, auth: true
             };
         case 'LOG_USER_OUT':
             return {
@@ -23,3 +23,4 @@ function userReducer(state = DEFAULT_STATE, action){
 }
 
 export default userReducer;
+

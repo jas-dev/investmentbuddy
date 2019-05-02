@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import './account_info.scss';
 import {convertAccountData} from "../../helpers";
+import {moneyCommas} from "../../helpers";
 import RenderTable from '../../render_table/render_table';
 
 
@@ -26,18 +27,12 @@ const AccountInfo = props => {
 
                 <tbody>
                 <tr>
-                    <td>{`$${accountData.avail_balance}`}</td>
-                    <td>{`$${accountData.avail_to_trade}`}</td>
-                    <td>{`$${accountData.total_asset}`}</td>
+                    <td>{`$${moneyCommas(accountData[0].avail_balance)}`}</td>
+                    <td>{`$${moneyCommas(accountData[0].avail_to_trade)}`}</td>
+                    <td>{`$${moneyCommas(accountData[0].total_asset)}`}</td>
                 </tr>
                 </tbody>
             </table>
-
-
-
-
-
-
         </Fragment>
     );
 }

@@ -5,19 +5,20 @@ const AddToWatchlistForm = props => {
     const {handler, handleSubmit} = props;
     return (
         <form onSubmit={handleSubmit(handler)} className='watchlist-add-form row valign-wrapper'>
-                <div className='input-field watchlist-add-input col s6'>
-                    <label htmlFor='watchlist-add-field'>Symbol</label>
+                <div className='input-field watchlist-add-input col s3'>
+                    <label htmlFor='watchlist-add-field'>Add by symbol</label>
                     <Field id='watchlist-add-field'
                            name='symbol'
                            component='input'
-                           type='text'/>
+                           type='search'/>
                 </div>
-                <button className="btn green darken-2">Add to watchlist
-                    <i className="material-icons left">add</i>
+                <button className="btn-floating btn green darken-4">
+                   <a><i className="material-icons">add</i></a>
                 </button>
+
         </form>
     );
-}
+};
 
 function validate(inputs) {
     const errors = {};

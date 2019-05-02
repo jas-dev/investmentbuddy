@@ -69,6 +69,11 @@ $duration: 400s;
 
     }
 
+    &__item:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
   }
 
 }

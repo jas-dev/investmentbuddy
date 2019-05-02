@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Axios from 'axios';
+import {signIn} from "../actions";
 
 export default function(WrappedComponent, to= '/account/sign-in', requireAuth = true){
     class Auth extends Component {
@@ -11,9 +13,16 @@ export default function(WrappedComponent, to= '/account/sign-in', requireAuth = 
             this.checkAuth();
         }
 
-        checkAuth(){
-            if(this.props.auth !== requireAuth){
+        async checkAuth(){
+            let userAuthToken = localStorage.investmentBuddy;
+            let authStatus = await Axios.post("/api/checkloggedin.php", {
+                token: userAuthToken
+            });
+            console.log(authStatus);
+            if(authStatus.data.success !== requireAuth){
                 this.props.history.push(to);
+            } else {
+                
             }
         }
 
@@ -30,3 +39,4 @@ export default function(WrappedComponent, to= '/account/sign-in', requireAuth = 
 
     return connect(mapStateToProps)(Auth);
 }
+

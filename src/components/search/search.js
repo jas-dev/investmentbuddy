@@ -23,21 +23,17 @@ class Search extends Component {
 
     render() {
         return (
-            <div className='search-wrapper col s4 card card-padout'>
+            <div className='search-wrapper'>
                 <form action="" onSubmit={this.handleForm}>
-
                     <div className="row">
-                    <div className="col s12 center">
-                        <input type="text" placeholder="Search by company or symbol" onChange={this.userTyped}/>
-                        <label htmlFor=""></label>
+                        <div className="col s3 input-field">
+                            <i className="material-icons prefix">
+                                search
+                            </i>
+                            <input id="search" type="search" placeholder="Search by symbol" onChange={this.userTyped}/>
+                            <label htmlFor="Search"/>
+                        </div>
                     </div>
-                    </div>
-                    <div className="row">
-                    <div className="col s12 center">
-                        <button className="search btn btn-small">Find</button>
-                    </div>
-                    </div>
-
                 </form>
             </div>
         )

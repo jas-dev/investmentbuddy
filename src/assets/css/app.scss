@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: #FFF8DC ;  //#F0FFFF DCDCDC;
+  background-color: #bbd2a03b ;  //#F0FFFF; DCDCDC;#FFF8DC
 }
 
 .ticker-wrap{
@@ -20,14 +20,16 @@ body {
 }
 
 .card {
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #toast-container {
   top: 12% !important;
   right: 5% !important;
 }
-
+.dashboard-header{
+  padding-top: 7vh;
+}
 html {
   --input-color: rgb(0, 100, 0);
 }

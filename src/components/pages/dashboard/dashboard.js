@@ -11,6 +11,7 @@ class Dashboard extends Component {
         this.state = {
             ticker: null
         };
+        this.tickerDetails = this.tickerDetails.bind(this);
     }
     componentDidMount(){
         axios.get("/api/getstocks.php").then(response=>{
@@ -19,25 +20,44 @@ class Dashboard extends Component {
             });
         });
     }
+
+    tickerDetails(event){
+        const clickedText = event.currentTarget.textContent;
+        let symbol="";
+
+        for (let index=0; index<clickedText.length; index++){
+            if (clickedText[index]!==" "){
+                symbol+=clickedText[index];
+            } else {
+                break;
+            }
+        }
+
+        this.props.history.push(`/stockdetails/${symbol}`);
+    }
+
     render(){
+
         if (this.state.ticker===null){
             return <Loader/>
+
         } else {
 
             return (
                 <div className='dashboard-wrapper'>
                     <div className='ticker-container'>
-                        <Ticker stocks={this.state.ticker}/>
+                        <Ticker stocks={this.state.ticker} details={this.tickerDetails}/>
                     </div>
-                    <div className='container'>
-                        <h1>Dashboard</h1>
-                    </div>
-                    <div className='portfolio'>
-                        <Portfolio/>
+                    <div className='container dashboard-header'>
+                        <h4>Dashboard</h4>
                     </div>
                     <div className='watchlist'>
                         <Watchlist history={this.props.history}/>
                     </div>
+                    <div className='portfolio'>
+                        <Portfolio/>
+                    </div>
+
                 </div>
             )
         }
@@ -45,3 +65,4 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
+
