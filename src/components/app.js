@@ -19,9 +19,7 @@ import auth from '../hoc/auth';
 import MultiStockchart from "./chart/multi_stock_chart";
 
 class App extends Component {
-    authRerender(){
 
-    }
 
     render() {
 
@@ -32,7 +30,7 @@ class App extends Component {
                     <Route path="/home" component={Home}/>
                     <Route path="/about" component={About}/>
                     <Route path="/stockdetails/market_index" render={(routingProps) => {
-                        return <MarketIndex />
+                        return <MultiStockchart />
                     }}/>
                     <Route path="/stockdetails/:symbol" render={(routingProps) => {
                         return <StockDetails {...routingProps}/>
