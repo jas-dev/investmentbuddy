@@ -9,7 +9,7 @@ class Transactions extends Component{
         this.state = {
             stocks: []
         }
-
+        this.goToDetails= this.goToDetails.bind(this)
     }
 
     componentDidMount() {
@@ -25,6 +25,10 @@ class Transactions extends Component{
         });
     }
 
+    goToDetails(symbol){
+        this.props.history.push(`/stockdetails/${symbol}`);
+    }
+
     render(){
         if(!this.state.stocks.length){
             return null;
@@ -33,7 +37,7 @@ class Transactions extends Component{
         return (
             <div className='container'>
                 <h5>Transaction History</h5>
-                <RenderTable stocks={this.state.stocks}/>
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>
         )
 

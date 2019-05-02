@@ -72,9 +72,15 @@ export default props =>{
              className="btn green darken-2">Add To Watchlist</button>*/}
             </td>
     }
-
+    console.log('props from rendertr:',props);
+    if( props.values[0].length > props.values[1].length){
+        var symbol =  props.values[1]
+    }else{
+        symbol = props.values[0]
+    }
     return (
-        <tr onClick={() => props.details(props.values[0])}>{rowData}</tr>
+
+        <tr onClick={ () =>{ props.details(symbol) } }>{rowData}</tr>
     )
 }
 
