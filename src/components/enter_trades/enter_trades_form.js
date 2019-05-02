@@ -8,7 +8,7 @@ const EnterTradesForm = props => {
         <form onSubmit={handleSubmit(handler)} className='trade-form'>
 
             <div className='row symbol-shares'>
-                <div className="input-field col s2 offset-s1">
+                <div className="input-field col s3 offset-s1">
                     <label htmlFor='symbol-field'>Symbol</label>
                     <Field id='symbol-field'
                            name='symbol'
@@ -22,7 +22,7 @@ const EnterTradesForm = props => {
                            component='input'
                            type='number'/>
                 </div>
-                <div className="input-field col s2 offset-s1">
+                <div className="input-field col s3 offset-s1">
                     <label htmlFor='shares-field'>Shares</label>
                     <Field id='shares-field'
                            name='shares'
