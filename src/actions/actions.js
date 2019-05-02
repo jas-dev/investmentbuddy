@@ -5,6 +5,7 @@ export function signIn() {
 }
 
 export function signOut() {
+    localStorage.removeItem("investmentBuddy")
     return {
         type: 'LOG_USER_OUT'
     };
