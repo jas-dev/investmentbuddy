@@ -6,8 +6,8 @@ const SignUpForm = props =>{
     const {handleSubmit, signUp} = props;
 
     return(
-        <div className="col s6 offset-s3">
-            <div className="card card-padout">
+        <div className="col s12">
+            <div className="">
                 <form onSubmit={handleSubmit(signUp)} className='sign_up_form'>
                     <div className='input-field'>
                         <Field component='input'

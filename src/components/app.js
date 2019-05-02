@@ -16,9 +16,12 @@ import NotFound from './pages/404/404';
 import Nav from './nav';
 import AccountRoutes from './account';
 import auth from '../hoc/auth';
-import Multi_Stock_chart from "./chart/multi_stock_chart";
+import MultiStockchart from "./chart/multi_stock_chart";
 
 class App extends Component {
+    authRerender(){
+
+    }
 
     render() {
 

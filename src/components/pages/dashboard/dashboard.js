@@ -19,6 +19,9 @@ class Dashboard extends Component {
                 ticker: response.data.stocks
             });
         });
+
+
+
     }
 
     tickerDetails(event){
