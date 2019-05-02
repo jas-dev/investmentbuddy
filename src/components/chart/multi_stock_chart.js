@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './chart.scss';
 import ChartJS from 'chart.js';
 
-class Multi_Stock_chart extends Component{
+class MultiStockchart extends Component{
 
     constructor (props) {
         super (props);
@@ -93,6 +93,6 @@ class Multi_Stock_chart extends Component{
 }
 
 
-export default Multi_Stock_chart;
+export default MultiStockchart;
 
 
