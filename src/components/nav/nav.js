@@ -3,12 +3,22 @@ import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import './nav.scss'
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class Nav extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            links: null
+        };
+    }
 
+    componentDidMount(){
+        this.checkLogIn();
+    }
 
-    renderLinks(){
-        if (this.props.signedIn || localStorage.getItem("investmentBuddy")){
+    returnLinks(signedIn){
+        if (signedIn){
             return (
                 <Fragment>
                     <li className='.sidenav-close'>
@@ -58,12 +68,41 @@ class Nav extends Component{
                 </Fragment>
             );
         }
+    }
+
+    renderLinks(signedIn){
+        this.setState({
+            links: this.returnLinks(signedIn)
+        });
+    }
+
+    async checkLogIn(){
+        let signedIn;
+        const token = localStorage.getItem("investmentBuddy");
+    
+        if (token===null){
+            signedIn = false;
+        } else {
+            let success = await axios.post("/api/checkloggedin.php", {
+                token: token
+            });
+            if (success.data.success){
+                signedIn = true;
+            } else {
+                signedIn = false;
+            }
+        }
+        this.renderLinks(signedIn);
 
 
     }
 
     render() {
-        const links = this.renderLinks();
+        
+        const links = this.state.links;
+        if (this.state.links===null){
+            return null;
+        } else {
         return (
             <Fragment>
                 <div className='navbar-fixed'>
@@ -87,6 +126,7 @@ class Nav extends Component{
             </Fragment>
         );
     }
+}
 }
 
 function mapStateToProps(state){ /*whatever we return here will be mapped to props*/

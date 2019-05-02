@@ -18,7 +18,7 @@ export default function(WrappedComponent, to= '/account/sign-in', requireAuth = 
             let authStatus = await Axios.post("/api/checkloggedin.php", {
                 token: userAuthToken
             });
-            console.log(authStatus);
+            
             if(authStatus.data.success !== requireAuth){
                 this.props.history.push(to);
             } else {
