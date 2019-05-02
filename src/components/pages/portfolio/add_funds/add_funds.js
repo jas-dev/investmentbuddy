@@ -8,7 +8,7 @@ const AddFunds = props => {
         <div className=''>
             <form onSubmit={handleSubmit(handler)} className='add-funds-form'>
                 <div className="row">
-                    <div className='input-field add-funds-input col s12 center'>
+                    <div className='input-field add-funds-input col s8 offset-s2 center'>
                         <label htmlFor='add-funds'>$</label>
                         <Field id='add-funds'
                                name='amount'
@@ -19,7 +19,7 @@ const AddFunds = props => {
 
                 <div className="row">
                     <div className="col s6 center">
-                        <button type='submit' className='confirm btn btn green darken-2'>
+                        <button type='submit' className='confirm btn-small green darken-4'>
                             <i className="material-icons left">add</i>Add
                         </button>
                     </div>
@@ -28,7 +28,7 @@ const AddFunds = props => {
                         <button onClick={(event) => {
                             props.dispatch(reset('add-funds-form'));
                             event.preventDefault();
-                        }} className='cancel btn btn green darken-2'>
+                        }} className='cancel btn-small green darken-4'>
                             <i className="material-icons left">close</i>Clear
                         </button>
                     </div>

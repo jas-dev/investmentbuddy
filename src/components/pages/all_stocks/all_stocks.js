@@ -60,7 +60,7 @@ class AllStocks extends Component{
 
         return(
             <div className='all-stocks container'>
-                <h1 className=''>All Stocks</h1>
+                <h4>All Stocks</h4>
                 <div className="">
                     <Search checkSearch={this.checkSearch}/>
                 </div>
