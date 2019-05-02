@@ -76,7 +76,6 @@ class Stock_chart extends Component{
                 labels: props.xData, 
                 datasets: [
                     {
-                        
                         data: props.yData,
                         borderColor: 'darkblue',
                         fill: false

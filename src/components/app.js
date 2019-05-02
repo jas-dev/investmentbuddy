@@ -6,6 +6,7 @@ import {Switch, Route} from 'react-router-dom';
 import Home from './pages/home/home';
 import About from './pages/about';
 import StockDetails from './pages/stock_details/stock_details';
+import MarketIndex from './pages/stock_details/market_index_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import Dashboard from './pages/dashboard/dashboard';
@@ -16,6 +17,7 @@ import NotFound from './pages/404/404';
 import Nav from './nav';
 import AccountRoutes from './account';
 import auth from '../hoc/auth';
+import Multi_Stock_chart from "./chart/multi_stock_chart";
 
 class App extends Component {
 
@@ -27,6 +29,9 @@ class App extends Component {
                 <Switch>
                     <Route path="/home" component={Home}/>
                     <Route path="/about" component={About}/>
+                    <Route path="/stockdetails/market_index" render={(routingProps) => {
+                        return <MarketIndex />
+                    }}/>
                     <Route path="/stockdetails/:symbol" render={(routingProps) => {
                         return <StockDetails {...routingProps}/>
                     }}/>

@@ -3,6 +3,27 @@ import RenderTable from '../render_table/render_table';
 import { COPYFILE_FICLONE_FORCE } from 'constants';
 
 
+export function formatMarketIndex(stocks) {
+    const linesData = [];
+    debugger;
+    stocks.symbols.forEach(function(symbol, symbolIndex, symbols) {
+        const symbolData = stocks.prices[symbolIndex];
+        const xData = Object.keys(symbolData);
+        const yData = [];
+
+        for (let index=0; index<xData.length; index++){
+            yData.push(parseFloat(stocks.prices[symbolIndex][xData[index]]));
+        }
+
+        linesData.push({
+            "label": stocks.symbols[symbolIndex],
+            "xData": xData,
+            "yData": yData
+        });
+    });
+    return linesData;
+}
+
 export function formatHistory(stock, type){
     console.log(stock);
     let xData = [];
