@@ -4,39 +4,37 @@ import {reduxForm, Field, reset} from "redux-form";
 const AddFunds = props => {
     const {handler, handleSubmit} = props;
     return (
-        <div className="row card card-padout">
-            <div className='col s12'>
-                <form onSubmit={handleSubmit(handler)} className='add-funds-form'>
 
-                    <div className='input-field add-funds-input'>
-                        <label htmlFor='add-funds'>Add Funds</label>
+        <div className=''>
+            <form onSubmit={handleSubmit(handler)} className='add-funds-form'>
+                <div className="row">
+                    <div className='input-field add-funds-input col s8 offset-s2 center'>
+                        <label htmlFor='add-funds'>$</label>
                         <Field id='add-funds'
                                name='amount'
                                component='input'
                                type='number'/>
                     </div>
+                </div>
 
-                    <div className="row">
-                        <div className="col s6 center">
-                            <button type='submit' className='confirm btn btn green darken-2'>
-                                <i className="material-icons left">add</i>Add
-                            </button>
-                        </div>
-
-                        <div className='col s6 center'>
-                            <button onClick={(event) => {
-                                    props.dispatch(reset('add-funds-form'));
-                                    event.preventDefault();
-                                }} className='cancel btn btn green darken-2'>
-                                <i className="material-icons left">close</i>Clear
-                            </button>
-                        </div>
+                <div className="row">
+                    <div className="col s6 center">
+                        <button type='submit' className='confirm btn-small green darken-4'>
+                            Add
+                        </button>
                     </div>
 
-                </form>
-            </div>
+                    <div className='col s6 center'>
+                        <button onClick={(event) => {
+                            props.dispatch(reset('add-funds-form'));
+                            event.preventDefault();
+                        }} className='cancel btn-small green darken-4'>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-
     );
 }
 

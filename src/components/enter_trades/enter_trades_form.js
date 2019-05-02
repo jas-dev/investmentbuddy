@@ -1,31 +1,12 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 
-const MakeTradesForm = props => {
+const EnterTradesForm = props => {
     const {handler, handleSubmit} = props;
     return (
-        <form onSubmit={handleSubmit(handler)} className='trade-form card'>
 
-            <div className="row accountNum-wrapper">
-                <div className='input-field account-num-input col s10 offset-s1'>
-                    <label htmlFor='accountNum-field'>Account Number</label>
-                    <Field id='accountNum-field'
-                           name='accountNum'
-                           component='input'
-                           type='number'/>
-                </div>
-            </div>
-            <div className='row trade-type-input'>
-                <p className='col s2 offset-s1'>Type</p>
-                <label className='col s2'>
-                    <Field name='buy_sell' component='input' type='radio' value='B'/>
-                    <span>Buy</span>
-                </label>
-                <label className='col s2'>
-                    <Field name='buy_sell' component='input' type='radio' value='S'/>
-                    <span>Sell</span>
-                </label>
-            </div>
+        <form onSubmit={handleSubmit(handler)} className='trade-form'>
+
             <div className='row symbol-shares'>
                 <div className="input-field col s3 offset-s1">
                     <label htmlFor='symbol-field'>Symbol</label>
@@ -41,7 +22,7 @@ const MakeTradesForm = props => {
                            component='input'
                            type='number'/>
                 </div>
-                <div className="input-field col s2 offset-s1">
+                <div className="input-field col s3 offset-s1">
                     <label htmlFor='shares-field'>Shares</label>
                     <Field id='shares-field'
                            name='shares'
@@ -49,11 +30,22 @@ const MakeTradesForm = props => {
                            type='number'/>
                 </div>
             </div>
-            <div className='center-align'>
-                <button className="btn green darken-2">Submit Trade
-                    <i className="material-icons right">send</i>
-                </button>
+
+            <div className="row">
+                <label className='col s2 offset-s1'>
+                    <Field name='buy_sell' component='input' type='radio' value='B'/>
+                    <span>Buy</span>
+                </label>
+                <label className='col s2 offset-s1'>
+                    <Field name='buy_sell' component='input' type='radio' value='S'/>
+                    <span>Sell</span>
+                </label>
+                <div className="col s6 center">
+                    <button className="btn-small green darken-4 ">Submit</button>
+                </div>
             </div>
+
+
         </form>
     );
 }
@@ -71,6 +63,6 @@ function validate(inputs) {
 }
 
 export default reduxForm({
-    form: 'make-trades-form'
+    form: 'enter-trades-form'
     // , validate
-})(MakeTradesForm);
+})(EnterTradesForm);

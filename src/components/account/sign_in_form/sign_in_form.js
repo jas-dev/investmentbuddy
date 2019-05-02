@@ -7,7 +7,7 @@ class SignInForm extends Component{
         const {handleSubmit, signIn} = this.props;
 
         return (
-            <div className='col s6 container'>
+            <div className='col s6 offset-s3'>
                 <div className='card card-padout'>
                     <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
                         <div className='input-field'>
@@ -17,7 +17,7 @@ class SignInForm extends Component{
                             <label htmlFor='name'>Name</label>
                         </div>
                         <div className='input-field'>
-                            <Field id='password' name='password' type='text' component='input'/>
+                            <Field id='password' name='password' type='password' component='input'/>
                             <label htmlFor='password'>Password</label>
                         </div>
                         <div className="row">

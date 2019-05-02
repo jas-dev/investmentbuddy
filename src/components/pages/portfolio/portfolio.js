@@ -8,6 +8,7 @@ import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
 
 import {connect} from 'react-redux';
+import EnterTradesForm from "../../enter_trades/enter_trades_form";
 
 class Portfolio extends Component{
     constructor(props){
@@ -67,6 +68,24 @@ class Portfolio extends Component{
         }
     }
 
+    submitTrade = async inputs => {
+        const {symbol, buy_sell, shares, price} = inputs;
+        const resp = await axios.get(`/api/addtransaction.php?symbol=${symbol}&buy_sell=${buy_sell}&shares=${shares}&price=${price}`);
+
+        let toastMessage = '';
+        const {message, error, success} = resp.data;
+
+        if (message) {
+            toastMessage = message;
+            this.getStockData();
+
+        } else {
+            toastMessage = error ? error : 'Could not connect to database, try again later.';
+        }
+
+        M.toast({html: toastMessage});
+    };
+
     render(){
         if(!this.state.offsetTrades.length || !this.state.openTrades.length || !this.state.accountData.length){
             return null;
@@ -84,14 +103,23 @@ class Portfolio extends Component{
                 </div>
 
                 <div className="row card card-padout">
-                    <div className="col s6">
+                    <div className="col s12">
                         <AccountInfo accountData={this.state.accountData}/>
                     </div>
+                </div>
 
-                    <div className="col s6 ">
+                <div className='row'>
+
+                    <div className="col s6 card card-padout">
+                        <h5>Enter Trades</h5>
+                        <EnterTradesForm handler={this.submitTrade}/>
+                    </div>
+                    <div className="col s4 card card-padout right">
+                        <h5>Add Funds</h5>
                         <AddFunds handler={this.handleAddFunds}/>
                     </div>
                 </div>
+
 
                 <div className="col s12">
                     <OpenTrades openTrades={this.state.openTrades}/>

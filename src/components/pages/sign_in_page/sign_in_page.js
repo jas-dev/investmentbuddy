@@ -26,17 +26,30 @@ class SignIn extends Component{
         console.log('sign up form values:', values)
     }
 
+    componentDidMount() {
+        var instance = M.Tabs.init(this.tabs);
+    }
+
     render() {
         console.log(this.props);
         return (
-            <div className='container'>
-                <div className='row'>
-                    <h1 className='col s6 center'>Sign In</h1>
-                    <h1 className='col s6 center'>Sign Up</h1>
+            <div className="row container">
+                <div className="col s6 offset-s3 card">
+                    <ul className="tabs" ref={element=> {
+                        this.tabs = element
+                    }}>
+                        <li className="tab col s6 black-text"><a className="active" href="#signin">Sign-In</a></li>
+                        <li className="tab col s6"><a className="active" href="#signup">Sign-Up</a></li>
+                    </ul>
+                </div>
+                <div id="signin" className="row">
                     <SignInForm signIn={this.handleSignIn}/>
+                </div>
+                <div id="signup" className="row">
                     <SignUpForm signUp={this.handleSignUp}/>
                 </div>
             </div>
+
         )
     }
 }

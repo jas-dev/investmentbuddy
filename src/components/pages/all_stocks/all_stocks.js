@@ -12,7 +12,7 @@ class AllStocks extends Component{
             stocks: []
         };
         this.goToDetails = this.goToDetails.bind(this);
-       this.checkSearch = this.checkSearch.bind(this);
+        this.checkSearch = this.checkSearch.bind(this);
     }
     
     componentDidMount() {
@@ -60,8 +60,8 @@ class AllStocks extends Component{
 
         return(
             <div className='all-stocks container'>
-                <h1 className=''>All Stocks</h1>
-                <div className="row">
+                <h4>All Stocks</h4>
+                <div className="">
                     <Search checkSearch={this.checkSearch}/>
                 </div>
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} 

@@ -12,7 +12,6 @@ import Faq from './pages/faq/faq';
 import Dashboard from './pages/dashboard/dashboard';
 import AllStocks from './pages/all_stocks/all_stocks';
 import Transactions from './pages/transactions/transactions';
-import MakeTrades from './pages/enter_trades/enter_trades';
 import NotFound from './pages/404/404';
 import Nav from './nav';
 import AccountRoutes from './account';
@@ -40,7 +39,6 @@ class App extends Component {
                     <Route path="/dashboard" component={auth(Dashboard)}/>
                     <Route path="/stocks" component={auth(AllStocks)}/>
                     <Route path="/transactions" component={auth(Transactions)}/>
-                    <Route path="/trade" component={auth(MakeTrades)}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/account" component={AccountRoutes}/>
                     <Route component={NotFound}/>
