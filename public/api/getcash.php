@@ -1,6 +1,6 @@
 <?php
 require_once('functions.php');
-//require_once('config.php');
+require_once('config.php');
 require_once('mysqlconnect.php');
 set_exception_handler("handleError");
 
@@ -11,13 +11,12 @@ $output = [
     'success' => false
 ];
 
-//if(empty($_SESSION['acct_id'])){
-//    throw new Exception('Missing account id');
-//}
-//$acct_id = $_SESSION['acct_id'];
-$acct_id = 2;
+if(empty($_SESSION['user_data']['id'])){
+    throw new Exception('Missing account id');
+}
+$account_id = $_SESSION['user_data']['id'];
 
-$query="SELECT `date`, `trans_type`, `amount`, `memo` FROM `cash_transaction` WHERE `account_id` = $acct_id";
+$query="SELECT `date`, `trans_type`, `amount`, `memo` FROM `cash_transaction` WHERE `account_id` = $account_id";
 
 $queryResult = mysqli_query($conn, $query);
 

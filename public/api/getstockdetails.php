@@ -55,7 +55,7 @@ $changeAmount = $data["09. change"];
 $changePercent = $data["10. change percent"];
 $changePercent = substr($changePercent, 0, -1);
 
-$updateStockTableQuery = "UPDATE`stock` SET `symbol`='$ticker', `datetime`=NOW(), `open`=$open, `high`=$high, `low`=$low, `price`=$price, `volume`=$volume, 
+$updateStockTableQuery = "UPDATE `stock` SET `symbol`='$ticker', `datetime`=NOW(), `open`=$open, `high`=$high, `low`=$low, `price`=$price, `volume`=$volume, 
                             `latest_trade_day`='$latestTradingDay', `previous_close`=$previousClose, `change_amount`=$changeAmount, `change_percent`=$changePercent WHERE `symbol`='$ticker'";
 
 $updateStockTableResult = mysqli_query($conn, $updateStockTableQuery);
