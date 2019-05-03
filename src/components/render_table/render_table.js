@@ -29,7 +29,9 @@ export default props =>{
     } else {
         offsetTrades = false;
     }
-
+    if(!props.stocks.length){
+        return null;
+    }
     const columnNames = Object.keys(props.stocks[0]);
     if (props.watchlist) {
         columnNames.push('');

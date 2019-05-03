@@ -8,6 +8,7 @@ import './portfolio.scss';
 import MarketIndex from '../stock_details/market_index_details';
 import {connect} from 'react-redux';
 import EnterTradesForm from "../../enter_trades/enter_trades_form";
+import Loader from '../../loader';
 
 class Portfolio extends Component{
     constructor(props){
@@ -86,8 +87,8 @@ class Portfolio extends Component{
     };
 
     render(){
-        if(!this.state.offsetTrades.length || !this.state.openTrades.length || !this.state.accountData.length){
-            return null;
+        if(!this.state.offsetTrades.length && !this.state.openTrades.length && !this.state.accountData.length){
+            return <Loader/>;
         }
         
         return (

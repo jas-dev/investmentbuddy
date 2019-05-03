@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import RenderTable from "../../render_table/render_table";
 import axios from "axios";
 import Search from '../../search';
+import Loader from '../../loader';
 
 
 class AllStocks extends Component{
@@ -55,7 +56,7 @@ class AllStocks extends Component{
     render(){
     
         if(!this.state.stocks.length){
-            return null;
+            return <Loader/>;
         }
 
         return(
