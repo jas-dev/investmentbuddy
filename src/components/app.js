@@ -6,7 +6,6 @@ import {Switch, Route} from 'react-router-dom';
 import Home from './pages/home/home';
 import About from './pages/about';
 import StockDetails from './pages/stock_details/stock_details';
-import MarketIndex from './pages/stock_details/market_index_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import Dashboard from './pages/dashboard/dashboard';
@@ -19,6 +18,7 @@ import auth from '../hoc/auth';
 
 
 class App extends Component {
+
 
     render() {
 

@@ -56,14 +56,15 @@ export default props =>{
     }
     if (props.addWatch){
         rowData[props.values.length - 1] = <td key={props.values.length}>
-            <button onClick={(event)=>{
+            <button data-position="right" data-tooltip="I am a tooltip"
+                onClick={(event)=>{
                 props.addWatch(props.values[0]);
                 var tableCell = props.values[0];
                 event.stopPropagation();
                 M.toast({
                     html: `${tableCell} added to Watchlist`
                 })
-            }} className="waves-effect waves-light btn-floating btn green darken-4" >
+            }} className="tooltipped waves-effect waves-light btn-floating btn green darken-4 hoverable">
                     <i className="material-icons">add</i>
             </button>
 

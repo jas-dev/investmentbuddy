@@ -30,6 +30,16 @@ body {
 .dashboard-header{
   padding-top: 4vh;
 }
+.collapsible-body{
+  background-color: white;
+}
+.waves-effect{
+  z-index: 0;
+}
+
+.btn:focus, .btn:focus{
+  outline: none;
+}
 html {
   --input-color: rgb(0, 100, 0);
 }
