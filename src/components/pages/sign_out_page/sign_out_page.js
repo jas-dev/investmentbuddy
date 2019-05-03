@@ -11,8 +11,8 @@ class SignOut extends Component{
         return (
             <div className='sign-out'>
                 <div className='sign-out-header center'>
-                    <h1 className='center'>Thank you for visiting our site</h1>
-                    <h4>You have been signed out</h4>
+                    <h1 className='center'>Your session has ended.</h1>
+                    <h4>You have been signed out.</h4>
                 </div>
             </div>
         )
