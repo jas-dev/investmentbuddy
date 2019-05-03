@@ -12,10 +12,10 @@ const SignUpForm = props =>{
                     <div className='input-field'>
                         <Field component='input'
                                id='signUpName'
-                               name='name'
+                               name='username'
                                type='text'
                         />
-                        <label htmlFor='signUpName'>Name</label>
+                        <label htmlFor='signUpName'>Username</label>
                     </div>
 
                     <div className='input-field'>
@@ -26,6 +26,15 @@ const SignUpForm = props =>{
                         />
                         <label htmlFor='signUpPassword'>Create Password</label>
                     </div>
+                    <div className='input-field'>
+                        <Field component='input'
+                               id='confirmPassword'
+                               name='confirmPassword'
+                               type='password'
+                        />
+                        <label htmlFor='confirmPassword'>Confirm Password</label>
+                    </div>
+
 
                     <div className="row">
                         <div className="col s12 center">
