@@ -27,29 +27,39 @@ class SignIn extends Component{
     }
 
     componentDidMount() {
-        var instance = M.Tabs.init(this.tabs);
+        const elems = document.querySelectorAll('.collapsible');
+        const instances = M.Collapsible.init(elems);
     }
 
     render() {
         console.log(this.props);
         return (
-            <div className="row container">
-                <div className="col s6 offset-s3 card">
-                    <ul className="tabs" ref={element=> {
-                        this.tabs = element
-                    }}>
-                        <li className="tab col s6 black-text"><a className="active" href="#signin">Sign-In</a></li>
-                        <li className="tab col s6"><a className="active" href="#signup">Sign-Up</a></li>
+            <div className="container row">
+                <h1 className='center'>Welcome!</h1>
+                <div className="col s6 offset-s3">
+                    <ul className="collapsible">
+                        <li className='active'>
+                            <div className="collapsible-header">
+                                <i className="material-icons">verified_user</i>Sign-In
+                            </div>
+                            <div className="collapsible-body">
+                                <div id="signin" className="row">
+                                    <SignInForm signIn={this.handleSignIn}/>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="collapsible-header"><i className="material-icons">person_add</i>Create a New Account
+                            </div>
+                            <div className="collapsible-body">
+                                <div id="signup" className="row">
+                                    <SignUpForm signUp={this.handleSignUp}/>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div id="signin" className="row">
-                    <SignInForm signIn={this.handleSignIn}/>
-                </div>
-                <div id="signup" className="row">
-                    <SignUpForm signUp={this.handleSignUp}/>
-                </div>
             </div>
-
         )
     }
 }

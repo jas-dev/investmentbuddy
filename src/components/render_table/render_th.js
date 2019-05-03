@@ -6,7 +6,7 @@ export default props =>{
 
     const headingKey = props.headings.map( (key, index)=>{
         return(
-            <th className='color yellow lighten-3' key={index}>{formatHeaders(key)}</th>
+            <th className='color yellow lighten-4' key={index}>{formatHeaders(key)}</th>
         )
     });
     //if receiving data from get transactions

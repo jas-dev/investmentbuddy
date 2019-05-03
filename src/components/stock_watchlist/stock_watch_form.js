@@ -12,7 +12,7 @@ const AddToWatchlistForm = props => {
                            component='input'
                            type='search'/>
                 </div>
-                <button className="btn-floating btn green darken-4">
+                <button className="btn-floating btn waves-effect waves-light green darken-4">
                    <a><i className="material-icons">add</i></a>
                 </button>
 
