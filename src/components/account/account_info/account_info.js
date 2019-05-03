@@ -16,7 +16,7 @@ const AccountInfo = props => {
     return(
         <Fragment>
             <i className="material-icons">account_balance</i>
-            <table className='responsive-table'>
+            <table className='centered highlight'>
                 <thead>
                 <tr>
                     <th>Available Balance</th>
