@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import './nav.scss'
 import {connect} from 'react-redux';
-import axios from 'axios';
+
 
 class Nav extends Component{
     returnLinks(signedIn){
