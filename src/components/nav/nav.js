@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import SideNav from './sidenav';
 import './nav.scss'
 import {connect} from 'react-redux';
@@ -7,26 +7,32 @@ import {connect} from 'react-redux';
 
 class Nav extends Component{
     returnLinks(signedIn){
+
+        const navlinkStyle = {
+            "background-color": "#153a15",
+            "color": "white"
+        };
+
         if (signedIn){
             return (
                 <Fragment>
-                    <li className='.sidenav-close'>
-                        <Link to='/dashboard'>Dashboard</Link>
+                    <li className='sidenav-close'>
+                        <NavLink to='/dashboard' activeStyle={navlinkStyle}>Dashboard</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/portfolio'>Portfolio</Link>
+                        <NavLink to='/portfolio' activeStyle={navlinkStyle}>Portfolio</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/stocks'>All Stocks</Link>
+                        <NavLink to='/stocks' activeStyle={navlinkStyle}>All Stocks</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/transactions'>Transactions</Link>
+                        <NavLink to='/transactions' activeStyle={navlinkStyle}>Transactions</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/home'>Home</Link>
+                        <NavLink to='/home' activeStyle={navlinkStyle}>Home</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/account/sign-out'>Sign Out</Link>
+                        <NavLink to='/account/sign-out' activeStyle={navlinkStyle}>Sign Out</NavLink>
                     </li>
                 </Fragment>
             );
@@ -34,10 +40,10 @@ class Nav extends Component{
             return (
                 <Fragment>
                     <li className='sidenav-close'>
-                        <Link to='/home'>Home</Link>
+                        <NavLink to='/home' activeStyle={navlinkStyle}>Home</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/account/sign-in'>Sign in</Link>
+                        <NavLink to='/account/sign-in' activeStyle={navlinkStyle}>Sign in</NavLink>
                     </li>
                 </Fragment>
             );
