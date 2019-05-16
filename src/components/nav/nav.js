@@ -26,12 +26,6 @@ class Nav extends Component{
                         <Link to='/home'>Home</Link>
                     </li>
                     <li className='sidenav-close'>
-                        <Link to='/about'>About</Link>
-                    </li>
-                    <li className='sidenav-close'>
-                        <Link to='/faq'>FAQ</Link>
-                    </li>
-                    <li className='sidenav-close'>
                         <Link to='/account/sign-out'>Sign Out</Link>
                     </li>
                 </Fragment>
@@ -41,12 +35,6 @@ class Nav extends Component{
                 <Fragment>
                     <li className='sidenav-close'>
                         <Link to='/home'>Home</Link>
-                    </li>
-                    <li className='sidenav-close'>
-                        <Link to='/about'>About</Link>
-                    </li>
-                    <li className='sidenav-close'>
-                        <Link to='/faq'>FAQ</Link>
                     </li>
                     <li className='sidenav-close'>
                         <Link to='/account/sign-in'>Sign in</Link>
