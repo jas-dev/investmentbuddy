@@ -75,7 +75,7 @@ class Watchlist extends Component{
         return(
 
             <div className='container'>
-                <h6 className=''>Watchlist</h6>
+                <h5 className=''>Watchlist</h5>
                 {this.state.stocks && this.state.stocks.length && <RenderTable stocks={this.state.stocks} watchlist={true} delete={this.handleDeleteFromWatchlist} goToDetails={this.goToDetails}/>}
                 <AddToWatchlistForm handler={this.handleAddToWatchlist}/>
             </div>

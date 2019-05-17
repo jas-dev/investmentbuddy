@@ -3,14 +3,13 @@ import axios from 'axios';
 import AddFunds from './add_funds/add_funds';
 import AccountInfo from '../../account/account_info';
 import OpenTrades from '../../helpers/open_trades';
-import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
 
 import {connect} from 'react-redux';
 import EnterTradesForm from "../../enter_trades/enter_trades_form";
 import Loader from '../../loader';
 
-class Portfolio extends Component{
+class PortfolioDash extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -87,15 +86,13 @@ class Portfolio extends Component{
     };
 
     render(){
-        if(!this.state.offsetTrades.length && !this.state.openTrades.length && !this.state.accountData.length){
+        if(!this.state.openTrades.length && !this.state.accountData.length){
             return <Loader/>;
         }
         
         return (
             <div className='portfolio-wrapper container'>
-
-                <h5 className=''>Manage your portfolio</h5>
-
+                <h5>Account</h5>
                 <div className="row card card-padout">
                     <div className="col s11">
                         <AccountInfo accountData={this.state.accountData}/>
@@ -117,10 +114,7 @@ class Portfolio extends Component{
 
                 <div className="col s12">
                     <OpenTrades openTrades={this.state.openTrades}/>
-                    <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                 </div>
-
-                
 
             </div>
         )
@@ -133,5 +127,5 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Portfolio);
+export default connect(mapStateToProps)(PortfolioDash);
 

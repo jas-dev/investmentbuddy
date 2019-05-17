@@ -35,7 +35,7 @@ class MultiStockChart extends Component{
             }
         };
 
-        chartOptions.title.text = "Market Index Chart";
+        chartOptions.title.text = "Market Index Performance";
 
         this.state = {
             lineChartData:
