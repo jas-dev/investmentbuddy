@@ -7,8 +7,6 @@ import Logo from '../../../assets/images/REALstockslogo.png'
 export default props =>{
     return (
         <div className='about-wrapper container'>
-
-
             <div className='brand-logo center'>
                 <img src={Logo}/>
             </div>

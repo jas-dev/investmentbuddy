@@ -23,7 +23,7 @@ class Nav extends Component{
                         <NavLink to='/portfolio' activeStyle={navlinkStyle}>Portfolio</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <NavLink to='/stocks' activeStyle={navlinkStyle}>All Stocks</NavLink>
+                        <NavLink to='/stocks' activeStyle={navlinkStyle}>Browse Stocks</NavLink>
                     </li>
                     <li className='sidenav-close'>
                         <NavLink to='/transactions' activeStyle={navlinkStyle}>Transactions</NavLink>
@@ -41,6 +41,9 @@ class Nav extends Component{
                 <Fragment>
                     <li className='sidenav-close'>
                         <NavLink to='/home' activeStyle={navlinkStyle}>Home</NavLink>
+                    </li>
+                    <li className='sidenav-close'>
+                        <NavLink to='/stocks' activeStyle={navlinkStyle}>Browse Stocks</NavLink>
                     </li>
                     <li className='sidenav-close'>
                         <NavLink to='/account/sign-in' activeStyle={navlinkStyle}>Sign in</NavLink>
@@ -62,11 +65,9 @@ class Nav extends Component{
                             <a href='#' data-target='sidenav' className='sidenav-trigger'>
                                 <i className='material-icons'>menu</i>
                             </a>
-
                             <Link className='brand-logo' to='/home'>
                                 InvestmentBuddy
                             </Link>
-
                             <ul className='right hide-on-med-and-down'>
                                 {links}
                             </ul>

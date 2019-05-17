@@ -15,7 +15,7 @@ class AllStocks extends Component{
         this.goToDetails = this.goToDetails.bind(this);
         this.checkSearch = this.checkSearch.bind(this);
     }
-    
+
     componentDidMount() {
         this.getStockData();
 
@@ -54,19 +54,24 @@ class AllStocks extends Component{
     }
 
     render(){
-    
+
         if(!this.state.stocks.length){
             return <Loader/>;
         }
 
         return(
-            <div className='all-stocks container'>
-                <h4>All Stocks</h4>
-                <div className="">
-                    <Search checkSearch={this.checkSearch}/>
+            <div className='container'>
+                <div className="browse-stocks row">
+                    <div className="col s6">
+                        <h5>Browse Stocks</h5>
+                    </div>
+                    <div className="search-wrapper col s4 right">
+                        <Search checkSearch={this.checkSearch}/>
+                    </div>
                 </div>
-                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails} 
-                    addWatch={this.addToWatchList} allStocks={true}/>
+
+                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}
+                             addWatch={this.addToWatchList} allStocks={true}/>
             </div>
         )
     }
