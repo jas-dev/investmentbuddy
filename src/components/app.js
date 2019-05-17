@@ -35,7 +35,6 @@ class App extends Component {
                     <Route path="/faq" component={Faq}/>
                     <Route path="/dashboard" component={auth(Dashboard)}/>
                     <Route path="/stocks" component={BrowseStocks}/>
-                    <Route path="/transactions" component={auth(Transactions)}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/account" component={AccountRoutes}/>
                     <Route component={NotFound}/>

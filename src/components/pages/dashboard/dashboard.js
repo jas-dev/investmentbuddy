@@ -55,7 +55,7 @@ class Dashboard extends Component {
                     </div>
 
                     <div className='dashboard-market-index container'>
-                        <h4>Dashboard</h4>
+                        <h5>Dashboard</h5>
                         <div className='card'>
                             <MarketIndexDetails/>
                         </div>

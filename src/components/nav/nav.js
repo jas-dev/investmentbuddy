@@ -26,9 +26,6 @@ class Nav extends Component{
                         <NavLink to='/stocks' activeStyle={navlinkStyle}>Browse Stocks</NavLink>
                     </li>
                     <li className='sidenav-close'>
-                        <NavLink to='/transactions' activeStyle={navlinkStyle}>Transactions</NavLink>
-                    </li>
-                    <li className='sidenav-close'>
                         <NavLink to='/home' activeStyle={navlinkStyle}>Home</NavLink>
                     </li>
                     <li className='sidenav-close'>
