@@ -9,6 +9,7 @@ import './portfolio.scss';
 import {connect} from 'react-redux';
 import EnterTradesForm from "../../enter_trades/enter_trades_form";
 import Loader from '../../loader';
+import Transactions from "../transactions";
 
 class Portfolio extends Component{
     constructor(props){
@@ -120,7 +121,9 @@ class Portfolio extends Component{
                     <OffsetTrades offsetTrades={this.state.offsetTrades}/>
                 </div>
 
-                
+                <div className="col s12">
+                    <Transactions/>
+                </div>
 
             </div>
         )
