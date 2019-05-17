@@ -51,16 +51,12 @@ class Dashboard extends Component {
                     <div className='ticker-container'>
                         <Ticker stocks={this.state.ticker} details={this.tickerDetails}/>
                     </div>
-                    <div className='container dashboard-header'>
-                        <h4>Dashboard</h4>
+                    <div className='portfolio'>
+                        <Portfolio/>
                     </div>
                     <div className='watchlist'>
                         <Watchlist history={this.props.history}/>
                     </div>
-                    <div className='portfolio'>
-                        <Portfolio/>
-                    </div>
-
                 </div>
             )
         }
