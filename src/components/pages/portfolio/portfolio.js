@@ -5,7 +5,7 @@ import AccountInfo from '../../account/account_info';
 import OpenTrades from '../../helpers/open_trades';
 import OffsetTrades from '../../helpers/offset_trades';
 import './portfolio.scss';
-import MarketIndex from '../stock_details/market_index_details';
+
 import {connect} from 'react-redux';
 import EnterTradesForm from "../../enter_trades/enter_trades_form";
 import Loader from '../../loader';
@@ -95,12 +95,6 @@ class Portfolio extends Component{
             <div className='portfolio-wrapper container'>
 
                 <h5 className=''>Manage your portfolio</h5>
-
-                <div className='row card center'>
-                    <div className='col s12'>
-                        <MarketIndex/>
-                    </div>
-                </div>
 
                 <div className="row card card-padout">
                     <div className="col s11">
