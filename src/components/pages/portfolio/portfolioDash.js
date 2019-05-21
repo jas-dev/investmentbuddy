@@ -77,6 +77,7 @@ class PortfolioDash extends Component{
         if (message) {
             toastMessage = message;
             this.getStockData();
+            this.getAccountData();
 
         } else {
             toastMessage = error ? error : 'Could not connect to database, try again later.';
@@ -100,7 +101,6 @@ class PortfolioDash extends Component{
                 </div>
 
                 <div className='row'>
-
                     <div className="col s6 card card-padout">
                         <h6>Enter Trades</h6>
                         <EnterTradesForm handler={this.submitTrade}/>

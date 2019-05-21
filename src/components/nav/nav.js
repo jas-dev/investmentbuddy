@@ -9,7 +9,7 @@ class Nav extends Component{
     returnLinks(signedIn){
 
         const navlinkStyle = {
-            "background-color": "#153a15",
+            "backgroundColor": "#153a15",
             "color": "white"
         };
 
