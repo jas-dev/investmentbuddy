@@ -4,6 +4,7 @@ import SignUpForm from '../../account/sign_up_form/sign_up_form';
 import axios from 'axios';
 import {signIn} from '../../../actions';
 import {connect} from 'react-redux';
+import {Field} from "redux-form";
 
 class SignIn extends Component{
     
@@ -31,9 +32,22 @@ class SignIn extends Component{
 
     render() {
         console.log(this.props);
+
+        const {handleSubmit, signIn, reset} = this.props;
+        
         return (
             <div className="container row">
                 <h1 className='center'>Welcome!</h1>
+
+                <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
+                    <div className="row">
+                        <div className="col s12 center">
+                            <button className='btn btn-small black'>Sign-In</button>
+                            <button className='btn btn-small black' onClick={reset}>Clear</button>
+                        </div>
+                    </div>
+                </form>
+
                 <div className="col s6 offset-s3">
                     <ul className="collapsible">
                         <li className='active'>
