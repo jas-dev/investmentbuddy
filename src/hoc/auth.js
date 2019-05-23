@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Axios from 'axios';
-import {signIn} from "../actions";
+
 
 export default function(WrappedComponent, to= '/account/sign-in', requireAuth = true){
     class Auth extends Component {

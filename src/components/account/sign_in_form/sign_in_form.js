@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 
 class SignInForm extends Component{
+
     render(){
+        console.log('this.props fron signinform',this.props);
         const {handleSubmit, signIn, reset} = this.props;
 
         return (

@@ -4,12 +4,13 @@ import SignUpForm from '../../account/sign_up_form/sign_up_form';
 import axios from 'axios';
 import {signIn} from '../../../actions';
 import {connect} from 'react-redux';
-import {Field} from "redux-form";
+import DemoSignInButton from '../../demo_sign_in_button/demo_sign_in_button';
 
 class SignIn extends Component{
     
     handleSignIn = async values => {
-
+        console.log('signIn values', values);
+        console.log('this.props from handlesignin', this.props);
         const success = await this.props.signIn(values);
 
         if(success){
@@ -31,23 +32,11 @@ class SignIn extends Component{
     }
 
     render() {
-        console.log(this.props);
-
-        const {handleSubmit, signIn, reset} = this.props;
-        
+        console.log('props from signin page:',this.props);
         return (
             <div className="container row">
                 <h1 className='center'>Welcome!</h1>
-
-                <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
-                    <div className="row">
-                        <div className="col s12 center">
-                            <button className='btn btn-small black'>Sign-In</button>
-                            <button className='btn btn-small black' onClick={reset}>Clear</button>
-                        </div>
-                    </div>
-                </form>
-
+                <DemoSignInButton/>
                 <div className="col s6 offset-s3">
                     <ul className="collapsible">
                         <li className='active'>
