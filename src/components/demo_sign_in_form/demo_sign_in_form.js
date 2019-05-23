@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 
-class SignInForm extends Component{
+class DemoSignInForm extends Component{
 
     render(){
-        console.log('this.props fron signinform',this.props);
-        const {handleSubmit, signIn, reset} = this.props;
+        const {handleSubmit, signInDemo, reset} = this.props;
 
-        return (
+        return(
             <div className='col s12'>
                 <div className=''>
-                    <form onSubmit={handleSubmit(signIn)} className='sign_in_form'>
+                    <form onSubmit={handleSubmit(signInDemo)} className='demo_sign_in_form'>
                         <div className='input-field'>
                             <Field id='name'
                                    name='name'
@@ -27,17 +26,16 @@ class SignInForm extends Component{
                         </div>
                         <div className="row">
                             <div className="col s12 center">
-                                <button className='btn btn-small black'>Sign-In</button>
-                                <button className='btn btn-small black' onClick={reset}>Clear</button>
+                                <button className='btn btn-small black'>Demo Sign-In</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        );
+        )
     }
 }
 
 export default reduxForm({
-    form: 'sign_in_form'
-})(SignInForm);
+    form: 'demo_sign_in_form'
+})(DemoSignInForm);

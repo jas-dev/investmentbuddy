@@ -14,7 +14,7 @@ export default function(WrappedComponent, to= '/account/sign-in', requireAuth = 
         }
 
         async checkAuth(){
-            //can use a switch or if statement here to check for local or session
+
             var userAuthToken = null;
 
             if(localStorage){
