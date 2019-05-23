@@ -14,15 +14,21 @@ export default function(WrappedComponent, to= '/account/sign-in', requireAuth = 
         }
 
         async checkAuth(){
-            let userAuthToken = localStorage.investmentBuddy;
+            //can use a switch or if statement here to check for local or session
+            var userAuthToken = null;
+
+            if(localStorage){
+                userAuthToken = localStorage.investmentBuddy;
+            }else if(sessionStorage){
+                userAuthToken = sessionStorage.investmentBuddy;
+            }
+
             let authStatus = await Axios.post("/api/checkloggedin.php", {
                 token: userAuthToken
             });
             
             if(authStatus.data.success !== requireAuth){
                 this.props.history.push(to);
-            } else {
-                
             }
         }
 
