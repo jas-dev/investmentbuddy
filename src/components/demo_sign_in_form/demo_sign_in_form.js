@@ -1,36 +1,20 @@
 import React, {Component} from 'react';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm} from 'redux-form';
 
 class DemoSignInForm extends Component{
 
     render(){
-        const {handleSubmit, signInDemo, reset} = this.props;
+        const {handleSubmit, signInDemo } = this.props;
 
         return(
             <div className='col s12'>
-                <div className=''>
-                    <form onSubmit={handleSubmit(signInDemo)} className='demo_sign_in_form'>
-                        <div className='input-field'>
-                            <Field id='name'
-                                   name='name'
-                                   type='text'
-                                   component='input'/>
-                            <label htmlFor='name'>Username</label>
+                <form onSubmit={handleSubmit(signInDemo)} className='demo_sign_in_form'>
+                    <div className="row">
+                        <div className="col s12 center">
+                            <button className='btn btn-large green darken-4'>Demo Sign-In</button>
                         </div>
-                        <div className='input-field'>
-                            <Field id='password'
-                                   name='password'
-                                   type='password'
-                                   component='input'/>
-                            <label htmlFor='password'>Password</label>
-                        </div>
-                        <div className="row">
-                            <div className="col s12 center">
-                                <button className='btn btn-small black'>Demo Sign-In</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         )
     }

@@ -23,7 +23,7 @@ class MarketIndexDetails extends Component{
     getMarketIndexData(){
 
         axios.get(`/api/getmarketindex.php`).then(resp=>{
-            console.log(resp);
+
             this.setState({
                 symbols: resp.data.symbols,
                 prices: formatMarketIndex(resp.data, "prices"),

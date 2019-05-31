@@ -8,6 +8,7 @@ import DemoSignInForm from '../../demo_sign_in_form/demo_sign_in_form';
 class SignIn extends Component{
     
     handleSignIn = async values => {
+
         const success = await this.props.signIn(values);
 
         if(success){
@@ -19,6 +20,21 @@ class SignIn extends Component{
         }
     }
 
+    handleDemoSignIn = async () => {
+
+        const success = await this.props.signInDemo();
+
+        if(success){
+            this.props.history.push('/dashboard');
+        } else {
+            M.toast({
+                html: 'Invalid username or password.'
+            });
+        }
+    }
+
+
+
     handleSignUp(values){
         console.log('sign up form values:', values)
     }
@@ -29,12 +45,12 @@ class SignIn extends Component{
     }
 
     render() {
-        console.log('props from signin page:',this.props);
+
         return (
             <div className="container row">
                 <h1 className='center'>Welcome!</h1>
-                <div className='container row'>
-                    <DemoSignInForm signInDemo={this.handleSignIn}/>
+                <div className='card'>
+                    <DemoSignInForm signInDemo={this.handleDemoSignIn}/>
                 </div>
 
 
