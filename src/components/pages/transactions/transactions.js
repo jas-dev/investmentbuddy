@@ -3,7 +3,7 @@ import axios from 'axios';
 import {withRouter} from "react-router";
 import RenderTable from '../../render_table/render_table'
 
-class withRouterTransactions extends Component{
+class WithRouterTransactions extends Component{
     constructor(props){
         super(props);
 
@@ -44,6 +44,6 @@ class withRouterTransactions extends Component{
     }
 }
 
-const Transactions= withRouter(withRouterTransactions);
+const Transactions= withRouter(WithRouterTransactions);
 
 export default Transactions;
