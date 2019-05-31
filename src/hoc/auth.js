@@ -9,10 +9,6 @@ export default function(WrappedComponent, to = '/account/sign-in', requireAuth= 
             this.checkAuth()
         }
 
-        /*componentDidUpdate(){
-            this.checkAuth();
-        }*/
-
         async checkAuth(){
 
             var userAuthToken = null;
