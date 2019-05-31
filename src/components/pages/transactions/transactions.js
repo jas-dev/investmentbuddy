@@ -6,7 +6,7 @@ import RenderTable from '../../render_table/render_table'
 class withRouterTransactions extends Component{
     constructor(props){
         super(props);
-        
+
         this.state = {
             stocks: []
         }
@@ -41,9 +41,7 @@ class withRouterTransactions extends Component{
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>
         )
-
     }
-
 }
 
 const Transactions= withRouter(withRouterTransactions);

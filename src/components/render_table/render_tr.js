@@ -3,7 +3,6 @@ import { formatDateTime, moneyCommas, formatNegativeMoney } from '../helpers';
 
 export default props =>{
 
-
     const rowData = props.values.map((row, index)=>{
         if (row===null){
             row = "N/A";
@@ -68,9 +67,6 @@ export default props =>{
                     <i className="material-icons">add</i>
             </button>
 
-
-            {/*<button onClick={(event)=>{props.addWatch(props.values[0]); event.stopPropagation();}}
-             className="btn green darken-2">Add To Watchlist</button>*/}
             </td>
     }
 
@@ -81,7 +77,6 @@ export default props =>{
     }
 
     return (
-
         <tr onClick={ () =>{ props.details(symbol) } }>{rowData}</tr>
     )
 }

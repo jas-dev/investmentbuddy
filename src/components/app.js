@@ -31,9 +31,6 @@ class App extends Component {
                         return <StockDetails {...routingProps}/>
                     }}/>
                     <Route path="/portfolio" component={auth(Portfolio)}/>
-
-                    <Route path="/transactions" component={Transactions}/>
-
                     <Route path="/faq" component={Faq}/>
                     <Route path="/dashboard" component={auth(Dashboard)}/>
                     <Route path="/stocks" component={BrowseStocks}/>
