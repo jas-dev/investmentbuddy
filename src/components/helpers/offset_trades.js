@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {withRouter} from 'react-router';
 import RenderTable from '../render_table/render_table';
 
-export default props =>{
+class WithRouterOffsetTrades extends Component {
+    constructor(props){
+        super(props);
 
-    return (
-        <div className=''>
-            <h5>Offset Trades</h5>
-            <div className='card'>
-                <RenderTable stocks={props.offsetTrades} offsetTrades={true}/>
+        this.goToDetails = this.goToDetails.bind(this);
+    }
+    goToDetails(symbol){
+        this.props.history.push(`/stockdetails/${symbol}`);
+    }
+    render(){
+        console.log(this.props);
+        return (
+            <div className=''>
+                <h5>Offset Trades</h5>
+                <div className='card'>
+                    <RenderTable stocks={this.props.offsetTrades} offsetTrades={true} goToDetails={this.goToDetails}/>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
+
+const OffsetTrades = withRouter(WithRouterOffsetTrades);
+
+export default OffsetTrades;

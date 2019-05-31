@@ -77,7 +77,9 @@ export default props =>{
     }
 
     return (
-        <tr onClick={ () =>{ props.details(symbol) } }>{rowData}</tr>
+        <tr onClick={ () =>{
+            props.details(symbol)
+        } }>{rowData}</tr>
     )
 }
 
