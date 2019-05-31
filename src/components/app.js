@@ -15,6 +15,7 @@ import Nav from './nav';
 import auth from '../hoc/auth';
 import SignIn from "./pages/sign_in_page";
 import SignOut from "./pages/sign_out_page";
+import Transactions from "./pages/transactions";
 
 
 class App extends Component {
@@ -30,6 +31,9 @@ class App extends Component {
                         return <StockDetails {...routingProps}/>
                     }}/>
                     <Route path="/portfolio" component={auth(Portfolio)}/>
+
+                    <Route path="/transactions" component={Transactions}/>
+
                     <Route path="/faq" component={Faq}/>
                     <Route path="/dashboard" component={auth(Dashboard)}/>
                     <Route path="/stocks" component={BrowseStocks}/>

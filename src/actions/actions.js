@@ -65,9 +65,9 @@ export async function checkAuth(dispatch){
 
     //original code in checkAuth creates token from local storage. endpoint called only references session data, so I do not understand how session data gets converted to localstorage in that case.
     //assumption made with new code below is that we do not have both local and session data here- it will be local if regular user, session if demo user.
-    if(localStorage){
+    if(localStorage.investmentBuddy){
         token = localStorage.getItem("investmentBuddy");
-    } else if(sessionStorage){
+    } else if(sessionStorage.investmentBuddy){
         token = sessionStorage.getItem("investmentBuddy"); //again key may be incorrect for session
     }
 

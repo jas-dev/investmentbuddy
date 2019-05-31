@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {withRouter} from "react-router";
 import RenderTable from '../../render_table/render_table'
 
-class Transactions extends Component{
+class withRouterTransactions extends Component{
     constructor(props){
         super(props);
-
+        
         this.state = {
             stocks: []
         }
@@ -44,5 +45,7 @@ class Transactions extends Component{
     }
 
 }
+
+const Transactions= withRouter(withRouterTransactions);
 
 export default Transactions;

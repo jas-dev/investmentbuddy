@@ -79,6 +79,7 @@ export default props =>{
     }else{
         symbol = props.values[0]
     }
+
     return (
 
         <tr onClick={ () =>{ props.details(symbol) } }>{rowData}</tr>
