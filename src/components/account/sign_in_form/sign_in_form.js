@@ -27,8 +27,8 @@ class SignInForm extends Component{
                         </div>
                         <div className="row">
                             <div className="col s12 center">
-                                <button className='btn btn-small black'>Sign-In</button>
-                                <button className='btn btn-small black' onClick={reset}>Clear</button>
+                                <button className='signinbtn btn btn-small black'>Sign-In</button>
+                                <button className='clearbtn btn btn-small black' onClick={reset}>Clear</button>
                             </div>
                         </div>
                     </form>

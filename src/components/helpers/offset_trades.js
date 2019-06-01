@@ -12,7 +12,6 @@ class WithRouterOffsetTrades extends Component {
         this.props.history.push(`/stockdetails/${symbol}`);
     }
     render(){
-        console.log(this.props);
         return (
             <div className=''>
                 <h5>Offset Trades</h5>

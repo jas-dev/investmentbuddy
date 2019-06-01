@@ -12,7 +12,6 @@ class WithRouterOpenTrades extends Component {
         this.props.history.push(`/stockdetails/${symbol}`);
     }
     render() {
-
         return (
             <div className=''>
                 <h5>Open Trades</h5>

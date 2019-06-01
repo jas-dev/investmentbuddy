@@ -8,7 +8,7 @@ import Loader from '../../loader';
 class AllStocks extends Component{
     constructor(props) {
         super(props);
-        console.log('browse stocks',props);
+
         this.state = {
             stocks: []
         };
