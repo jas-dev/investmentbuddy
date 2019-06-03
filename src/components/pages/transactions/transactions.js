@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {withRouter} from "react-router";
 import RenderTable from '../../render_table/render_table'
 
-class Transactions extends Component{
+class WithRouterTransactions extends Component{
     constructor(props){
         super(props);
 
@@ -40,9 +41,9 @@ class Transactions extends Component{
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>
         )
-
     }
-
 }
+
+const Transactions= withRouter(WithRouterTransactions);
 
 export default Transactions;
