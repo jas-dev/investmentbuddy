@@ -38,11 +38,8 @@ const SignUpForm = props =>{
 
                     <div className="row">
                         <div className="col s12 center">
-                            <button className='confirm btn btn-small black'>Submit</button>
-                            <button className='cancel btn btn-small black' onClick={(event) => {
-                                props.dispatch(reset('sign_up_form'));
-                                event.preventDefault();
-                            }}>Clear</button>
+                            <button className='submitbtn btn btn-small black'>Submit</button>
+                            <button className='clearbtn btn btn-small black' onClick={reset}>Clear</button>
                         </div>
                     </div>
                 </form>

@@ -27,9 +27,11 @@ body {
   top: 12% !important;
   right: 5% !important;
 }
+
 .portfolio{
   padding-top: 6vh;
 }
+
 .collapsible-body{
   background-color: white;
 }
@@ -40,6 +42,7 @@ body {
 .btn:focus, .btn:focus{
   outline: none;
 }
+
 html {
   --input-color: rgb(0, 100, 0);
 }
@@ -55,6 +58,10 @@ html {
 .input-field > input:focus {
   border-bottom: 1px solid var(--input-color) !important;
   box-shadow: 0 1px 0 0 var(--input-color) !important;
+}
+
+input[type=search]:not(.browser-default){
+  background-color: white;
 }
 
 [type="radio"]:checked + span:after,
@@ -78,6 +85,11 @@ html {
 .dashboard-market-index{
   padding-top: 6vh;
 }
+
+.signinbtn, .submitbtn, .clearbtn{
+  margin: 0 4px;
+}
+
 /*
 @font-face {
     font-family: rustic;
