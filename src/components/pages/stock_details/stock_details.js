@@ -24,7 +24,7 @@ class StocksDetails extends Component{
     }
 
     getStockData(){
-        
+
         axios.get(`/api/getstockdetails.php?stock_symbol=${this.props.match.params.symbol}`).then(resp=>{
 
             this.setState({
@@ -35,28 +35,28 @@ class StocksDetails extends Component{
             });
         })
     }
-    
+
     render(){
-        
+
         if (this.state.priceHistory===null || this.state.percentHistory===null || this.state.company===null){
             return <Loader/>;
         } else {
-        return(
-            <div className='details-wrapper container center'>
-                <h5 className=''>Stock Details</h5>
-                <div className='row'>
-                    <div className='col s12'>
-                    <Stock_chart {...this.state.priceHistory} price={true}/>
-                    </div>
-                    <div className="col s12">
-                    <Stock_chart {...this.state.percentHistory} percent={true}/>
-                    </div>
-                    <div className='col s12'>
-                        <InfoCard {...this.state.company} stocks={this.state.stock}/>
+            return(
+                <div className='details-wrapper container'>
+                    <h5 className='left'>Stock Details</h5>
+                    <div className='row'>
+                        <div className='col s12 card'>
+                            <Stock_chart {...this.state.priceHistory} price={true}/>
+                        </div>
+                        <div className="col s12 card">
+                            <Stock_chart {...this.state.percentHistory} percent={true}/>
+                        </div>
+                        <div className='col s12'>
+                            <InfoCard {...this.state.company} stocks={this.state.stock}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
         }
     }
 }

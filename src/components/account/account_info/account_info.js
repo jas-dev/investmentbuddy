@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react';
 import './account_info.scss';
-import {convertAccountData} from "../../helpers";
 import {moneyCommas} from "../../helpers";
-import RenderTable from '../../render_table/render_table';
+import Loader from '../../loader';
+
 
 
 
 const AccountInfo = props => {
-    if (!props) {
-        return null;
+    if (!props || props.accountData.length === 0) {
+        return <Loader/>;
     }
 
     const {accountData} = props;
@@ -16,7 +16,7 @@ const AccountInfo = props => {
     return(
         <Fragment>
             <i className="material-icons">account_balance</i>
-            <table className='responsive-table'>
+            <table className='centered highlight'>
                 <thead>
                 <tr>
                     <th>Available Balance</th>

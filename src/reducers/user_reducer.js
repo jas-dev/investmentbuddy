@@ -9,6 +9,7 @@ const DEFAULT_STATE = {
 
 function userReducer(state = DEFAULT_STATE, action){
     switch(action.type){
+        case 'USER_SIGN_UP':
         case 'LOG_USER_IN':
             return {
                 ...state, auth: true

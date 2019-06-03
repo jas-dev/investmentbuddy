@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {reduxForm, Field, reset} from 'redux-form';
+import {reduxForm, Field} from 'redux-form';
 
 class SignInForm extends Component{
 
     render(){
-        const {handleSubmit, signIn} = this.props;
+        const {handleSubmit, signIn, reset} = this.props;
 
         return (
             <div className='col s12'>
@@ -23,10 +23,7 @@ class SignInForm extends Component{
                         <div className="row">
                             <div className="col s12 center">
                                 <button className='btn btn-small black'>Sign-In</button>
-                                <button className='btn btn-small black' onClick={(event) => {
-                                    this.props.dispatch(reset('sign_in_form'));
-                                    event.preventDefault();
-                                }}>Clear</button>
+                                <button className='btn btn-small black' onClick={reset}>Clear</button>
                             </div>
                         </div>
                     </form>

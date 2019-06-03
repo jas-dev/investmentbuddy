@@ -24,9 +24,11 @@ class Faq extends Component {
                                 </div>
                                 <br/>
                                 <ul>
-                                    <li><i className='material-icons'>chevron_right</i>View stock, company, and historical data accompanied by charts</li>
-                                    <li><i className='material-icons'>chevron_right</i>Add funds to your account and start trading</li>
-                                    <li><i className='material-icons'>chevron_right</i>Track your performance as you sharpen your financial wisdom</li>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>View stock, company, and historical data with charts to help you visualize</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>Use the dashboard to keep your eye on the market and your portfolio</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>See stock details by clicking on any listing in the ticker and tables, or use the search bar on the "All Stocks" list</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>Want to add stocks to your watchlist? Click the plus button on the listing, or use the search bar below the dashboard watchlist</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>Add funds to your account and start trading!</li>
                                 </ul>
 
                             </div>
@@ -43,7 +45,7 @@ class Faq extends Component {
                         <li>
                             <div className="collapsible-header"><i className="material-icons">help</i>How was InvestmentBuddy made?
                             </div>
-                            <div className="collapsible-body"><span>Please see the About section for complete list of tools, technologies, and developers involved.</span></div>
+                            <div className="collapsible-body"><span>InvestmentBuddy was built with Javascript ES6, React, Materialize, Sass and Redux for the front-end, while the data is handled by a PHP back-end and MySQL database.</span></div>
                         </li>
                         <li>
                             <div className="collapsible-header"><i className="material-icons">help</i>How accurate is

@@ -7,19 +7,17 @@ import {connect} from 'react-redux';
 
 class SignIn extends Component{
     
-    handleSignIn = values => {
-        axios.post('/api/login.php', values).then(resp => {
+    handleSignIn = async values => {
 
-            if (resp.data.success) {
-                localStorage.setItem("investmentBuddy", resp.data.userData.token);
-                this.props.signIn();
-                this.props.history.push('/dashboard');
-            } else {
-                M.toast({
-                    html: 'Invalid username or password.'
-                });
-            }
-        });
+        const success = await this.props.signIn(values);
+
+        if(success){
+            this.props.history.push('/dashboard');
+        } else {
+            M.toast({
+                html: 'Invalid username or password.'
+            });
+        }
     }
 
     handleSignUp(values){

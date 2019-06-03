@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './chart.scss';
 import ChartJS from 'chart.js';
 
-class MultiStockchart extends Component{
+class MultiStockChart extends Component{
 
     constructor (props) {
         super (props);
@@ -35,7 +35,7 @@ class MultiStockchart extends Component{
             }
         };
 
-        chartOptions.title.text = "Market Index Chart";
+        chartOptions.title.text = "Market Index Performance";
 
         this.state = {
             lineChartData:
@@ -67,12 +67,6 @@ class MultiStockchart extends Component{
         this.chartRef = React.createRef();
     }
 
-    // getData(){
-    //     this.setState({
-    //         lineChartData: this.props.symbolDataList
-    //     })
-    // }
-
     componentDidMount() {
         // this.getData();
         this.lineChart = new ChartJS(this.chartRef.current, {
@@ -93,6 +87,6 @@ class MultiStockchart extends Component{
 }
 
 
-export default MultiStockchart;
+export default MultiStockChart;
 
 

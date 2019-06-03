@@ -23,15 +23,13 @@ class Search extends Component {
 
     render() {
         return (
-            <form action="" onSubmit={this.handleForm}>
-                <div className="row right-aligned">
-                    <div className="col s4 input-field right">
-                        <i className="material-icons prefix">
-                            search
-                        </i>
-                        <input id="search" type="search" placeholder="Search by symbol" onChange={this.userTyped}/>
-                        <label htmlFor="Search"/>
-                    </div>
+            <form className="search" onSubmit={this.handleForm}>
+                <div className="input-field">
+                    <i className="material-icons prefix">
+                        search
+                    </i>
+                    <input id="search" type="search" placeholder="Find Symbol" onChange={this.userTyped}/>
+                    <label htmlFor="Search"/>
                 </div>
             </form>
         )

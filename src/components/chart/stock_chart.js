@@ -69,7 +69,7 @@ class Stock_chart extends Component{
         if (props.price){
             chartOptions.title.text = "Price Chart - "+props.label;
         } else if (props.percent){
-            chartOptions.title.text = "Percent Change Chart - "+props.label;
+            chartOptions.title.text = "Percent Change - "+props.label;
         }
         this.state = {
             lineChartData: {
@@ -78,7 +78,7 @@ class Stock_chart extends Component{
                     {
                         data: props.yData,
                         borderColor: 'darkblue',
-                        fill: false
+                        fill: false,
                     }
                 ]
             }, 

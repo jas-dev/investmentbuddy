@@ -9,7 +9,7 @@ import StockDetails from './pages/stock_details/stock_details';
 import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import Dashboard from './pages/dashboard/dashboard';
-import AllStocks from './pages/all_stocks/all_stocks';
+import BrowseStocks from './pages/browse_stocks/browse_stocks';
 import Transactions from './pages/transactions/transactions';
 import NotFound from './pages/404/404';
 import Nav from './nav';
@@ -34,8 +34,7 @@ class App extends Component {
                     <Route path="/portfolio" component={auth(Portfolio)}/>
                     <Route path="/faq" component={Faq}/>
                     <Route path="/dashboard" component={auth(Dashboard)}/>
-                    <Route path="/stocks" component={auth(AllStocks)}/>
-                    <Route path="/transactions" component={auth(Transactions)}/>
+                    <Route path="/stocks" component={BrowseStocks}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/account" component={AccountRoutes}/>
                     <Route component={NotFound}/>

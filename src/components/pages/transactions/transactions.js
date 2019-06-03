@@ -35,7 +35,7 @@ class Transactions extends Component{
         }
 
         return (
-            <div className='container'>
+            <div className=''>
                 <h5>Transaction History</h5>
                 <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}/>
             </div>

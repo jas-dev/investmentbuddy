@@ -4,6 +4,8 @@ import Watchlist from "../../stock_watchlist/stock_watch";
 import Ticker from '../../ticker';
 import Loader from "../../loader";
 import axios from "axios";
+import MarketIndexDetails from '../stock_details/market_index_details';
+import PortfolioDash from "../portfolio/portfolioDash";
 
 class Dashboard extends Component {
     constructor(props){
@@ -51,16 +53,20 @@ class Dashboard extends Component {
                     <div className='ticker-container'>
                         <Ticker stocks={this.state.ticker} details={this.tickerDetails}/>
                     </div>
-                    <div className='container dashboard-header'>
-                        <h4>Dashboard</h4>
+
+                    <div className='dashboard-market-index container'>
+                        <h5>Dashboard</h5>
+                        <div className='card'>
+                            <MarketIndexDetails/>
+                        </div>
+                    </div>
+
+                    <div className='portfolio'>
+                        <PortfolioDash/>
                     </div>
                     <div className='watchlist'>
                         <Watchlist history={this.props.history}/>
                     </div>
-                    <div className='portfolio'>
-                        <Portfolio/>
-                    </div>
-
                 </div>
             )
         }

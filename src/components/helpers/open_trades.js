@@ -5,7 +5,7 @@ export default props =>{
 
     return (
         <div className=''>
-            <h6 className=''>Open Trades</h6>
+            <h5>Open Trades</h5>
             <div className='card'>
                 <RenderTable stocks={props.openTrades} openTrades={true}/>
             </div>
