@@ -5,7 +5,6 @@ set_exception_handler("handleError");
 require_once('config.php');
 require_once('mysqlconnect.php');
 
-
 //======================================================================================================================
 // Get account id from $_SESSION
 //======================================================================================================================
@@ -78,6 +77,5 @@ if (!$updateResult){
 if(mysqli_affected_rows($conn)!==1){
     throw new Exception('Error - unable to reset account balance');
 }
-
 
 ?>
