@@ -25,7 +25,7 @@ export function formatMarketIndex(stocks) {
 }
 
 export function formatHistory(stock, type){
-    console.log(stock);
+
     let xData = [];
     let yData = [];
     if (type==="price"){

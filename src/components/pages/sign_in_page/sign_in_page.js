@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import SignInForm from '../../account/sign_in_form/sign_in_form';
 import SignUpForm from '../../account/sign_up_form/sign_up_form';
-import axios from 'axios';
-import {signIn} from '../../../actions';
+import {signIn, signInDemo} from '../../../actions';
 import {connect} from 'react-redux';
+import DemoSignInForm from '../../demo_sign_in_form/demo_sign_in_form';
 
 class SignIn extends Component{
     
@@ -20,6 +20,21 @@ class SignIn extends Component{
         }
     }
 
+    handleDemoSignIn = async () => {
+
+        const success = await this.props.signInDemo();
+
+        if(success){
+            this.props.history.push('/dashboard');
+        } else {
+            M.toast({
+                html: 'Invalid username or password.'
+            });
+        }
+    }
+
+
+
     handleSignUp(values){
         console.log('sign up form values:', values)
     }
@@ -30,10 +45,15 @@ class SignIn extends Component{
     }
 
     render() {
-        console.log(this.props);
+
         return (
             <div className="container row">
                 <h1 className='center'>Welcome!</h1>
+                <div className='card'>
+                    <DemoSignInForm signInDemo={this.handleDemoSignIn}/>
+                </div>
+
+
                 <div className="col s6 offset-s3">
                     <ul className="collapsible">
                         <li className='active'>
@@ -63,6 +83,7 @@ class SignIn extends Component{
 }
 
 export default connect(null, {
-    signIn: signIn
+    signIn: signIn,
+    signInDemo: signInDemo,
 })(SignIn);
 

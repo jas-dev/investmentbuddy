@@ -14,6 +14,10 @@ function userReducer(state = DEFAULT_STATE, action){
             return {
                 ...state, auth: true
             };
+        case 'LOG_DEMO_USER_IN':
+            return {
+                ...state, auth: true
+            };
         case 'LOG_USER_OUT':
             return {
                 ...DEFAULT_STATE

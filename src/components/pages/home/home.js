@@ -4,7 +4,6 @@ import About from '../about/about';
 import Faq from '../faq/faq';
 import nyseImg from "../../../../public/dist/assets/images/NewYorkStockExchange.jpg";
 
-
 class Home extends Component {
     componentDidMount() {
         document.querySelectorAll('.parallax');

@@ -10,18 +10,16 @@ import Portfolio from './pages/portfolio/portfolio';
 import Faq from './pages/faq/faq';
 import Dashboard from './pages/dashboard/dashboard';
 import BrowseStocks from './pages/browse_stocks/browse_stocks';
-import Transactions from './pages/transactions/transactions';
 import NotFound from './pages/404/404';
 import Nav from './nav';
-import AccountRoutes from './account';
 import auth from '../hoc/auth';
+import SignIn from "./pages/sign_in_page";
+import SignOut from "./pages/sign_out_page";
 
 
 class App extends Component {
 
-
     render() {
-
         return (
             <div>
                 <Nav/>
@@ -36,7 +34,9 @@ class App extends Component {
                     <Route path="/dashboard" component={auth(Dashboard)}/>
                     <Route path="/stocks" component={BrowseStocks}/>
                     <Route exact path="/" component={Home}/>
-                    <Route path="/account" component={AccountRoutes}/>
+                    <Route path={`/account/sign-in`} component={auth(SignIn,
+                        '/dashboard', false)}/>
+                    <Route path={`/account/sign-out`} component={SignOut}/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>

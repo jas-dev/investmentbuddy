@@ -9,7 +9,7 @@ class Test extends Component {
     async testApi(){
         const resp = await axios.get('/api/test.php');
 
-        console.log('Test Resp:', resp);
+
     }
 
     render(){

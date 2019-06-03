@@ -79,7 +79,7 @@ class Portfolio extends Component{
         if (message) {
             toastMessage = message;
             this.getStockData();
-
+            this.getAccountData()
         } else {
             toastMessage = error ? error : 'Could not connect to database, try again later.';
         }

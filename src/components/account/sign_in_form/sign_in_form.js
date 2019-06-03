@@ -4,6 +4,7 @@ import {reduxForm, Field} from 'redux-form';
 class SignInForm extends Component{
 
     render(){
+
         const {handleSubmit, signIn, reset} = this.props;
 
         return (
@@ -13,11 +14,15 @@ class SignInForm extends Component{
                         <div className='input-field'>
                             <Field id='name'
                                    name='name'
-                                   type='text' component='input'/>
+                                   type='text'
+                                   component='input'/>
                             <label htmlFor='name'>Username</label>
                         </div>
                         <div className='input-field'>
-                            <Field id='password' name='password' type='password' component='input'/>
+                            <Field id='password'
+                                   name='password'
+                                   type='password'
+                                   component='input'/>
                             <label htmlFor='password'>Password</label>
                         </div>
                         <div className="row">
