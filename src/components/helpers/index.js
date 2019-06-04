@@ -163,7 +163,8 @@ export function moneyCommas(num){
 export function formatNegativeMoney(num){
     let str = num.toString();
     let arr = str.split("");
-    arr.splice(1, 0, "$");
+    let index = arr[0] === "-" ? 1 : 0;
+    arr.splice(index, 0, "$");
 
     const result = arr.join("");
     return result;
