@@ -1,10 +1,19 @@
 
-const DEFAULT_STATE = {
-    auth: false,
-    username: '',
-    id: null,
-    token: ''
-};
+if(sessionStorage.investmentBuddy){
+    var DEFAULT_STATE = {
+        auth: true,
+        username: '',
+        id: null,
+        token: ''
+    };
+} else if(!sessionStorage.investmentBuddy){
+    DEFAULT_STATE = {
+        auth: false,
+        username: '',
+        id: null,
+        token: ''
+    };
+}
 
 
 function userReducer(state = DEFAULT_STATE, action){
@@ -20,7 +29,7 @@ function userReducer(state = DEFAULT_STATE, action){
             };
         case 'LOG_USER_OUT':
             return {
-                ...DEFAULT_STATE
+                ...DEFAULT_STATE, auth: false
             };
         default:
             return state;
