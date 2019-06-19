@@ -65,13 +65,21 @@ class AllStocks extends Component{
                     <div className="col s6">
                         <h5>Browse Stocks</h5>
                     </div>
-                    <div className="search-wrapper col s4 right">
+                    <div className="search-wrapper col s6 m4 right">
                         <Search checkSearch={this.checkSearch}/>
                     </div>
                 </div>
 
-                <RenderTable stocks={this.state.stocks} goToDetails={this.goToDetails}
-                             addWatch={this.addToWatchList} allStocks={true}/>
+                <RenderTable
+                    stocks={this.state.stocks}
+                    goToDetails={this.goToDetails}
+                    addWatch={this.addToWatchList}
+                    allStocks={true}
+                    className=""
+                />
+                <div className="col s12 center hide-on-med-and-up">
+                    <span className="">Swipe left on stock to browse table</span>
+                </div>
             </div>
         )
     }
