@@ -5,6 +5,7 @@ import axios from 'axios';
 import {formatHistory, capitalize} from "../../helpers";
 import { format } from 'path';
 import Loader from "../../loader";
+import rotate from "../../../assets/images/rotate.gif"
 
 class StocksDetails extends Component{
     constructor(props) {
@@ -45,11 +46,17 @@ class StocksDetails extends Component{
                 <div className='details-wrapper container'>
                     <h5 className='left'>Stock Details</h5>
                     <div className='row'>
-                        <div className='col s12 card'>
+                        <div className='col s12 card hide-on-small-and-down'>
                             <Stock_chart {...this.state.priceHistory} price={true}/>
                         </div>
-                        <div className="col s12 card">
+                        <div className="col s12 card hide-on-small-and-down">
                             <Stock_chart {...this.state.percentHistory} percent={true}/>
+                        </div>
+                        <div className="col s12 card card-padout hide-on-med-and-up">
+                            <img src={rotate} alt="" className="rotateImg"/>
+                            <div className="center">
+                                <span>Rotate for Stock Price Charts</span>
+                            </div>
                         </div>
                         <div className='col s12'>
                             <InfoCard {...this.state.company} stocks={this.state.stock}/>

@@ -104,7 +104,6 @@ class Portfolio extends Component{
                 </div>
 
                 <div className='row'>
-
                     <div className="col s12 m7 card card-padout">
                         <h6>Enter Trades</h6>
                         <EnterTradesForm handler={this.submitTrade}/>

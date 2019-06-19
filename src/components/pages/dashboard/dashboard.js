@@ -61,12 +61,11 @@ class Dashboard extends Component {
                         <div className='card hide-on-small-and-down'>
                             <MarketIndexDetails/>
                         </div>
-                        <div className='hide-on-med-and-up card card-padout row'>
+                        <div className='hide-on-med-and-up card card-padout'>
                             <img src={rotate} alt="" className="rotateImg"/>
-                            <div className="col s12 center">
+                            <div className="center">
                                 <span>Rotate for Market Index Performance</span>
                             </div>
-
                         </div>
                     </div>
 

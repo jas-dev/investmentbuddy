@@ -54,7 +54,7 @@ class SignIn extends Component{
                 </div>
 
 
-                <div className="col s8 m8 l6 offset-s2 offset-m2 offset-l3">
+                <div className="col s12 m8 l6 offset-m2 offset-l3">
                     <ul className="collapsible ">
                         <li className='active'>
                             <div className="collapsible-header">
@@ -64,7 +64,7 @@ class SignIn extends Component{
                                 <div id="signin" className="row">
                                     <SignInForm signIn={this.handleSignIn}/>
                                 </div>
-                            </div>                                                                                               
+                            </div>
                         </li>
                         <li>
                             <div className="collapsible-header"><i className="material-icons">person_add</i>Create a New Account
