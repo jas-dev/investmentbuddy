@@ -101,11 +101,11 @@ class PortfolioDash extends Component{
                 </div>
 
                 <div className='row'>
-                    <div className="col s6 card card-padout">
+                    <div className="col s12 m7 card card-padout">
                         <h6>Enter Trades</h6>
                         <EnterTradesForm handler={this.submitTrade}/>
                     </div>
-                    <div className="col s5 card card-padout right">
+                    <div className="col s12 m4 card card-padout right">
                         <h6>Add Funds</h6>
                         <AddFunds handler={this.handleAddFunds}/>
                     </div>

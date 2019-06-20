@@ -25,12 +25,10 @@ class SignInForm extends Component{
                                    component='input'/>
                             <label htmlFor='password'>Password</label>
                         </div>
-                        <div className="row">
                             <div className="col s12 center">
                                 <button className='signinbtn btn btn-small black'>Sign-In</button>
                                 <button className='clearbtn btn btn-small black' onClick={reset}>Clear</button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>

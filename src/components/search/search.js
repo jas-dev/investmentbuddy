@@ -28,7 +28,7 @@ class Search extends Component {
                     <i className="material-icons prefix">
                         search
                     </i>
-                    <input id="search" type="search" placeholder="Find Symbol" onChange={this.userTyped}/>
+                    <input id="search" type="search" placeholder="Symbol" className="truncate" onChange={this.userTyped}/>
                     <label htmlFor="Search"/>
                 </div>
             </form>

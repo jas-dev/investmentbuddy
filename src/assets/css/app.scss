@@ -1,11 +1,3 @@
-//body::before {
-//  background-color: ;
-//  background-repeat: no-repeat, repeat;
-//  background-size: cover;
-//  //background-position: center;
-//  background-image: url("/dist/assets/images/NewYorkStockExchange.png");
-//  opacity: .5;
-//}
 
 *{
   font-family: Rubik, "Arial";
@@ -90,47 +82,10 @@ input[type=search]:not(.browser-default){
   margin: 0 4px;
 }
 
-/*
-@font-face {
-    font-family: rustic;
-    src: url(../fonts/rustic.ttf);
+.rotateImg{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  opacity: 0.5;
+  width: 50%;
 }
-
-body {
-    margin: 0;
-
-    .app {
-        background-color: #000;
-        color: #FFF;
-        font-family: rustic;
-        font-size: 30px;
-        padding: 50px;
-        text-align: center;
-
-        .logo {
-            height: 175px;
-        }
-
-        .rotate {
-            animation: spin 10s linear infinite;
-        }
-
-        h1 {
-            color: #61DAFB;
-            font-size: 4em;
-            font-weight: normal;
-            letter-spacing: 2px;
-            margin: 0.16em;
-        }
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-*/

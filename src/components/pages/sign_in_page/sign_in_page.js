@@ -54,8 +54,8 @@ class SignIn extends Component{
                 </div>
 
 
-                <div className="col s6 offset-s3">
-                    <ul className="collapsible">
+                <div className="col s12 m8 l6 offset-m2 offset-l3">
+                    <ul className="collapsible ">
                         <li className='active'>
                             <div className="collapsible-header">
                                 <i className="material-icons">verified_user</i>Sign-In

@@ -6,6 +6,8 @@ import Loader from "../../loader";
 import axios from "axios";
 import MarketIndexDetails from '../stock_details/market_index_details';
 import PortfolioDash from "../portfolio/portfolioDash";
+import rotate from "../../../assets/images/rotate.gif"
+
 
 class Dashboard extends Component {
     constructor(props){
@@ -56,8 +58,14 @@ class Dashboard extends Component {
 
                     <div className='dashboard-market-index container'>
                         <h5>Dashboard</h5>
-                        <div className='card'>
+                        <div className='card hide-on-small-and-down'>
                             <MarketIndexDetails/>
+                        </div>
+                        <div className='hide-on-med-and-up card card-padout'>
+                            <img src={rotate} alt="" className="rotateImg"/>
+                            <div className="center">
+                                <span>Rotate for Market Index Performance</span>
+                            </div>
                         </div>
                     </div>
 
