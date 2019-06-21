@@ -20,14 +20,14 @@ class Faq extends Component {
                             <div className="collapsible-body">
 
                                 <div>
-                                    Our app is designed for the those who are new to investing and want to get comfortable with the basics of investing in the stock market. You can easily view and access all features of the app from the user dashboard. If you would prefer to see a single page view of any part of the app, you can use the navigation bar to get there.
+                                    Our app is designed for the those who are new to investing and want to get comfortable with the basics of investing in the stock market. You can easily view and access all features of the app from the user dashboard.
                                 </div>
                                 <br/>
                                 <ul>
                                     <li><i className='material-icons prefix tiny'>chevron_right</i>View stock, company, and historical data with charts to help you visualize</li><br/>
                                     <li><i className='material-icons prefix tiny'>chevron_right</i>Use the dashboard to keep your eye on the market and your portfolio</li><br/>
-                                    <li><i className='material-icons prefix tiny'>chevron_right</i>See stock details by clicking on any listing in the ticker and tables, or use the search bar on the "All Stocks" list</li><br/>
-                                    <li><i className='material-icons prefix tiny'>chevron_right</i>Want to add stocks to your watchlist? Click the plus button on the listing, or use the search bar below the dashboard watchlist</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>See stock details by clicking on any listing in the ticker and tables, or use the search bar on the Browse Stocks page</li><br/>
+                                    <li><i className='material-icons prefix tiny'>chevron_right</i>Add stocks to your watchlist with the plus button on the listing, or use the search bar below the watchlist</li><br/>
                                     <li><i className='material-icons prefix tiny'>chevron_right</i>Add funds to your account and start trading!</li>
                                 </ul>
 
