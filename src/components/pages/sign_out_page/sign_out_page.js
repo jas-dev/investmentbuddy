@@ -2,9 +2,20 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {signOut} from "../../../actions";
 
+
 class SignOut extends Component{
+
     componentDidMount() {
         this.props.signOut();
+
+        let redirectTimer = setInterval(()=>{
+            this.props.history.push('/home');
+        }, 2000);
+
+        setTimeout(()=>{
+            clearInterval(redirectTimer)
+            }, 2000
+        )
     }
 
     render() {
@@ -18,6 +29,8 @@ class SignOut extends Component{
         )
     }
 }
+
+
 
 export default connect(null, {
     signOut: signOut

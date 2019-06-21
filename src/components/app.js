@@ -15,7 +15,6 @@ import Nav from './nav';
 import auth from '../hoc/auth';
 import SignIn from "./pages/sign_in_page";
 import SignOut from "./pages/sign_out_page";
-import Transactions from "./pages/transactions";
 
 
 class App extends Component {
