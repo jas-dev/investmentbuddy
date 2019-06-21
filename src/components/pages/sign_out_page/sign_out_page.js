@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import {signOut} from "../../../actions";
 
 
-class WithRouterSignOut extends Component{
+class SignOut extends Component{
 
     componentDidMount() {
         this.props.signOut();
 
         let redirectTimer = setInterval(()=>{
             this.props.history.push('/home');
-        }, 2000)
+        }, 2000);
 
         setTimeout(()=>{
             clearInterval(redirectTimer)
@@ -30,7 +30,7 @@ class WithRouterSignOut extends Component{
     }
 }
 
-const SignOut = WithRouterSignOut;
+
 
 export default connect(null, {
     signOut: signOut
