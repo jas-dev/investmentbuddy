@@ -1,0 +1,27 @@
+{
+    "success": true,
+    "stocks": [
+        {
+            "symbol": "A",
+            "timestamp": "2019-04-25 11:49:01",
+            "price": "76.88",
+            "percentChange": "1.4382"
+        },
+        {
+            "symbol": "AAL",
+            "timestamp": "2019-04-25 11:49:31",
+            "price": "33.72",
+            "percentChange": "-0.7944"
+        },
+        {
+            "symbol": "AAP",
+            "timestamp": "2019-04-25 11:50:02",
+            "price": "171.26",
+            "percentChange": "-0.3491"
+        }
+    ]
+
+
+
+
+

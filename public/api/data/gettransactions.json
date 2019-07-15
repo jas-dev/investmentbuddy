@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "transactions": [
+        {
+            "name": "Amazon.com Inc.",
+            "symbol": "AMZN",
+            "type": "B",
+            "price": "1845",
+            "quantity": "100",
+            "date": "04/15/2019",
+            "status": "Offset",
+            "amount": "-184500.00"
+        },
+        {
+            "name": "Amazon.com Inc.",
+            "symbol": "AMZN",
+            "type": "S",
+            "price": "1887",
+            "quantity": "50",
+            "date": "04/22/2019",
+            "status": "Closed",
+            "amount": "94350.00"
+        }
+    ]
+}
+

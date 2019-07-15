@@ -1,0 +1,91 @@
+
+*{
+  font-family: Rubik, "Arial";
+}
+
+body {
+  background-color: #aecca040;  //#F0FFFF; DCDCDC;#FFF8DC #bbd2a03b
+}
+
+.ticker-wrap{
+  z-index: 1;
+}
+
+.card {
+  border-radius: 8px;
+}
+
+#toast-container {
+  top: 12% !important;
+  right: 5% !important;
+}
+
+.portfolio{
+  padding-top: 6vh;
+}
+
+.collapsible-body{
+  background-color: white;
+}
+.waves-effect{
+  z-index: 0;
+}
+
+.btn:focus, .btn:focus{
+  outline: none;
+}
+
+html {
+  --input-color: rgb(0, 100, 0);
+}
+
+.input-field input:focus{
+  color: var(--input-color);
+}
+
+.input-field > input:focus {
+  color: var(--input-color);
+}
+
+.input-field > input:focus {
+  border-bottom: 1px solid var(--input-color) !important;
+  box-shadow: 0 1px 0 0 var(--input-color) !important;
+}
+
+input[type=search]:not(.browser-default){
+  background-color: white;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: var(--input-color);
+  border: 2px var(--input-color) solid;
+}
+
+.browse-stocks {
+  margin-bottom: 0;
+
+  h5{
+
+  }
+  .search-wrapper{
+
+
+  }
+}
+
+.dashboard-market-index{
+  padding-top: 6vh;
+}
+
+.signinbtn, .submitbtn, .clearbtn{
+  margin: 0 4px;
+}
+
+.rotateImg{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  opacity: 0.5;
+  width: 50%;
+}
